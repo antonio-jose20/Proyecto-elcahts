@@ -1,0 +1,143 @@
+﻿@model EmergenciasChats.EL.UsuarioH
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/sweetalert2.css" rel="stylesheet" />
+
+<link href="~/Content/formulario.css" rel="stylesheet" />
+
+<form class="form__padre" id="form__padre">
+    @*<h1>Modificar</h1>*@
+
+    <div class="titulo__crear-cuenta-iniciar-sesion">
+        <h1 class="crear__cuenta" style="text-justify:auto;">Modificar Datos</h1>
+        <span><a class="iniciar__sesion" href="@Url.Action("Index", "Admi")">Iniciar sesión</a></span>
+    </div>
+
+    <h3 class="es__gratis">Haslo ahora!</h3>
+
+    <div class="maxl">
+        <label class="form__label" for="IDHospital">   </label>
+        <input type="hidden" name="IDHospital" id="IDHospital" value="@Model.IDHospital">
+    </div>
+
+    <div class="form__grupo" id="grupo__nombre">
+        <label class="form__label" for="Nombre"><b>Nombre Hospital</b></label>
+        <input type="text" class="form__input-input" id="Nombre" name="Nombre" value="@Model.Nombre">
+        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "form__input" })
+
+
+        <p class="form__input-error">El nombre solo puede contener letras y espacios.</p>
+    </div>
+
+    <div class="form__grupo" id="grupo__encargado">
+        <label class="form__label" for="encargado">Nombre Usuario </label>
+        <input type="text" class="form__input-input" id="NombreUsuario" name="NombreUsuario" value="@Model.NombreUsuario">
+        @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "form__input" })
+
+        <p class="form__input-error">El apellido solo puede contener letras y espacios.</p>
+    </div>
+
+    <div class="form__grupo" id="grupo__telefono">
+        <label class="form__label" for="telefono">Telefono</label>
+        <input type="text" class="form__input-input" id="Telefono" name="Telefono" value="@Model.Telefono">
+        @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "form__input-error" })
+    </div>
+
+    <div class="form__grupo" id="grupo__direccion">
+        <label class="form__label" for="Dui">Direccion</label>
+        <input type="text" class="form__input-input" id="Direccion" name="Direccion" value="@Model.Direccion">
+        @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "form__input-error" })
+    </div>
+
+    <div class="form__grupo" id="grupo__Dui">
+        <label class="form__label" for="CodigoH">CodigoH..</label>
+        <input type="text" class="form__input-input" id="CodigoH" name="CodigoH" value="@Model.CodigoH">
+        @Html.ValidationMessageFor(model => model.CodigoH, "", new { @class = "form__input-error" })
+    </div>
+
+    <div class="form__grupo" id="grupo__correo">
+        <label class="form__label" for="correo">Correo Electrónico</label>
+        <input type="text" class="form__input-input" id="Email" name="Email" value="@Model.Email">
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "form__input-error" })
+        <p class="form__input-error">El correo solo puede contener letras, numero, guion y guion bajo.</p>
+    </div>
+
+    <div class="form__terminos">
+        <div class="maxl">
+            <label class="radio inline">
+                <input type="hidden" name="Estado" id="Estado" value="True" checked>
+            </label>
+        </div>
+    </div>
+    <div class="form__grupo" id="grupo__Password">
+        <label class="form__label" for="Password"> Contraseña</label>
+        <input type="text" class="form__input-input" id="Password" name="Password" value="@Model.Password">
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "form__input-error" })
+
+        <p class="form__input-error">La contraseña solo puede contener de 4 a 16 dígitos.</p>
+    </div>
+    <div  class="form__grupo" id="grupo__Rol">
+        <label class="form__label" for="rol"> Rol</label>
+        <select   class="form-control" name="Rol" id="Rol" >
+            <option class="hidden"   selected disabled>Seleccione el rol</option>
+            <option type="hidden" value="@Model.IDHospital"></option>
+            <option value="Administrador">Administrador</option>
+            <option value="SubAdministrador">Usuarios Hospital</option>
+        </select>
+    </div>
+    <div class="form__terminos">
+        <label class="form__label" for="terminos">
+            <input class="form__checkbox" type="checkbox" id="terminos" name="terminos">
+            Acepto los Términos y Condiciones
+        </label>
+    </div>
+    <div class="form__mensaje" id="form__mensaje">
+        <p> <b>Error:</b> Completa todos los campos correctamente.</p>
+    </div>
+    <!-- div -->
+    <div class="form__btn" id="form__btn">
+        <input type="submit" class="btnRegister" value="Save" />
+        <!--<p class="form__mensaje-exitoso" id="form__mensaje-exitoso">Su cuenta se creo correctamente.</p>-->
+    </div>
+    <div class="container__otra-opcion">
+        <span class="span">
+            <a class="otra__opcion" href="#">Olvide mi contraseña</a>
+        </span>
+    </div>
+</form>
+
+
+<div>
+    <a href="@Url.Action("UsuarioHLista", "UsuarioH")" class="btn btn-primary"> Ver lista <i class="fas fa-undo"></i></a>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="~/Scripts/metodo.js"></script>*@
+ <script src="~/Scripts/alusers.js"></script> 
+
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Procesamiento del Formulario
+            $('form').submit(function (e) {
+                e.preventDefault();
+                var data = $(this).serializeFormJSON();
+                Edit("UsuarioH", data);
+            });
+
+        });
+    </script>
+}
+
+
+
+
+
+

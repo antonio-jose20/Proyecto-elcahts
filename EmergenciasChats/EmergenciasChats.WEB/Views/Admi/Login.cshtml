@@ -1,0 +1,104 @@
+﻿@model EmergenciasChats.EL.AdminEL
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<div class="row">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post  @*action = "@Url.Action("logi", "Admi")"*@))
+    {
+        <div class="col-md-3 form-horizontal">
+            <br />
+            @Html.LabelFor(Model => Model.Email, new { @class = "" })
+            @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", autofocus = "autofocus" })
+            @Html.ValidationMessageFor(Model => Model.Email, null, new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(Model => Model.Password)
+            <div class="input-group">
+                @Html.PasswordFor(Model => Model.Password, new { @class = "form-control" })
+                <span class="input-group-btn">
+                    <button id="verPassword" class="btn btn-default" type="button">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </button>
+                    @*value="@(Model != null ? Model.login : string.Empty)"*@
+                </span>
+            </div>
+            @Html.ValidationMessageFor(Model => Model.Password, null, new { @class = "text-danger" })
+            <br />
+
+            <button class="btn btn-primary" type="submit">
+                Iniciar sesión
+            </button>
+            <br />
+        </div>
+        <p>No tienes una cuenta?. <a href="@Url.Action("Create", "Admi")">Registrarse</a></p>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <!--llenar combo-->
+    @*<script src="~/Scripts/llenarcombo.js"></script>*@
+    <!-- validacion de campos-->
+    <script src="~/Scripts/formulario.js"></script>
+    <script src="~/Scripts/metodo.js"></script>
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script>
+        $('#verPassword').on('mousedown', function () {
+            $('#Password').attr("type", "text");
+        });
+
+        $('#verPassword').on('mouseup mouseleave', function () {
+            $('#Password').attr("type", "password");
+        });
+    </script>
+ 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="error">@ViewBag.Error</div>
+    }
+    <form method="POST">
+        <label for="login">login:</label>
+        <input type="text" name="login" value="@(Model!=null ? Model.login : string.Empty)" />
+        <br />
+        <label for="password">clave:</label>
+        <input type="text" name="password" />
+        <br />
+        <input type="submit" value="enviar" />
+    </form>*@
+<!--codigo Jquery-->
