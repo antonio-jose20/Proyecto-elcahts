@@ -44,6 +44,7 @@
     <Compile Include="AdminEL.cs" />
     <Compile Include="HospitalEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioClienteEL.cs" />
     <Compile Include="UsuarioH.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

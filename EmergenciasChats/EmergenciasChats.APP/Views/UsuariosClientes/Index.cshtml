@@ -1,10 +1,9 @@
 ﻿
 @{
-    Layout = null;
     ViewBag.Title = "Index";
-
-    var Hospitales = ViewBag.Hospitales;
+    var UsuariosClientes = ViewBag.UsuariosClientes;
 }
+
 
 <!DOCTYPE html>
 <html ng-app="App">
@@ -19,7 +18,7 @@
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/Hospital.js"></script>
 </head>
-<body ng-controller="Hospital">
+<body ng-controller="UsuariosClientes">
 
     <div class="container">
         <div class="row">
@@ -38,24 +37,26 @@
                     <thead>
                         <tr>
                             <th scope="col">Id Hospital</th>
-                            <th scope="col">Nombre</th>
+                            <th scope="col">Nombre usuario</th>
+                            <th scope="col">Apelllidos</th>
                             <th scope="col">Telefono</th>
-                            <th scope="col">Direccion</th>
+                            <th scope="col">Correo</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Hospitales)
+                        @foreach (var item in UsuariosClientes)
                         {
                             <tr>
-                                <th scope="row">@item.IdHospital</th>
-                                <td>@item.Nombre</td>
-                                <td>@item.Direccion</td>
+                                <th scope="row">@item.NombreUsuarios</th>
+                                <td>@item.NombreCompleto</td>
+                                <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
+                                <td>@item.Email</td>
                                 <td>
                                     <a href="#">Modificar</a>
                                     |
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarHospital("@item.IdHospital")'>Eliminar</button>
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarHospital("@item.NombreUsuarios")'>Eliminar</button>
                                 </td>
                             </tr>
                         }
@@ -67,9 +68,9 @@
 
 
 
-    </div>
+        </div>
 
-</div>
+    </div>
 
     <div class="container body-content">
         <footer>
@@ -78,6 +79,7 @@
     </div>
 </body>
 </html>
+
 
 
 
