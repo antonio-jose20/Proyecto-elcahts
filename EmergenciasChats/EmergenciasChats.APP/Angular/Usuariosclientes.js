@@ -33,6 +33,39 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             }
         });
     };
+    //Modificar
+    $scope.ModificarUsuariosclientes = function (UsuariosClientes, data, NombreUsuarios) {
+        $http({
+            method: 'Post',
+            url: '../UsuariosClientes/Agregarusuariosclientes/NombreUsuarios',
+            data: {data,
+                NombreUsuarios: NombreUsuarios,
+                NombreCompleto: NombreCompleto,
+                Apellidos:Apellidos,
+                Direccion:Direccion,
+                Dui: Dui,
+                Telefono: Telefono,
+                Email:Email,
+                Password: Password
+            }
+        }).then(function success(r) {
+            if (r.data == 1) {
+                alert('Resgistro Modificado');
+                window.location.href = '../UsuariosClientes/Index';
+                $scope.NombreCompleto = '',
+                $scope.Apellidos = '',
+                $scope.Direccion = '',
+                $scope.Dui = '',
+                $scope.Telefono = '',
+                $scope.Email = '',
+                $scope.Password = '';
+            }
+            else {
+                alert(' No se Modifico El Resgistro');
+            }
+        });
+    };
+    //ELIMINIAR
 
     $scope.EliminarUsuariosclientes = function (id) {
         $http({
@@ -51,7 +84,7 @@ app.controller("UsuariosClientes", function ($scope, $http) {
         });
     };
 
-    $scope.irAgregar = function () {
+    $scope.agregarnuevo = function () {
         window.location.href = '../UsuariosClientes/Create';
     }
 

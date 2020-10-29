@@ -23,6 +23,11 @@ namespace EmergenciasChats.APP.Controllers
         {
             return View();
         }
+        //
+        public ActionResult Modificar()
+        {
+            return View();
+        }
 
 
         [HttpPost]
@@ -30,6 +35,21 @@ namespace EmergenciasChats.APP.Controllers
         {
             int r = usuariosclientesBL.AgregarUsuarioclientes(usuariosclientes);
             return Content(Convert.ToString(r));
+        }
+        //Modificar
+        [HttpPost]
+        public ActionResult Modificarusuariosclientes(UsuarioClienteEL usuariosclientes)
+        {
+            try
+            {
+                int r = usuariosclientesBL.ModificarUsuarioclientes(usuariosclientes);
+                return Content(Convert.ToString(r));
+            }
+            catch (Exception )
+            {
+                return null;
+            }
+        
         }
 
         [HttpPost]

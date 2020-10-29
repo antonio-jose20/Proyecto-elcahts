@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="~/Angular/angular.js"></script>
-    <script src="~/Angular/Hospital.js"></script>
+    <script src="~/Angular/Usuariosclientes.js"></script>
 </head>
 <body ng-controller="UsuariosClientes">
 
@@ -27,7 +27,7 @@
                     <div class="container">
                         <h1 class="display-4">Lista de Hospitales</h1>
                         <p class="lead">Descripcion.</p>
-                        <button type="button" class="btn btn-outline-success" ng-click="irAgregar()">Agregar</button>
+                        <button type="button" class="btn btn-outline-success" ng-click="agregarnuevo()">Agregar</button>
                     </div>
                 </div>
             </div>
@@ -54,9 +54,10 @@
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td>
                                 <td>
-                                    <a href="#">Modificar</a>
+                                    @*<a href="#">Modificar</a>*@
+                                    <button type="button" class="btn btn-danger" ng-click="ModificarUsuariosclientes()">Modificar</button>
                                     |
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarHospital("@item.NombreUsuarios")'>Eliminar</button>
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosclientes("@item.NombreUsuarios")'>Eliminar</button>
                                 </td>
                             </tr>
                         }
