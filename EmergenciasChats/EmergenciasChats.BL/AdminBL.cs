@@ -14,38 +14,48 @@ namespace EmergenciasChats.BL
         //
         private AdminDAL adminDAL = new AdminDAL();
 
-        //Instancia de metodo de guardar
-        public int Guardar(AdminEL admin)
+        public List<AdminEL> GetAdminList()
         {
-            //el insertAdmin es el metodo de la Dal
-            return adminDAL.InsertAdmin(admin);
+            return adminDAL.GetAdminList();
         }
 
-        public int Editar(AdminEL administrador)
+        public int AddAdmin(AdminEL en)
         {
-            return adminDAL.Editar(administrador);
-        }
-        public AdminEL FindAdmin(string id)
-        {
-            return adminDAL.FindAdmin(id);
+            return adminDAL.AddAdmin(en);
         }
 
-        public int Delete(string id)
-        {
-            return adminDAL.Delete(id);
-        }
+        ////Instancia de metodo de guardar
+        //public int Guardar(AdminEL admin)
+        //{
+        //    //el insertAdmin es el metodo de la Dal
+        //    return adminDAL.InsertAdmin(admin);
+        //}
 
-        public List<AdminEL> ListAdministra()
-        {
-            return adminDAL.ListAdministra();
-        }
+        //public int Editar(AdminEL administrador)
+        //{
+        //    return adminDAL.Editar(administrador);
+        //}
+        //public AdminEL FindAdmin(string id)
+        //{
+        //    return adminDAL.FindAdmin(id);
+        //}
 
-        //Login 
-        public int Login(AdminEL admin )
-        {
-            return adminDAL.login(admin);
-        }
+        //public int Delete(string id)
+        //{
+        //    return adminDAL.Delete(id);
+        //}
 
- 
+        //public List<AdminEL> ListAdministra()
+        //{
+        //    return adminDAL.ListAdministra();
+        //}
+
+        ////Login 
+        //public int Login(AdminEL admin )
+        //{
+        //    return adminDAL.login(admin);
+        //}
+
+
     }
 }

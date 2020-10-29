@@ -10,7 +10,7 @@ namespace EmergenciasChats.EL
     public class AdminEL
     { 
 
-        public Int64 IDAdmin { get; set; }
+        public string IDAdmin { get; set; }
         //public string IdRol { get; set; }
         //Propiedad de Relacion 
         public string Nombres { get; set; }
@@ -25,6 +25,8 @@ namespace EmergenciasChats.EL
         public int Telefono { get; set; }
         public string Direccion { get; set; }  
         public string NameUser { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
 
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "Este campo es requerido.")]

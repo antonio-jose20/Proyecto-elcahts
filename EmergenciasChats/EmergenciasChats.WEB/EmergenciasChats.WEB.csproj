@@ -201,6 +201,7 @@
     <Content Include="Image\foto.jpg" />
     <Content Include="Image\foto2.jpg" />
     <Content Include="Scripts\alusers.js" />
+    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\METODO INUSUALDE USUARIO.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

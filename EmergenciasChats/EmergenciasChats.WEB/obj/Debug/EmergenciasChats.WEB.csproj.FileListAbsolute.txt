@@ -76,3 +76,7 @@ C:\Users\Antonio\Desktop\EmergenciasChats\EmergenciasChats.WEB\bin\Microsoft.Thr
 C:\Users\Antonio\Desktop\EmergenciasChats\EmergenciasChats.WEB\bin\System.Net.Http.Extensions.xml
 C:\Users\Antonio\Desktop\EmergenciasChats\EmergenciasChats.WEB\bin\System.Net.Http.Primitives.xml
 C:\Users\Antonio\Desktop\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csproj.App.config
+C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csproj.App.config
+C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csprojResolveAssemblyReference.cache
+C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.dll
+C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.pdb
