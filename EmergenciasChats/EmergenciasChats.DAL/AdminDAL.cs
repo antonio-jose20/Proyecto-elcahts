@@ -60,6 +60,51 @@ namespace EmergenciasChats.DAL
                 return 0;
             }
         }
+        //Eliminar
+        public int EliminarAdmin(AdminEL admin)
+        {
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var response = client.Delete("admin/" + admin.IDAdmin);
+                return 1; 
+            }
+            catch(Exception)
+            {
+                return 0;
+            }
+        }
+
+        //Metodo Login
+        public int Login(AdminEL _admin)
+        {
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                FirebaseResponse response = client.Get("admin");
+                dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
+
+                foreach (var item in data)
+                {
+                    var val = (JsonConvert.DeserializeObject<AdminEL>(((JProperty)item).Value.ToString()));
+                    if (_admin.Email == val.Email && _admin.Password == val.Password)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+
+                }
+                return 1;
+
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
 
 
 
@@ -68,7 +113,7 @@ namespace EmergenciasChats.DAL
         //IFirebaseConfig config = new FirebaseConfig
         //{
         //    AuthSecret = "CPT7izztGnLhDZ8RFM3lfSiJxLOxsAf6UnrERsOd", 
-        //    BasePath = "https://aplicacion-web-de-emergencias.firebaseio.com/"
+        //    BasePath = "https: //aplicacion-web-de-emergencias.firebaseio.com/"
 
 
         //};

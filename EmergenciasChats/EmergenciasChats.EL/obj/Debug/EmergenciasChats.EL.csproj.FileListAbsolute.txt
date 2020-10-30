@@ -10,6 +10,6 @@ C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\Emergencias
 C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Debug\EmergenciasChats.EL.pdb
 C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\bin\Debug\EmergenciasChats.EL.dll
 C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\bin\Debug\EmergenciasChats.EL.pdb
-C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Debug\EmergenciasChats.EL.csprojResolveAssemblyReference.cache
 C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Debug\EmergenciasChats.EL.dll
 C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Debug\EmergenciasChats.EL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Debug\EmergenciasChats.EL.csprojResolveAssemblyReference.cache

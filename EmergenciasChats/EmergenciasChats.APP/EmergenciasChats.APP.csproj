@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\sweetalert2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -134,6 +135,7 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\sweetalert2.all.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Hospital\Create.cshtml" />
@@ -163,6 +165,8 @@
     <Content Include="Views\UsuariosClientes\Index.cshtml" />
     <Content Include="Views\UsuariosClientes\Create.cshtml" />
     <Content Include="Views\UsuariosClientes\Modificar.cshtml" />
+    <Content Include="Views\Admin\Iniciarsesion.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

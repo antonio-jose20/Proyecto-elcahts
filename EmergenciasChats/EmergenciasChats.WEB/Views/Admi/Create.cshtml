@@ -60,8 +60,8 @@
 
         <div class="form__grupo" id="grupo__user">
             <label class="form__label" for="user">Usuario Nombre</label>
-            @Html.EditorFor(model => model.NameUser, new { htmlAttributes = new { @class = "form__input-input", placeholder = "juan soza" } })
-            @Html.ValidationMessageFor(model => model.NameUser, "", new { @class = "form__input-error" })
+            @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form__input-input", placeholder = "juan soza" } })
+            @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "form__input-error" })
         </div>
 
         <div class="form__grupo" id="grupo__telefono">
@@ -78,7 +78,7 @@
         </div>
 
         <div class="form__terminos">
-            <div class="maxl">
+            <div class="maxl"> 
                 <label class="radio inline">
                     <input type="hidden" name="Estado" id="Estado" value="True" checked>
                 </label>
@@ -196,7 +196,7 @@
     <!-- validacion de campos-->
     <script src="~/Scripts/formulario.js"></script>
     <script src="~/Scripts/metodo.js"></script>
-    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>    
     <script>
         $(document).ready(function () {
             //cargar_OpcionesDesdeFirebase2();

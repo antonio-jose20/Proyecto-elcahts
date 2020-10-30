@@ -352,7 +352,6 @@
     <Content Include="Views\Admi\Edit.cshtml" />
     <Content Include="Views\Admi\AdminLista.cshtml" />
     <Content Include="Views\Admi\Index.cshtml" />
-    <Content Include="Views\Admi\logi.cshtml" />
     <Content Include="Views\UsuarioH\Create.cshtml" />
     <Content Include="Views\UsuarioH\UsuarioHLista.cshtml" />
     <Content Include="Views\UsuarioH\Edit.cshtml" />

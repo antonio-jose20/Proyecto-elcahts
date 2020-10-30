@@ -18,7 +18,10 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             }
         }).then(function success(r) {
             if (r.data == 1) {
-                alert('Resgistro Agregado');
+                //alert('Resgistro Agregado');
+                console.log("success: " + r);
+                SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
+                //
                 window.location.href = '../UsuariosClientes/Index';
                 $scope.NombreCompleto = '',
                 $scope.Apellidos = '',
@@ -67,21 +70,45 @@ app.controller("UsuariosClientes", function ($scope, $http) {
     };
     //ELIMINIAR
 
+    //$scope.EliminarUsuariosclientes = function (id) {
+    //    $http({
+    //        method: 'Post',
+    //        url: '../UsuariosClientes/Eliminarusuariosclientes',
+    //        data: {
+    //            NombreUsuarios: id
+    //        }
+    //    }).then(function success(r) {
+    //        if (r.data == 1) {
+    //            alert('Resgistro Eliminado');
+    //        }
+    //        else {
+    //            alert('Resgistro No Eliminado');
+    //        }
+    //    });
+    //};
+
+    //
     $scope.EliminarUsuariosclientes = function (id) {
-        $http({
-            method: 'Post',
-            url: '../UsuariosClientes/Eliminarusuariosclientes',
-            data: {
-                NombreUsuarios: id
-            }
-        }).then(function success(r) {
-            if (r.data == 1) {
-                alert('Resgistro Eliminado');
-            }
-            else {
-                alert('Resgistro No Eliminado');
-            }
-        });
+
+        var resp = confirm("Seguro que quieres eliminar");
+        if (resp) {
+            $http({
+                method: 'Post',
+                url: '../UsuariosClientes/Eliminarusuariosclientes',
+                data: {
+                    NombreUsuarios: id
+                }
+            }).then(function success(r) {
+                if (r.data == 1) {
+                    alert("Eliminado Exitosamente. Exito");
+                    //getLists();
+                }
+                else {
+                    alert("No se realizo el proceso");
+                }
+                //
+            });
+        }
     };
 
     $scope.agregarnuevo = function () {
@@ -90,6 +117,15 @@ app.controller("UsuariosClientes", function ($scope, $http) {
 
     $scope.irIndex = function () {
         window.location.href = '../UsuariosClientes/Index';
+    }
+    //alerta
+    function SAlert(title, msg, icon, btns) {
+        Swal.fire({
+            title: title,
+            text: msg,
+            icon: icon,
+            confirmButtonText: btns
+        })
     }
 
 });

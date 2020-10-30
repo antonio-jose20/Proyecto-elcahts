@@ -80,3 +80,7 @@ C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\Emergencias
 C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csprojResolveAssemblyReference.cache
 C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.dll
 C:\Users\Luise\Developers\git\.net\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csproj.App.config
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.csprojResolveAssemblyReference.cache
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.WEB\obj\Debug\EmergenciasChats.WEB.pdb

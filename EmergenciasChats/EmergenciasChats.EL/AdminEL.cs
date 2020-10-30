@@ -24,9 +24,9 @@ namespace EmergenciasChats.EL
         public string Dui { get; set; }
         public int Telefono { get; set; }
         public string Direccion { get; set; }  
-        public string NameUser { get; set; }
         public string Usuario { get; set; }
-        public string Contrasena { get; set; }
+        //public string Usuario { get; set; }
+        //public string Contrasena { get; set; }
 
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "Este campo es requerido.")]

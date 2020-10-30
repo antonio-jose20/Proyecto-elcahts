@@ -55,10 +55,10 @@ namespace EmergenciasChats.DAL
             }
             catch (Exception)
             {
-                return usuariosclientes;
+                return usuariosclientes; 
             }
         }
-        public int ModificarUsuariosc(UsuarioClienteEL usuariosclientes)
+        public int ModificarUsuariosclientes(UsuarioClienteEL usuariosclientes)
         {
             try
             {

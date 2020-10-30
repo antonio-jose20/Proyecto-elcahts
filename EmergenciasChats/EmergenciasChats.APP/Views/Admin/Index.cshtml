@@ -54,10 +54,10 @@
                                 <td>@item.Sexo</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Usuario</td>
-                                <td>@item.Contrasena</td>
+                                <td>@item.Password</td>
                                 <td>
                                     <a href="#">Modificar</a>
-                                    <a href="#">Eliminar</a>
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarAdmin("@item.IDAdmin")'>Eliminar</button>
                                 </td>
                             </tr>
                         }

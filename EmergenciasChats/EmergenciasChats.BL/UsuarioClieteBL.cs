@@ -26,7 +26,7 @@ namespace EmergenciasChats.BL
         //modificar
         public int ModificarUsuarioclientes(UsuarioClienteEL usuarioclientes)
         {
-            return usuarioclientesDAL.ModificarUsuariosc(usuarioclientes);
+            return usuarioclientesDAL.ModificarUsuariosclientes(usuarioclientes);
         }
         public List<UsuarioClienteEL> ObtenerUsuariosHospitales()
         {
