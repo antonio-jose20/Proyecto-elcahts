@@ -46,9 +46,9 @@ namespace EmergenciasChats.APP.Controllers
         [HttpPost]
         public ActionResult Login(AdminEL admin)
         {
-           var val = (admin);
-              if (admin.Email == val.Email && admin.Password == val.Password)
-            //if (string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Password))
+           //var val = (admin);
+           //   if (admin.Email == val.Email && admin.Password == val.Password)
+            if (string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Password))
             {
                 ViewBag.Error = "Login o password no pueden estar vacíos";
                 return View(bl.Login(admin));

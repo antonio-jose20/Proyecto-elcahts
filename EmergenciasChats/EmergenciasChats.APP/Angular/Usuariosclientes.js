@@ -71,24 +71,6 @@ app.controller("UsuariosClientes", function ($scope, $http) {
     };
     //ELIMINIAR
 
-    //$scope.EliminarUsuariosclientes = function (id) {
-    //    $http({
-    //        method: 'Post',
-    //        url: '../UsuariosClientes/Eliminarusuariosclientes',
-    //        data: {
-    //            NombreUsuarios: id
-    //        }
-    //    }).then(function success(r) {
-    //        if (r.data == 1) {
-    //            alert('Resgistro Eliminado');
-    //        }
-    //        else {
-    //            alert('Resgistro No Eliminado');
-    //        }
-    //    });
-    //};
-
-    //
     $scope.EliminarUsuariosclientes = function (id) {
 
         var resp = confirm("Seguro que quieres eliminar");

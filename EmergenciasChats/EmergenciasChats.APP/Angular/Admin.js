@@ -53,22 +53,7 @@ app.controller("Admin", function ($scope, $http) {
         });
     };
 
-    //$scope.EliminarAdmin = function (id) {
-    //    $http({
-    //        method: 'Post',
-    //        url: '../Admin/EliminarAdmin',
-    //        data: {
-    //            IdAdmin: id
-    //        }
-    //    }).then(function success(r) {
-    //        if (r.data == 1) {
-    //            alert('Resgistro Eliminado');
-    //        }
-    //        else {
-    //            alert('Resgistro No Eliminado');
-    //        }
-    //    });
-    //};
+
     //Eliminar
     $scope.EliminarAdmin = function (id) {
 
@@ -100,36 +85,11 @@ app.controller("Admin", function ($scope, $http) {
     $scope.irIndex = function () {
         window.location.href = '../Admin/Index';
     }
-    //Login
-    $scope.Login = function () {
-        $http({
-            method: 'Post',
-            url: '../Admin/Login',
-            data: {
-                IdAdmin: '',
-                Email: $scope.Email,
-                Password: $scope.Password
-            }
-        }).then(function success(admin) {
-            //if (r.data == 1)
-                if (admin.Email == val.Email && admin.Password == val.Password) {
-                alert('Registrado');
-                window.location.href = '../Hospital/Index';
-                $scope.Email = '';
-                $scope.Password = '';
-            }
-            else {
-                alert('Resgistro No Agregado');
-            }
-        });
-    };
-    //login
-    //var app = angular.module('appName');
-
+    ////Login
+ 
     app.factory("Auth", ["$firebaseAuth",
       function ($firebaseAuth) {
           var ref = new Firebase("https://aplicacion-web-de-emergencias.firebaseio.com/");
-          //"http s://a plicacion-web-de-emergencias.firebaseio.com/"
           return $firebaseAuth(ref);
       }
     ]);
@@ -140,7 +100,7 @@ app.controller("Admin", function ($scope, $http) {
           $scope.auth.$onAuth(function (authData) {
               $scope.authData = authData;
           });
-          $scope.Login = function () {
+          $scope.login = function () {
               Auth.$authWithPassword({
                  // email: $scope.email,
                   Email: $scope.Email,
