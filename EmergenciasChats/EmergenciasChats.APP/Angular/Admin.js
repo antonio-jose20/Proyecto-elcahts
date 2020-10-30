@@ -123,6 +123,40 @@ app.controller("Admin", function ($scope, $http) {
             }
         });
     };
+    //login
+    //var app = angular.module('appName');
+
+    app.factory("Auth", ["$firebaseAuth",
+      function ($firebaseAuth) {
+          var ref = new Firebase("https://aplicacion-web-de-emergencias.firebaseio.com/");
+          //"http s://a plicacion-web-de-emergencias.firebaseio.com/"
+          return $firebaseAuth(ref);
+      }
+    ]);
+
+    app.controller('Admin', ['$scope', '$state', '$http', 'Auth',
+      function ($scope, $state, $http, Auth) {
+          $scope.auth = Auth;
+          $scope.auth.$onAuth(function (authData) {
+              $scope.authData = authData;
+          });
+          $scope.Login = function () {
+              Auth.$authWithPassword({
+                 // email: $scope.email,
+                  Email: $scope.Email,
+                  Password: $scope.Password
+              })
+              .then(function (authData) {
+                  console.log('Logged in as:', authData.uid);
+                  //$state.go('profile');
+              })
+              .catch(function (err) {
+                  console.log('error:', err);
+                  //$state.go('login');
+              });
+          };
+      }
+    ]);
     //alerta
     function SAlert(title, msg, icon, btns) {
         Swal.fire({

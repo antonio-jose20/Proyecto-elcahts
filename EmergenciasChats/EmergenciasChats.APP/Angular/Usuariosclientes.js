@@ -7,6 +7,7 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             method: 'Post',
             url: '../UsuariosClientes/Agregarusuariosclientes',
             data: {
+                //["Emil", "Tobias", "Linus"],
                 NombreUsuarios: '',
                 NombreCompleto: $scope.NombreCompleto,
                 Apellidos: $scope.Apellidos,
