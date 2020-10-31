@@ -120,9 +120,11 @@
     <Content Include="Angular\Admin.js" />
     <Content Include="Angular\angular.js" />
     <Content Include="Angular\Hospital.js" />
+    <Content Include="Angular\UserAdmin.js" />
     <Content Include="Angular\Usuariosclientes.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Hospital.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\sweetalert2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -145,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UsuariosClientesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +170,8 @@
     <Content Include="Views\UsuariosClientes\Modificar.cshtml" />
     <Content Include="Views\Admin\Iniciarsesion.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\UserAdmin\AgregarUser.cshtml" />
+    <Content Include="Views\UserAdmin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

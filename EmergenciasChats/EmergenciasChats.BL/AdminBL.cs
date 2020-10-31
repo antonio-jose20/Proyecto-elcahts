@@ -29,7 +29,7 @@ namespace EmergenciasChats.BL
             return adminDAL.EliminarAdmin(admin);
         }
         //Login
-        public int Login(AdminEL en)
+        public int Login(AdminEL en) 
         {
             return adminDAL.Login(en);
         }

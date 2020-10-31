@@ -5,7 +5,7 @@
 }
 
 <!DOCTYPE html>
-<html  ng-app="App">
+<html ng-app="App">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,16 +17,15 @@
     <!--ey-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="~/Angular/angular.js"></script>
-    <script src="~/Angular/Admin.js"></script>
-
+    <script src="~/Angular/UserAdmin.js"></script>
     <style>
         .font {
             background-image: url('../../Content/Images/Hospital.jpg');
         }
     </style>
-   
+
 </head>
-<body class="font" ng-controller="Admin">
+<body class="font" ng-controller="UserAdmin">
     <br />
     <br />
     <br />
@@ -37,24 +36,24 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
-                       <br />
-                       <div class="row">
-                           <div class="col-md-12 form-group">
-                               <label for="email">Email address</label>
-                               <input id="Email" class="form-control" ng-model="Username" type="email" placeholder="Usuario" required>
-                           </div>
-                           <div class="col-md-12 form-group">
-                               <label for="email">Contraseña</label>
-                               <input id="Email" class="form-control" ng-model="Password" type="email" placeholder="Contraseña" required>
-                           </div>
-                           <div class="col-md-12">
-                               <p>¿No tienes una cuenta? <a href="@Url.Action("Create", "Admin")">Registrarse</a></p>
-                               <br />
-                               <p class="text-right">
-                                   <button class="btn btn-primary" ng-submit="login()">Iniciar Sesión</button>
-                               </p>
-                           </div>
-                       </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="email">Email address</label>
+                                <input id="Email" class="form-control" ng-model="Username" type="text" placeholder="Usuario" required>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="email">Contraseña</label>
+                                <input id="Email" class="form-control" ng-model="Password" type="text" placeholder="Contraseña" required>
+                            </div>
+                            <div class="col-md-12">
+                                <p>¿No tienes una cuenta? <a href="@Url.Action("Create", "Admin")">Registrarse</a></p>
+                                <br />
+                                <p class="text-right">
+                                    <button class="btn btn-primary" ng-click="Login()">Iniciar Sesión</button>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,8 +64,9 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 
-    </body>
+</body>
 
 </html>
+
 
 
