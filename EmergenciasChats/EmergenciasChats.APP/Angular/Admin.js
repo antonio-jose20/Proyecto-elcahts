@@ -85,38 +85,63 @@ app.controller("Admin", function ($scope, $http) {
     $scope.irIndex = function () {
         window.location.href = '../Admin/Index';
     }
-    ////Login
+    //////Login
  
-    app.factory("Auth", ["$firebaseAuth",
-      function ($firebaseAuth) {
-          var ref = new Firebase("https://aplicacion-web-de-emergencias.firebaseio.com/");
-          return $firebaseAuth(ref);
-      }
-    ]);
+    //app.factory("Auth", ["$firebaseAuth",
+    //  function ($firebaseAuth) {
+    //      var ref = new Firebase("https://aplicacion-web-de-emergencias.firebaseio.com/");
+    //      return $firebaseAuth(ref);
+    //  }
+    //]);
 
-    app.controller('Admin', ['$scope', '$state', '$http', 'Auth',
-      function ($scope, $state, $http, Auth) {
-          $scope.auth = Auth;
-          $scope.auth.$onAuth(function (authData) {
-              $scope.authData = authData;
-          });
-          $scope.login = function () {
-              Auth.$authWithPassword({
-                 // email: $scope.email,
-                  Email: $scope.Email,
-                  Password: $scope.Password
-              })
-              .then(function (authData) {
-                  console.log('Logged in as:', authData.uid);
-                  //$state.go('profile');
-              })
-              .catch(function (err) {
-                  console.log('error:', err);
-                  //$state.go('login');
-              });
-          };
-      }
-    ]);
+    //app.controller('Admin', ['$scope', '$state', '$http', 'Auth',
+    //  function ($scope, $state, $http, Auth) {
+    //      $scope.auth = Auth;
+    //      $scope.auth.$onAuth(function (authData) {
+    //          $scope.authData = authData;
+    //      });
+    //      $scope.login = function () {
+    //          Auth.$authWithPassword({
+    //             // email: $scope.email,
+    //              Email: $scope.Email,
+    //              Password: $scope.Password
+    //          })
+    //          .then(function (authData) {
+    //              console.log('Logged in as:', authData.uid);
+    //              //$state.go('profile');
+    //          })
+    //          .catch(function (err) {
+    //              console.log('error:', err);
+    //              //$state.go('login');
+    //          });
+    //      };
+    //  }
+    //]);
+    //LOGIN
+    $scope.Login = function () {
+        $http({
+            method: 'Post',
+            url: '../Admin/Login',
+            data: {
+                Usuario: $scope.Usuario,
+                Password: $scope.Password
+            }
+        }).then(function success(r) {
+            if (r.data == 1) {
+                // window.location.href = '../Admin/Index';
+                alert('Usuario Valido');
+                //console.log("success: " + r);
+                //SAlert("Usuario validado", "`Procesando", "success", "OK");
+     
+                window.location.href = '../UsuariosClientes/Index';
+            }
+            else {
+                alert('Sus Credenciales No Noinciden');
+            }
+        });
+    };
+
+
     //alerta
     function SAlert(title, msg, icon, btns) {
         Swal.fire({

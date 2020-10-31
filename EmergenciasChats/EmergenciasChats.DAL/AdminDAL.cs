@@ -53,6 +53,7 @@ namespace EmergenciasChats.DAL
                 en.IDAdmin = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 var response = client.Set("admin/" + en.IDAdmin, en);
+               // var response = client.Set("User/UserAdmin/" + en.Username, en);
                 return 1;
             }
             catch (Exception)
@@ -75,34 +76,61 @@ namespace EmergenciasChats.DAL
             }
         }
 
-        //Metodo Login
-        public int Login(AdminEL _admin)
+        ////Metodo Login
+        //public int Login(AdminEL _admin)
+        //{
+        //    try
+        //    {
+        //        IFirebaseClient client = new FireSharp.FirebaseClient(config);
+        //        FirebaseResponse response = client.Get("admin");
+        //        dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
+
+        //        foreach (var item in data)
+        //        {
+        //            var val = (JsonConvert.DeserializeObject<AdminEL>(((JProperty)item).Value.ToString()));
+        //            if (_admin.Email == val.Email && _admin.Password == val.Password)
+        //            {
+        //                return 1;
+        //            }
+        //            else
+        //            {
+        //                return -1;
+        //            }
+
+        //        }
+        //        return 1;
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return -1;
+        //    }
+        //}
+        //LOGIN
+        public int Login(AdminEL pEn)
         {
+            List<AdminEL> en = new List<AdminEL>();
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 FirebaseResponse response = client.Get("admin");
                 dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
-
+                int inc = 0;
                 foreach (var item in data)
                 {
-                    var val = (JsonConvert.DeserializeObject<AdminEL>(((JProperty)item).Value.ToString()));
-                    if (_admin.Email == val.Email && _admin.Password == val.Password)
+                    en.Add(JsonConvert.DeserializeObject<AdminEL>(((JProperty)item).Value.ToString()));
+
+                    if (en[inc].Usuario == pEn.Usuario && pEn.Password == en[inc].Password)
                     {
                         return 1;
                     }
-                    else
-                    {
-                        return -1;
-                    }
-
+                    inc++;
                 }
-                return 1;
-
+                return 0;
             }
             catch (Exception)
             {
-                return -1;
+                return 0;
             }
         }
 

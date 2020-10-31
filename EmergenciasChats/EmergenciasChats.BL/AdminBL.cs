@@ -28,12 +28,16 @@ namespace EmergenciasChats.BL
         {
             return adminDAL.EliminarAdmin(admin);
         }
-        //Login
-        public int Login(AdminEL en)
+        ////Login
+        //public int Login(AdminEL en) 
+        //{
+        //    return adminDAL.Login(en);
+        //}
+        //LOGIN
+        public int Login(AdminEL pEn)
         {
-            return adminDAL.Login(en);
+            return adminDAL.Login(pEn);
         }
-
         ////Instancia de metodo de guardar
         //public int Guardar(AdminEL admin)
         //{
