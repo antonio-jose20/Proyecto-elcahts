@@ -1,6 +1,7 @@
 ﻿var app = angular.module("App", []);
 
 app.controller("UsuariosClientes", function ($scope, $http) {
+   
 
     $scope.AgregarUsuariosclientes= function () {
         $http({
@@ -37,25 +38,35 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             }
         });
     };
-    //Modificar
-    $scope.ModificarUsuariosclientes = function (UsuariosClientes, data, NombreUsuarios) {
+    //MODIFICAR
+  
+    //Variable para encapsular los datos a Modificar
+   // $scope.UsuariosClientes = {};
+
+    $scope.ModificarUsuariosclientes = function (NombreUsuarios) {
         $http({
             method: 'Post',
-            url: '../UsuariosClientes/Agregarusuariosclientes/NombreUsuarios',
-            data: {data,
-                NombreUsuarios: NombreUsuarios,
-                NombreCompleto: NombreCompleto,
-                Apellidos:Apellidos,
-                Direccion:Direccion,
-                Dui: Dui,
-                Telefono: Telefono,
-                Email:Email,
-                Password: Password
+            // url: '../UsuariosClientes/Modificarusuariosclientes/' + NombreUsuarios,
+            url: '../UsuariosClientes/Modificarusuariosclientes/' + NombreUsuarios,
+            //url: "/" + UsuariosClientes + "/Modificar/" + NombreUsuarios,
+            data: {
+               // NombreUsuarios: NombreUsuarios,
+                NombreCompleto: $scope.NombreCompleto,
+
+                //Apellidos: $scope.UsuariosClientes.Apellidos,
+                Apellidos: $scope.Apellidos,
+                Direccion: $scope.Direccion,
+                Dui: $scope.Dui,
+                Telefono: $scope.Telefono,
+                Email: $scope.Email,
+                Password: $scope.Password
             }
         }).then(function success(r) {
             if (r.data == 1) {
+                //console.log("success: " + r);
+               // SAlert("Editar", "Registro Modificado", "success", "OK");
                 alert('Resgistro Modificado');
-                window.location.href = '../UsuariosClientes/Index';
+               // window.location.href = '../UsuariosClientes/Index';
                 $scope.NombreCompleto = '',
                 $scope.Apellidos = '',
                 $scope.Direccion = '',
@@ -69,6 +80,30 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             }
         });
     };
+    //prueba atualixz
+    //$scope.guardar = function () {
+    //    servicio.setNombres({ nombre: $scope.nombre, apellido: $scope.apellido }).then(function (data) {
+    //        $scope.ultimoId = data.data;
+    //    });
+    //}
+    /////////
+  
+    //angular.module('formLabs', [])
+    //  .controller('UserController', ['$scope', function($scope) {
+    //      $scope.user = {};
+ 
+    //      $scope.update = function() {
+    //          console.log($scope.user);
+    //      };
+ 
+    //      $scope.reset = function() {
+    //          $scope.user = {};
+    //      };
+ 
+    //      $scope.reset();
+    //  }]);
+  
+    //
     //ELIMINIAR
 
     $scope.EliminarUsuariosclientes = function (id) {
@@ -83,11 +118,12 @@ app.controller("UsuariosClientes", function ($scope, $http) {
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
-                    alert("Eliminado Exitosamente. Exito");
+                   // alert("Eliminado Exitosamente. Exito");
+                    SAlert("Elimino", "Se Movio el regitro a la papelera", "success", "OK");
                     //getLists();
                 }
                 else {
-                    alert("No se realizo el proceso");
+                    alert("No se elimino el registro");
                 }
                 //
             });

@@ -76,6 +76,7 @@
     <Compile Include="UserAdminDAL.cs" />
     <Compile Include="UsuarioClienteDAL.cs" />
     <Compile Include="UsuarioHDAL.cs" />
+    <Compile Include="UsuariosHospitalesDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmergenciasChats.EL\EmergenciasChats.EL.csproj">

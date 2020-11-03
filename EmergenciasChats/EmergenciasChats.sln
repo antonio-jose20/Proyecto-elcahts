@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.BL", "Emer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.APP", "EmergenciasChats.APP\EmergenciasChats.APP.csproj", "{9EF9529F-9E0B-4A0A-937B-76A6154F210A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.pUnitarias", "EmergenciasChats.pUnitarias\EmergenciasChats.pUnitarias.csproj", "{14883C46-BE6A-4FD0-94E0-C4A962E46EFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9EF9529F-9E0B-4A0A-937B-76A6154F210A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF9529F-9E0B-4A0A-937B-76A6154F210A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF9529F-9E0B-4A0A-937B-76A6154F210A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14883C46-BE6A-4FD0-94E0-C4A962E46EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14883C46-BE6A-4FD0-94E0-C4A962E46EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14883C46-BE6A-4FD0-94E0-C4A962E46EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14883C46-BE6A-4FD0-94E0-C4A962E46EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

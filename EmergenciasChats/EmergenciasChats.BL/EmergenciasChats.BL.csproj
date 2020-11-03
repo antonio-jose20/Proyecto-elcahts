@@ -46,6 +46,7 @@
     <Compile Include="UserAdminBL.cs" />
     <Compile Include="UsuarioClieteBL.cs" />
     <Compile Include="UsuarioHBL.cs" />
+    <Compile Include="UsuariosHospitalesBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmergenciasChats.DAL\EmergenciasChats.DAL.csproj">

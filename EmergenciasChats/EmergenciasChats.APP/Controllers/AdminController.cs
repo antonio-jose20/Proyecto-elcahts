@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+//cerra sesion
+using System.Web.Security;
+//
 using EmergenciasChats.BL;
 using EmergenciasChats.EL;
 
@@ -85,6 +88,14 @@ namespace EmergenciasChats.APP.Controllers
                 return null;
             }
             
+        }
+
+        //cerrar sesion
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Login", "Admin");
         }
 
     }

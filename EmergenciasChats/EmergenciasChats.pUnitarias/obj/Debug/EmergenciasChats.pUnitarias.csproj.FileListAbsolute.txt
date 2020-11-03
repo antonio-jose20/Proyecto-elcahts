@@ -1,0 +1,16 @@
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.pUnitarias.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.pUnitarias.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.DAL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.EL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\FireSharp.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.DAL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\EmergenciasChats.EL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\obj\Debug\EmergenciasChats.pUnitarias.csprojResolveAssemblyReference.cache
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\obj\Debug\EmergenciasChats.pUnitarias.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.pUnitarias\obj\Debug\EmergenciasChats.pUnitarias.pdb

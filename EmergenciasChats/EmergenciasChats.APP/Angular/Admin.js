@@ -85,38 +85,7 @@ app.controller("Admin", function ($scope, $http) {
     $scope.irIndex = function () {
         window.location.href = '../Admin/Index';
     }
-    //////Login
- 
-    //app.factory("Auth", ["$firebaseAuth",
-    //  function ($firebaseAuth) {
-    //      var ref = new Firebase("https://aplicacion-web-de-emergencias.firebaseio.com/");
-    //      return $firebaseAuth(ref);
-    //  }
-    //]);
-
-    //app.controller('Admin', ['$scope', '$state', '$http', 'Auth',
-    //  function ($scope, $state, $http, Auth) {
-    //      $scope.auth = Auth;
-    //      $scope.auth.$onAuth(function (authData) {
-    //          $scope.authData = authData;
-    //      });
-    //      $scope.login = function () {
-    //          Auth.$authWithPassword({
-    //             // email: $scope.email,
-    //              Email: $scope.Email,
-    //              Password: $scope.Password
-    //          })
-    //          .then(function (authData) {
-    //              console.log('Logged in as:', authData.uid);
-    //              //$state.go('profile');
-    //          })
-    //          .catch(function (err) {
-    //              console.log('error:', err);
-    //              //$state.go('login');
-    //          });
-    //      };
-    //  }
-    //]);
+  ;
     //LOGIN
     $scope.Login = function () {
         $http({
@@ -128,15 +97,24 @@ app.controller("Admin", function ($scope, $http) {
             }
         }).then(function success(r) {
             if (r.data == 1) {
-                // window.location.href = '../Admin/Index';
-                alert('Usuario Valido');
-                //console.log("success: " + r);
-                //SAlert("Usuario validado", "`Procesando", "success", "OK");
+ 
+                console.log("success: " + r);
+                SAlert("Usuario validado", "Procesando", "success", "OK");
+               // if (success(r));
      
-                window.location.href = '../UsuariosClientes/Index';
+                window.location.href = '../UsuariosHospitales/Index';
             }
+
             else {
-                alert('Sus Credenciales No Noinciden');
+                //console.log("error: " + r);
+                //SAlert("Error", "Sus datos no Fueron Verificados", "error", "OK");
+                SAlert({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href>Why do I have this issue?</a>'
+                })
+               /// window.location.href = '../Admin/Login';
             }
         });
     };
