@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create";
+}
+
+
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="~/Content/sweetalert2.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script src="~/Angular/angular.js"></script>
+    <script src="~/Angular/UsuariosHospitales.js"></script>
+    <script src="~/scripts/email.js" ></script>
+    <!--validate-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <style>
+        #container {
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 1rem;
+            background-color: rgb(190, 225, 245);
+            padding: 0;
+            color: white;
+            border-radius: 30px 10px 30px 10px;
+        }
+
+            #container a {
+                color: white;
+            }
+
+                #container a:hover {
+                    color: crimson;
+                }
+    </style>
+</head>
+<body ng-controller="UsuariosHospitales">
+
+     <hr />
+    <div id="container">
+        @*<div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Agregar Nuevos Usuarios de Hospitales</h1>
+                        <p class="lead">Descripcion.</p>
+                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>*@
+       
+
+
+        <form class="row" id="basic-form">
+            <div class="col-md-12">
+                <h3 class="text-center">Agregar usuario</h3>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="name">Nombre Completo <span>(required, at least 3 characters)</span></label>
+                <input ng-model="NombreCompleto" class="form-control" placeholder="Nombre Completo" required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Apellidos</label>
+                <input ng-model="Apellidos" class="form-control" placeholder="Apellidos" required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Usuario</label>
+                <input ng-model="NombreUsuario" class="form-control" placeholder="Apellidos"  minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+"  />
+            </div>
+
+           
+            <div class="col-md-12 form-group">
+                <label>Direccion</label>
+                <input ng-model="Direccion" class="form-control" placeholder="Direccion" required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Dui</label>
+                <input ng-model="Dui" class="form-control" placeholder="Dui"  required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="tel">Telefono</label>
+                <input   pattern="^[9|8|7|6]\d{8}$" ng-model="Telefono" class="form-control"  placeholder="Telefono" required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="email">E-Mail <span>(required)</span></label>
+                <input type="text" id="email"  minlength="3" ng-model="Email" class="form-control" placeholder="correo"  required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Password</label>
+                <input ng-model="Password" class="form-control" placeholder="Password"  required/>
+            </div>
+            <div class="col-md-12 form-group">
+                <p class="text-right">
+                    <button  id="send" class="btn btn-primary" ng-click="AgregarUsuarisHospitales()">Agregar</button>
+                </p>
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+    <script> 
+    $(document).ready(function() {
+    $("#basic-form").validate();
+    });
+    </script>
+
+
+
+    <div class="container body-content">
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+</body>
+</html>
+
+
+
+

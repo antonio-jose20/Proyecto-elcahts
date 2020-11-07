@@ -20,7 +20,7 @@ namespace EmergenciasChats.EL
         [RegularExpression("^[a-zñáéíóúA-ZÑÁÉÍÓÚ _]*$", ErrorMessage = "Solo se permiten letras")]
         [Required(ErrorMessage = "Campo obligatorio")]
         public string Rol { get; set; } 
-        public string Sexo { get; set; }
+        //public string Sexo { get; set; }
         public string Dui { get; set; }
         public int Telefono { get; set; }
         public string Direccion { get; set; }  

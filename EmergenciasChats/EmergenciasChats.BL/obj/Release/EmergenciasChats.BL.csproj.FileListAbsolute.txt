@@ -1,0 +1,16 @@
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.BL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.BL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.DAL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.EL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\FireSharp.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Newtonsoft.Json.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Microsoft.Threading.Tasks.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.DAL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\EmergenciasChats.EL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Newtonsoft.Json.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Microsoft.Threading.Tasks.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\bin\Release\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\obj\Release\EmergenciasChats.BL.csprojResolveAssemblyReference.cache
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\obj\Release\EmergenciasChats.BL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.BL\obj\Release\EmergenciasChats.BL.pdb

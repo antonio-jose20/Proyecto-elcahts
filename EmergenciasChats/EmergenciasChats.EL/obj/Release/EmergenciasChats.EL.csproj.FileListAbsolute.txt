@@ -1,0 +1,5 @@
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\bin\Release\EmergenciasChats.EL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\bin\Release\EmergenciasChats.EL.pdb
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Release\EmergenciasChats.EL.csprojResolveAssemblyReference.cache
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Release\EmergenciasChats.EL.dll
+C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.EL\obj\Release\EmergenciasChats.EL.pdb

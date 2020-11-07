@@ -1,0 +1,109 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Create";
+}
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="~/Content/sweetalert2.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert2.all.min.js"></script> 
+    <script src="~/Angular/angular.js"></script>
+    <script src="~/Angular/Admin.js"></script>
+</head>
+<body ng-controller="Admin">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Agregado de usuarios administrativos</h1>
+                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">    
+             </div>
+        </div>
+
+
+        <form class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Admin Registrarse</h3>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Nombres</label>
+                <input ng-model="Nombres" class="form-control"  autofocus="autofocus"/>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Apellidos</label>
+                <input ng-model="Apellidos" class="form-control" />
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Sexo</label>
+                <input ng-model="Sexo" class="form-control" />
+            <div class="col-md-12 form-group">
+                 <label>Dui</label>
+                 <input ng-model="Dui" class="form-control" />
+            </div>
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Telefono</label>
+                <input type="tel" ng-model="Telefono" class="form-control" />
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Direccion</label>
+                <input ng-model="Direccion" class="form-control" />
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Usuario Nombre</label>
+                <input ng-model="Usuario" class="form-control" />
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Correo</label>
+                <input ng-model="Email" class="form-control" />
+            </div>
+            <!---->
+            <div class="form__terminos">        
+                    <label class="radio inline">
+                        <input type="hidden" name="Estado" id="Estado" value="True" checked>
+                    </label>
+            </div>
+            <!---->
+            <div class="col-md-12 form-group">
+                <label>Contraseña</label>
+                <input ng-model="Password" class="form-control" />
+            </div>
+            <div class="col-md-12 form-group">
+                <p class="text-right">
+                    <button class="btn btn-primary" ng-click="AgregarAdmin()">Agregar</button>
+                </p>
+                <br />
+                <br />
+                <br />
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <div class="container body-content">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+

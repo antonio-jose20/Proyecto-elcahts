@@ -37,5 +37,6 @@ namespace EmergenciasChats.BL
         {
             return UhDAL.GetUsuarioById(id);
         }
+
     }
 }

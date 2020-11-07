@@ -22,6 +22,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 Dui: $scope.Dui,
                 Telefono: $scope.Telefono,
                 Email: $scope.Email,
+                Imagen: $scope.Imagen,
                 Password: $scope.Password
             }
         }).then(function success(r) {
@@ -138,5 +139,44 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             confirmButtonText: btns
         })
     }
+
+
+
+    ///modificar 
+    // Update record
+    $scope.updatedata = function () {
+        $scope.btntext = "Please Wait..";
+        $http({
+            method: 'POST',
+            //url: '/Home/update_record',
+            url: '/UsuariosHospitales/Modificar',
+            data: $scope.register
+        }).success(function (d) {
+            $scope.btntext = "Update";
+            $scope.register = null;
+            alert(d);
+        }).error(function () {
+            alert('Failed');
+        });
+    };
+
+
+
+    ///busca por id 
+    // Display record by id
+    $scope.GetUsuarioById = function (id) {
+        $http.get("/UsuariosHospitales/GetUsuarioById?id=" + id).then(function (d) {
+            $scope.register = d.data[0];
+        }, function (error) {
+            alert('Failed');
+        });
+    };
+
+
+
+
+
+
+
 
 });
