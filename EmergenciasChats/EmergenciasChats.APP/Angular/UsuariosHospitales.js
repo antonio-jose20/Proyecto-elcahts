@@ -144,17 +144,40 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
     ///modificar 
     // Update record
-    $scope.updatedata = function () {
+    $scope.updatedata = function (id) {
         $scope.btntext = "Please Wait..";
         $http({
             method: 'POST',
             //url: '/Home/update_record',
-            url: '/UsuariosHospitales/Modificar',
-            data: $scope.register
+            url: '/UsuariosHospitales/Modificar' + id,
+            data: $scope.register,
+            //
+            NombreUsuarios: id,
+        NombreCompleto: $scope.NombreCompleto,
+        //Apellidos: $scope.UsuariosClientes.Apellidos,
+        Apellidos: $scope.Apellidos,
+        Direccion: $scope.Direccion,
+        Dui: $scope.Dui,
+        Telefono: $scope.Telefono,
+        Email: $scope.Email,
+        Password: $scope.Password
+            //
         }).success(function (d) {
             $scope.btntext = "Update";
             $scope.register = null;
             alert(d);
+            ///
+            SAlert("Editar", "Registro Modificado", "success", "OK");
+            // alert('Resgistro Modificado');
+            window.location.href = '../UsuariosHospitales/Index';
+            $scope.NombreCompleto = '',
+            $scope.Apellidos = '',
+            $scope.Direccion = '',
+            $scope.Dui = '',
+            $scope.Telefono = '',
+            $scope.Email = '',
+            $scope.Password = '';
+            ///
         }).error(function () {
             alert('Failed');
         });
