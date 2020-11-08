@@ -63,6 +63,7 @@ namespace EmergenciasChats.APP.Controllers
 
         //}
         // Nvo Metodo de Modificar
+        [HttpPost]
         public ActionResult Modificar(UsuariosHospitalesEL en)
         {
 

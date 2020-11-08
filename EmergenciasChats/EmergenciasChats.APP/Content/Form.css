@@ -1,9 +1,10 @@
-﻿/*body {
+﻿body {
     text-align:center;
     font: "Trebuchet MS", Verdana, sans-serif;
-background-color: #dce4e3;
+/**background-color: #dce4e3;*/
+background-color:#F7F9FA;
 color: #696969;
-}*/
+}
 container{
     text-align:center;
 }

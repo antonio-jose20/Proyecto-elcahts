@@ -47,11 +47,11 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
     };
     //MODIFICAR
   
-    //redirecciona
-    $scope.editar = function (NombreUsuarios) {
+    ////redirecciona
+    //$scope.editar = function (NombreUsuarios) {
     
-        window.location.href = '../UsuariosHospitales/Modificar/' + NombreUsuarios;
-    };
+    //    window.location.href = '../UsuariosHospitales/Modificar/' + NombreUsuarios;
+    //};
 
 
 //Modificar

@@ -19,13 +19,13 @@
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/UsuariosHospitales.js"></script>
 </head>
-<body ng-controller="UsuariosHospitales"    data-ng-init="GetUsuarioById(@Convert.ToInt32(Request.QueryString["id"]))"      @*data-ng-init="GetUsuarioById(@Convert.ToInt32(Request.QueryString["id"]))"*@>
+<body ng-controller="UsuariosHospitales"    data-ng-init="GetUsuarioById(@Convert.ToString(Request.QueryString["id"]))"      @*data-ng-init="GetUsuarioById(@Convert.ToInt32(Request.QueryString["id"]))"*@>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
+                    <div class="container">  
                         <h1 class="display-4">Modificar</h1>
                         <p class="lead">Descripcion.</p>
                         <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
