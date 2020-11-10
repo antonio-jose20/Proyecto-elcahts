@@ -28,7 +28,7 @@ namespace EmergenciasChats.pUnitarias
             usuariohEL.Telefono = "7045-6554";
             usuariohEL.Direccion = "Avenida Sur Colonia Miramonte";
             usuariohEL.Dui = "09833653-3";
-            usuariohEL.Password = "3214";
+            usuariohEL.Password = "6214";
 
             int esperado = 1;
             int actual = usuarioHDAL.AgregarUsuarisHospitales(usuariohEL);
@@ -43,8 +43,10 @@ namespace EmergenciasChats.pUnitarias
         public void TestModificarUsuariodHospital()
         {
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-             //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(01 - 11 - 202017:56:13);
-             //usuariohEL.NombreUsuarios = 01 - 11 - 202017:56:13;
+           // usuariohEL = UsuariosHospitalesDAL.GetUsuarioById('01 - 11 - 202017:56:13');
+
+           // return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
+            //usuariohEL.NombreUsuarios = 01 - 11 - 202017:56:13;
             //usuariohEL.NombreUsuarios = "3";
             usuariohEL.NombreCompleto = "Juan Armenta";
             usuariohEL.Apellidos = "Gomez Moran";

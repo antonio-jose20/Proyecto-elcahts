@@ -17,6 +17,7 @@ app.controller("UserAdmin", function ($scope, $http) {
             if (r.data == 1) {
                // window.location.href = '../Admin/Index';
                 alert('Resgistro Agregado');
+
             }
             else {
                 alert('Resgistro No Agregado');
@@ -36,6 +37,7 @@ app.controller("UserAdmin", function ($scope, $http) {
             if (r.data == 1) {
                 // window.location.href = '../Admin/Index';
                 alert('Usuario Valido');
+                window.location.href = '../UsuariosHospitales/Index';
             }
             else {
                 alert('Resgistro No Agregado');

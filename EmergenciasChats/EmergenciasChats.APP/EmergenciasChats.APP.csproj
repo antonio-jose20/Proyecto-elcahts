@@ -126,6 +126,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Form.css" />
+    <Content Include="Content\iEdit.min.css" />
     <Content Include="Content\Images\Hospital.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\sweetalert2.css" />
@@ -135,6 +136,10 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\appchat.pubxml" />
+    <None Include="Properties\PublishProfiles\appchats.pubxml" />
+    <None Include="Properties\PublishProfiles\appweb.pubxml" />
+    <None Include="Properties\PublishProfiles\chatsweb.pubxml" />
     <None Include="Properties\PublishProfiles\ProyectoEmergencias.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\email.js" />

@@ -18,9 +18,12 @@
     <script src="~/Scripts/sweetalert2.all.min.js"></script> 
      <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/Usuariosclientes.js"></script>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/Form.css" rel="stylesheet" />
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
 </head>
 <body ng-controller="UsuariosClientes">
-
+    <hr />
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -123,7 +126,20 @@
 
         </form>
 
+        <script>
 
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
+
+        </script>
 
 
     </div>

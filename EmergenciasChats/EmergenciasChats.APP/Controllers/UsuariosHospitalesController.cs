@@ -128,26 +128,6 @@ namespace EmergenciasChats.APP.Controllers
             //return Content(Convert.ToString(r));
         }
     
-        //public JsonResult Get_databyid(int id)
-        //{
-        //    DataSet ds = dblayer.get_recordbyid(id);
-        //    List<register> listrs = new List<register>();
-        //    foreach (DataRow dr in ds.Tables[0].Rows)
-        //    {
-        //        listrs.Add(new register
-        //        {
-        //            Sr_no = Convert.ToInt32(dr["Sr_no"]),
-        //            Email = dr["Email"].ToString(),
-        //            Password = dr["Password"].ToString(),
-        //            Name = dr["Name"].ToString(),
-        //            Address = dr["Address"].ToString(),
-        //            City = dr["City"].ToString()
-        //        });
-        //    }
-        //    return Json(listrs, JsonRequestBehavior.AllowGet);
-        //}
-
-
 
 
     }

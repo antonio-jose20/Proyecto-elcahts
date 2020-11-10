@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Create";
 }
 
@@ -20,104 +20,134 @@
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/UsuariosHospitales.js"></script>
     <script src="~/scripts/email.js" ></script>
-    <!--validate-->
+ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-
-    <style>
-        #container {
-            width: 40%;
-            margin: 0 auto;
-            margin-top: 1rem;
-            background-color: rgb(190, 225, 245);
-            padding: 0;
-            color: white;
-            border-radius: 30px 10px 30px 10px;
-        }
-
-            #container a {
-                color: white;
-            }
-
-                #container a:hover {
-                    color: crimson;
-                }
-    </style>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/Form.css" rel="stylesheet" />
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
 </head>
 <body ng-controller="UsuariosHospitales">
 
-     <hr />
-    <div id="container">
-        @*<div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-4">Agregar Nuevos Usuarios de Hospitales</h1>
-                        <p class="lead">Descripcion.</p>
-                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
-                    </div>
+     @*<br />*@
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title text-center">BIENVENIDO AL SISTEMA DE SERVICIOS DE SALUD..</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">
+                     El Usuario al que registrara tendra cuenta activa modifica si es necesario
+                    </p> 
                 </div>
             </div>
+            <div class="text-left">
+                <p>
+                    Abandonar esta Pagina
+                    <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                </p>
+            </div>
+        </div>
+    </div>
 
-        </div>*@
-       
+    <br />
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Sistema para atender emergencias de salud ...</h3>
+
+            </div>
+        </div>
+    </div>
+      
 
 
         <form class="row" id="basic-form">
             <div class="col-md-12">
-                <h3 class="text-center">Agregar usuario</h3>
+                <h3 class="text-center">Registro</h3>
             </div>
             <div class="col-md-12 form-group">
-                <label for="name">Nombre Completo <span>(required, at least 3 characters)</span></label>
+                @*<label for="name">Nombre Completo</label>*@
                 <input ng-model="NombreCompleto" class="form-control" placeholder="Nombre Completo" required/>
             </div>
             <div class="col-md-12 form-group">
-                <label>Apellidos</label>
+                @*<label>Apellidos</label>*@
                 <input ng-model="Apellidos" class="form-control" placeholder="Apellidos" required/>
             </div>
             <div class="col-md-12 form-group">
-                <label>Usuario</label>
-                <input ng-model="NombreUsuario" class="form-control" placeholder="Apellidos"  minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+"  />
+                @*<label>Usuario</label>*@
+                <input ng-model="NombreUsuario" class="form-control" placeholder="Usuario"  minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+"  />
             </div>
 
            
             <div class="col-md-12 form-group">
-                <label>Direccion</label>
+                @*<label>Direccion</label>*@
                 <input ng-model="Direccion" class="form-control" placeholder="Direccion" required/>
             </div>
             <div class="col-md-12 form-group">
-                <label>Dui</label>
+                @*<label>Dui</label>*@
                 <input ng-model="Dui" class="form-control" placeholder="Dui"  required/>
             </div>
             <div class="col-md-12 form-group">
-                <label for="tel">Telefono</label>
+                @*<label for="tel">Telefono</label>*@
                 <input   pattern="^[9|8|7|6]\d{8}$" ng-model="Telefono" class="form-control"  placeholder="Telefono" required/>
             </div>
             <div class="col-md-12 form-group">
-                <label for="email">E-Mail <span>(required)</span></label>
+                @*<label for="email">E-Mail <span>(required)</span></label>*@
                 <input type="text" id="email"  minlength="3" ng-model="Email" class="form-control" placeholder="correo"  required/>
             </div>
             <div class="col-md-12 form-group">
-                <label>Password</label>
+                @*<label>Password</label>*@
                 <input ng-model="Password" class="form-control" placeholder="Password"  required/>
             </div>
+
+            <!--Imagen-->
             <div class="col-md-12 form-group">
-                <p class="text-right">
-                    <button  id="send" class="btn btn-primary" ng-click="AgregarUsuarisHospitales()">Agregar</button>
-                </p>
+                <label for="File">Imagen</label>
+      
+                    <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
+        
             </div>
 
+            <img id="ImagenR" name="ImagenR">
+            @*<input type="hidden" name="Imagen" id="Imagen"/>*@
+            <input type="hidden" ng-model="Imagen" class="form-control" id="Imagen" />
+            <!--imagen-->
+           
+
+            <div class="col-md-12 form-group">
+                @*<p class="text-center">*@
+                    <button  type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuarisHospitales()">Guardar</button>
+                @*</p>*@
+            </div>
+        
+            <script>
+
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
+
+            </script>
         </form>
 
+ 
 
 
-
-    </div>
+   
     <script> 
     $(document).ready(function() {
     $("#basic-form").validate();
     });
     </script>
+
+    
 
 
 
@@ -128,7 +158,6 @@
     </div>
 </body>
 </html>
-
 
 
 

@@ -2,11 +2,6 @@
 
 app.controller("UsuariosHospitales", function ($scope, $http) {
 
-   // //Modificar
-   // $.get(`/UsuariosHospitales/Modificar ${$http.id}`)
-   //.then((company) => {
-   //    $scope.company = company;
-   //});
     //Agregar
     $scope.AgregarUsuarisHospitales = function () {
         $http({
@@ -14,7 +9,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             url: '../UsuariosHospitales/AgregarUsuarisHospitales',
             data: {
 
-                NombreUsuarios: '',
+                //NombreUsuarios: '',
                 NombreCompleto: $scope.NombreCompleto,
                 Apellidos: $scope.Apellidos,
                 NombreUsuario: $scope.NombreUsuario,
@@ -22,6 +17,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 Dui: $scope.Dui,
                 Telefono: $scope.Telefono,
                 Email: $scope.Email,
+                Imagen: $scope.Imagen,
                 Password: $scope.Password
             }
         }).then(function success(r) {
@@ -31,6 +27,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
                 //
                 window.location.href = '../UsuariosHospitales/Index';
+                $scope.NombreUsuario,
                 $scope.NombreCompleto = '',
                 $scope.Apellidos = '',
                 $scope.Direccion = '',
@@ -40,17 +37,18 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 $scope.Password = '';
             }
             else {
-                alert(' No Agregego El Resgistro');
+                SAlert("Error", "Vuelva a proceder", "success", "OK");
+                //alert(' No Agregego El Resgistro');
             }
         });
     };
     //MODIFICAR
   
-    //redirecciona
-    $scope.editar = function (NombreUsuarios) {
+    ////redirecciona
+    //$scope.editar = function (NombreUsuarios) {
     
-        window.location.href = '../UsuariosHospitales/Modificar/' + NombreUsuarios;
-    };
+    //    window.location.href = '../UsuariosHospitales/Modificar/' + NombreUsuarios;
+    //};
 
 
 //Modificar
@@ -62,7 +60,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 method: 'Post',
                 url: '../UsuariosHospitales/Modificar/' + id,
                 data: {
-                    NombreUsuarios: id,
+                    NombreUsuario: id,
                     NombreCompleto: $scope.NombreCompleto,
                     //Apellidos: $scope.UsuariosClientes.Apellidos,
                     Apellidos: $scope.Apellidos,
@@ -109,7 +107,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 method: 'Post',
                 url: '../UsuariosHospitales/EliminarUsuariosHospitales',
                 data: {
-                    NombreUsuarios: id
+                    NombreUsuario: id
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
@@ -138,5 +136,65 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             confirmButtonText: btns
         })
     }
+
+
+
+    ///modificar 
+    // Update record
+    $scope.updatedata = function (id) {
+        $scope.btntext = "Please Wait..";
+        $http({
+            method: 'POST',
+            //url: '/Home/update_record',
+            url: '/UsuariosHospitales/Modificar' + id,
+            data: $scope.register,
+            //
+            NombreUsuarios: id,
+        NombreCompleto: $scope.NombreCompleto,
+        //Apellidos: $scope.UsuariosClientes.Apellidos,
+        Apellidos: $scope.Apellidos,
+        Direccion: $scope.Direccion,
+        Dui: $scope.Dui,
+        Telefono: $scope.Telefono,
+        Email: $scope.Email,
+        Password: $scope.Password
+            //
+        }).success(function (d) {
+            $scope.btntext = "Update";
+            $scope.register = null;
+            alert(d);
+            ///
+            SAlert("Editar", "Registro Modificado", "success", "OK");
+            // alert('Resgistro Modificado');
+            window.location.href = '../UsuariosHospitales/Index';
+            $scope.NombreCompleto = '',
+            $scope.Apellidos = '',
+            $scope.Direccion = '',
+            $scope.Dui = '',
+            $scope.Telefono = '',
+            $scope.Email = '',
+            $scope.Password = '';
+            ///
+        }).error(function () {
+            alert('Failed');
+        });
+    };
+
+
+    // Display record by id    //buscar x id
+    $scope.GetUsuarioById = function (id) {
+        $http.get("/UsuariosHospitales/GetUsuarioById?id=" + id).then(function (d) {
+            $scope.register = d.data[0];
+        }, function (error) {
+            alert('Failed');
+        });
+    };
+
+
+
+
+
+
+
 
 });

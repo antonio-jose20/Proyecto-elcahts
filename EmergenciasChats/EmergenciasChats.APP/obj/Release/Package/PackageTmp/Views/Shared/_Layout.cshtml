@@ -9,14 +9,15 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-dark bg-info text-dark" style="background-color: #e3f2fd; position: sticky;">
+    <div class="navbar fixed-top navbar-dark bg-info text-dark" style="background-color: #e3f2fd; position: sticky;">
+        @*<nav class="navbar fixed-top navbar-dark bg-info text-dark" style="background-color: #e3f2fd; position: sticky;">*@
         <div class="container">
-           
+
 
 
             @if (Request.IsAuthenticated)
             {
-                @*@Html.ActionLink("Perfil", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
+                @*<a href="/Admin/Detalle?id={ {@item.Imagen} }">Update</a>*@
                 @Html.ActionLink("Login", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })
                 @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
             }
@@ -29,7 +30,10 @@
 
             }
         </div>
-    </nav>
+        @*</nav>*@
+
+
+    </div>
 
     <div class="container body-content">
         @RenderBody()

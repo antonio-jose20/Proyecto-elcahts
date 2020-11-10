@@ -53,7 +53,6 @@ namespace EmergenciasChats.DAL
                 en.IDAdmin = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 var response = client.Set("admin/" + en.IDAdmin, en);
-               // var response = client.Set("User/UserAdmin/" + en.Username, en);
                 return 1;
             }
             catch (Exception)
@@ -76,36 +75,30 @@ namespace EmergenciasChats.DAL
             }
         }
 
-        ////Metodo Login
-        //public int Login(AdminEL _admin)
-        //{
-        //    try
-        //    {
-        //        IFirebaseClient client = new FireSharp.FirebaseClient(config);
-        //        FirebaseResponse response = client.Get("admin");
-        //        dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
+        //  //Obtener por Id
+        public AdminEL GetUsuarioById(string id)
+        {
+            try
+            {
+                ////pROPIO METODO
+                // IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                //var res = client.Get("Hospital/" + id);
+                //UsuarioH _usuarioH = res.ResultAs<UsuarioH>();
+                //return _usuarioH;
 
-        //        foreach (var item in data)
-        //        {
-        //            var val = (JsonConvert.DeserializeObject<AdminEL>(((JProperty)item).Value.ToString()));
-        //            if (_admin.Email == val.Email && _admin.Password == val.Password)
-        //            {
-        //                return 1;
-        //            }
-        //            else
-        //            {
-        //                return -1;
-        //            }
 
-        //        }
-        //        return 1;
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                FirebaseResponse response = client.Get("admin/" + id);
+                AdminEL data = JsonConvert.DeserializeObject<AdminEL>(response.Body);
+                return (data);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return -1;
-        //    }
-        //}
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         //LOGIN
         public int Login(AdminEL pEn)
         {
@@ -288,50 +281,7 @@ namespace EmergenciasChats.DAL
 
 
 
-
-
-
-
-
-
-
-
-
-        //METODO DE LOGIN
-        //////////////public void login(AdminEL administrador )
-        //////////////{
-        //////////////  //  int r = 0;
-        //////////////  //{
-        //////////////  //  if (string.IsNullOrEmpty (administrador.Email) && string.IsNullOrEmpty  (administrador.Password))
-        //////////////  //  {
-        //////////////  //      return  r;
-        //////////////  //  }
-
-        //////////////    ///luego hago el cod de arriba 
-        //////////////    ///
-        //////////////    FirebaseResponse res = client.Get(@"Admmin/" + administrador.Email);
-        //////////////    AdminEL ResAdmin = res.ResultAs<AdminEL>();
-
-        //////////////    AdminEL curAdmin = new AdminEL()
-        //////////////    {
-        //////////////        Email = Email,
-        //////////////        Password = Password
-        //////////////    };
-
-        //Download certificates from google HttpClient client = new HttpClient(); var jsonResult = client.GetStringAsync("https:// www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com").Result;
-        //Convert JSON Result var x509Metadata = JObject.Parse(jsonResult) .Children() .Cast() .Select(i => new x509Metadata(i.Path, i.Value.ToString())); 
-        //Extract IssuerSigningKeys var issuerSigningKeys = x509Metadata.Select(s => s.X509SecurityKey);
-        //Setup JwtTokenHandler var handler = new JwtSecurityTokenHandler(); SecurityToken token; handler.ValidateToken(user.FirebaseToken, new TokenValidationParameters { IssuerSigningKeys = issuerSigningKeys, ValidAudience = "myApp", ValidIssuer = "https://securetoken.google.com/myApp", IssuerSigningKeyResolver = (arbitrarily, declaring, these, parameters) => issuerSigningKeys }, out token); 
-        //public class x509Metadata { public string KID { get; set; }
-        //public string Certificate { get; set; }
-        //public X509SecurityKey X509SecurityKey { get; set; }
-        //public x509Metadata(string kid, string certificate) { KID = kid; Certificate = certificate; X509SecurityKey = BuildSecurityKey(Certificate); }
-        //private X509SecurityKey BuildSecurityKey(string certificate) {
-        //   // Remove : -----BEGIN CERTIFICATE----- & -----END CERTIFICATE-----
-        //    var lines = certificate.Split('\n'); var selectedLines = lines.Skip(1).Take(lines.Length - 3); var key = string.Join(Environment.NewLine, selectedLines);
-        //    return new X509SecurityKey(new X509Certificate2(Convert.FromBase64String(key))); } }
-
-        //////////////}
+        
 
     }
 }

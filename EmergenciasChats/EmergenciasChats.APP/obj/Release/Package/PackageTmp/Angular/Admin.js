@@ -30,12 +30,8 @@ app.controller("Admin", function ($scope, $http) {
             }
         }).then(function success(r) {
             if (r.data == 1) {
-                //alert('Resgistro Agregado');
-                ///Alerta
-                        console.log("success: " + r); 
-                        SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");  
-                //}
-                ///snfdfkdfg
+                console.log("success: " + r); 
+                SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");  
                 window.location.href = '../Admin/Index';
                 $scope.Nombres = '';
                 $scope.Apellidos = '';
@@ -100,8 +96,6 @@ app.controller("Admin", function ($scope, $http) {
  
                 console.log("success: " + r);
                 SAlert("Usuario validado", "Procesando", "success", "OK");
-               // if (success(r));
-     
                 window.location.href = '../UsuariosHospitales/Index';
             }
 
@@ -111,11 +105,24 @@ app.controller("Admin", function ($scope, $http) {
                 SAlert({
                     icon: 'error',
                     title: 'Oops...',
+                    //text: 'Something went wrong!',
                     text: 'Something went wrong!',
+                    //[objeto Objeto]
                     footer: '<a href>Why do I have this issue?</a>'
+
                 })
                /// window.location.href = '../Admin/Login';
             }
+
+        });
+    };
+
+    // Display record by id    //buscar x id
+    $scope.GetUsuarioById = function (id) {
+        $http.get("/Admin/GetUsuarioById?id=" + id).then(function (d) {
+            $scope.register = d.data[0];
+        }, function (error) {
+            alert('Failed');
         });
     };
 

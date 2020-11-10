@@ -58,6 +58,31 @@ namespace EmergenciasChats.APP.Controllers
                 return null;
             }
         }
+        ////buscar pr id 
+        public ActionResult GetUsuarioById(string id)
+
+        {
+            try
+            {
+
+                if (id != null)
+                {
+
+                    return Content(Convert.ToString(bl.GetUsuarioById(id)));
+
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+            //return Content(Convert.ToString(r));
+        }
         ////LOGIN 
 
         //[HttpPost]

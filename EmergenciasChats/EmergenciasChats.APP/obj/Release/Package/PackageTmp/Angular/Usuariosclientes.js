@@ -39,9 +39,6 @@ app.controller("UsuariosClientes", function ($scope, $http) {
         });
     };
     //MODIFICAR
-  
-    //Variable para encapsular los datos a Modificar
-   // $scope.UsuariosClientes = {};
 
     $scope.ModificarUsuariosclientes = function (NombreUsuarios) {
         $http({
@@ -80,30 +77,7 @@ app.controller("UsuariosClientes", function ($scope, $http) {
             }
         });
     };
-    //prueba atualixz
-    //$scope.guardar = function () {
-    //    servicio.setNombres({ nombre: $scope.nombre, apellido: $scope.apellido }).then(function (data) {
-    //        $scope.ultimoId = data.data;
-    //    });
-    //}
-    /////////
   
-    //angular.module('formLabs', [])
-    //  .controller('UserController', ['$scope', function($scope) {
-    //      $scope.user = {};
- 
-    //      $scope.update = function() {
-    //          console.log($scope.user);
-    //      };
- 
-    //      $scope.reset = function() {
-    //          $scope.user = {};
-    //      };
- 
-    //      $scope.reset();
-    //  }]);
-  
-    //
     //ELIMINIAR
 
     $scope.EliminarUsuariosclientes = function (id) {

@@ -16,21 +16,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/Hospital.js"></script>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet">
+    <link href="~/Content/Form.css" rel="stylesheet" />
 </head>
 <body ng-controller="Hospital">
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-4">Agregar Hospitales</h1>
-                        <p class="lead">Descripcion.</p>
-                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+   
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">BIENVENIDO AL SISTEMA DE SERVICIOS DE SALUD..</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">
+                            Agregar un hospital
+                        </p>
                     </div>
                 </div>
+                <div class="text-left">
+                    <p>
+                        Abandonar esta Pagina
+                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                    </p>
+                </div>
             </div>
-          
+        </div>
+
+        <br />
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Sistema para atender emergencias de salud ...</h3>
+
+                </div>
+            </div>
         </div>
 
 
@@ -50,6 +70,19 @@
                 <label>Telefono</label>
                 <input ng-model="Telefono" class="form-control" />
             </div>
+            <!--Imagen-->
+            <div class="col-md-12 form-group">
+                <label for="File">Imagen</label>
+
+                <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
+
+            </div>
+
+            <img id="ImagenR" name="ImagenR">
+            @*<input type="hidden" name="Imagen" id="Imagen"/>*@
+            <input type="hidden" ng-model="Imagen" class="form-control" id="Imagen" />
+            <!--imagen-->
             <div class="col-md-12 form-group">
                 <p class="text-right">
                     <button class="btn btn-primary" ng-click="AgregarHospital()" >Agregar</button>
@@ -61,6 +94,20 @@
 
         </form>
 
+        <script>
+
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
+
+        </script>
 
 
 

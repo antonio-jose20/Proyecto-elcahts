@@ -28,7 +28,8 @@ namespace EmergenciasChats.DAL
             try
             {              
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Set("User/UserAdmin/" + en.Username, en);
+                //var response = client.Set("User/UserAdmin/" + en.Username, en);
+                var response = client.Set("User/" + en.Username, en);
                 return 1;
             }
             catch (Exception)
@@ -43,7 +44,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                FirebaseResponse response = client.Get("User/UserAdmin");
+                FirebaseResponse response = client.Get("User");
                 dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
                 int inc = 0;
                 foreach (var item in data)

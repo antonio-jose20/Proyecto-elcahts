@@ -19,25 +19,59 @@
     <script src="~/Scripts/sweetalert2.all.min.js"></script> 
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/Usuariosclientes.js"></script>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
+    <link href="~/Content/Form.css" rel="stylesheet" />
 </head>
 <body ng-controller="UsuariosClientes">
-
-    <div class="container">
-        <div class="row">
+    @*<br />
+    <div class="container">*@
+        @*<div class="row">
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Agregar Nueos Usuarios</h1>
-                        <p class="lead">Descripcion.</p>
+                        <h1 class="display-4">Agregar Nuevos Usuarios</h1>
+                     
                         <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
                     </div>
                 </div>
             </div>
 
+        </div>*@
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title text-center">BIENVENIDO AL SISTEMA DE SERVICIOS DE SALUD..</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">
+                        El Usuario al que registrara tendra cuenta activa modifica si es necesario
+                    </p>
+                </div>
+            </div>
+            <div class="text-left">
+                <p>
+                    Abandonar esta Pagina
+                    <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                </p>
+            </div>
         </div>
+    </div>
+
+    <br />
 
 
-        <form class="row">
+    <div class="container">
+        @*<div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Sistema para atender emergencias de salud ...</h3>
+
+                </div>
+            </div>
+        </div>
+        <br />*@
+
+        <form class="row" id="basic-form">
             <div class="col-md-12">
                 <h3 class="text-center">Agregar Hospital</h3>
             </div>
@@ -71,7 +105,7 @@
             </div>
             <div class="col-md-12 form-group">
                 <p class="text-right">
-                    <button class="btn btn-primary" ng-click="AgregarUsuariosclientes()">Agregar</button>
+                    <button class="btn btn-primary" ng-click="AgregarUsuariosclientes()">Guardar</button>
                 </p>
                 <br />
                 <br />
@@ -81,9 +115,23 @@
         </form>
 
 
+        <script>
 
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
 
+        </script>
     </div>
+
+    @*</div>*@
 
 
 

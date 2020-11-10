@@ -38,21 +38,11 @@ namespace EmergenciasChats.BL
         {
             return adminDAL.Login(pEn);
         }
-        ////Instancia de metodo de guardar
-        //public int Guardar(AdminEL admin)
-        //{
-        //    //el insertAdmin es el metodo de la Dal
-        //    return adminDAL.InsertAdmin(admin);
-        //}
-
-        //public int Editar(AdminEL administrador)
-        //{
-        //    return adminDAL.Editar(administrador);
-        //}
-        //public AdminEL FindAdmin(string id)
-        //{
-        //    return adminDAL.FindAdmin(id);
-        //}
+         //obtener por Id
+        public AdminEL GetUsuarioById(string id)
+        {
+            return adminDAL.GetUsuarioById(id);
+        }
 
         //public int Delete(string id)
         //{

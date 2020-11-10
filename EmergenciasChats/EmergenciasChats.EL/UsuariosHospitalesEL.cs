@@ -12,13 +12,16 @@ namespace EmergenciasChats.EL
     public class UsuariosHospitalesEL
     {
       
-        public string NombreUsuarios { get; set; }
+        //el nombreusuario me sirvira como id 
+        public string NombreUsuario { get; set; }
         public string NombreCompleto { get; set; }
         public string Apellidos { get; set; }
-        public string NombreUsuario { get; set; }
+      
         public string Direccion { get; set; }
+      
         public string Dui { get; set; }
         public string Telefono { get; set; }
+        [RegularExpression("\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\b", ErrorMessage = "Mail incorrecto")]
         public string Email { get; set; }
 
         [DisplayName("Imagen")]

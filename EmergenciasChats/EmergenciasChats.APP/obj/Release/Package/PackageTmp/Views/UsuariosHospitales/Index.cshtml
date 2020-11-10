@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
     ViewBag.Title = "Index";
     var UsuariosHospitales = ViewBag.usuariosHospitales;
     //Layout = "~/Views/Shared/_Layout.cshtml";
@@ -43,7 +44,7 @@
                         <tr>
                             <th scope="col">Id usuario</th>
                             <th scope="col">Nombre </th>
-                            <th scope="col">Nombre Usuario </th>
+                            @*<th scope="col">Nombre Usuario </th>*@
                             <th scope="col">Apelllidos</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Correo</th>
@@ -54,26 +55,30 @@
                         @foreach (var item in UsuariosHospitales)
                         {
                             <tr>
-                                <th scope="row">@item.NombreUsuarios</th>
+                                <th scope="row">@item.NombreUsuario</th> 
                                 <td>@item.NombreCompleto</td>
-                                <td>@item.NombreUsuario</td>
+                                @*<td>@item.NombreUsuario</td>*@
                                 <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td>
                                 <td>
                                     |
-                                    
+                      
+                                    <a href="/UsuariosHospitales/Modificar?id={{@item.NombreUsuario}}">Update</a>
+                             
 
-                                    <button type="button" class="btn btn-outline-success"  ng-click='editar("@item.NombreUsuarios")' >
-                                    @*<button type="button" class="btn btn-outline-success" ng-click='editar  "+  "?id", item.NombreUsuarios  + " '>*@
+                                    @*<button type="button" class="btn btn-outline-success"  ng-click='editar("@item.NombreUsuarios")' >
+           
                                         <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i>
-                                    </button>
+                                    </button>*@
                                 
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.NombreUsuarios")'>
-                                    <i class="ui-tooltip fa fa-trash-o" style="font-size: 22px;" data-original-title="Delete">Eliminar</i></button>
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.NombreUsuario")'>Eliminar</button>
+                                    @*<i class="ui-tooltip fa fa-trash-o" style="font-size: 22px;" data-original-title="Delete">Eliminar</i>*@@*</button>*@
 
 
                                 </td>
+
+
                             </tr>
                         }
 </tbody>

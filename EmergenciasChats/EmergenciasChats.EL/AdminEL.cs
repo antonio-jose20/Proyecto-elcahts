@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace EmergenciasChats.EL
@@ -28,6 +30,9 @@ namespace EmergenciasChats.EL
         //public string Usuario { get; set; }
         //public string Contrasena { get; set; }
 
+        [DisplayName("Imagen")]
+        public string Imagen { get; set; }
+
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
@@ -43,6 +48,7 @@ namespace EmergenciasChats.EL
                       MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
         //public string Image { get; set; }
         public bool Estado { get; set; }
         //Propiedad de navegacion

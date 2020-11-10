@@ -27,10 +27,16 @@ namespace EmergenciasChats.DAL
         {
             try
             {
-                en.NombreUsuarios = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
+               // en.NombreUsuarios = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Set("UsuariosHospitales/" + en.NombreUsuarios, en);
+                var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
                 return 1;
+
+                //
+                //IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                //var response = client.Set("User/" + en.Username, en);
+                //return 1;
+                //
             }
             catch (Exception)
             {
@@ -63,7 +69,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Update("UsuariosHospitales/" + en.NombreUsuarios, en);
+                var response = client.Update("UsuariosHospitales/" + en.NombreUsuario, en);
                 return 1;
             }
             catch (Exception)
@@ -77,7 +83,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Delete("UsuariosHospitales/" + en.NombreUsuarios);
+                var response = client.Delete("UsuariosHospitales/" + en.NombreUsuario);
                 return 1;
             }
             catch (Exception)
