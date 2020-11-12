@@ -27,7 +27,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
                 //
                 window.location.href = '../UsuariosHospitales/Index';
-                $scope.NombreUsuario,
+                $scope.NombreUsuario = "",
+                //$scope.NombreUsuario,
                 $scope.NombreCompleto = '',
                 $scope.Apellidos = '',
                 $scope.Direccion = '',
@@ -37,7 +38,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 $scope.Password = '';
             }
             else {
-                SAlert("Error", "Vuelva a proceder", "success", "OK");
+                SAlert("Error", "No Guardado", "success", "OK");
                 //alert(' No Agregego El Resgistro');
             }
         });

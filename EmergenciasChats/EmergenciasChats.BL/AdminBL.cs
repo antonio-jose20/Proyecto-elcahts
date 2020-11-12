@@ -28,16 +28,21 @@ namespace EmergenciasChats.BL
         {
             return adminDAL.EliminarAdmin(admin);
         }
-        ////Login
-        //public int Login(AdminEL en) 
-        //{
-        //    return adminDAL.Login(en);
-        //}
+ 
         //LOGIN
         public int Login(AdminEL pEn)
         {
             return adminDAL.Login(pEn);
         }
+
+
+
+
+
+
+
+
+
          //obtener por Id
         public AdminEL GetUsuarioById(string id)
         {

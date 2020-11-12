@@ -136,6 +136,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Appadminchats.pubxml" />
     <None Include="Properties\PublishProfiles\appchat.pubxml" />
     <None Include="Properties\PublishProfiles\appchats.pubxml" />
     <None Include="Properties\PublishProfiles\appweb.pubxml" />
@@ -186,6 +187,7 @@
     <Content Include="Views\UsuariosHospitales\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Create.cshtml" />
     <Content Include="Views\UsuariosHospitales\Modificar.cshtml" />
+    <Content Include="Views\UserAdmin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

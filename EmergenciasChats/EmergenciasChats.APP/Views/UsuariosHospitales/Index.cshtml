@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="jumbotron jumbotron-fluid">
+                <div class="jumbotron jumbotron-fluid">      
                     <div class="container">
                         <h1 class="display-4">Lista de usuarios </h1>
                         <p class="lead">Descripcion.</p>
@@ -64,16 +64,13 @@
                                 <td>
                                     |
                       
-                                    <a href="/UsuariosHospitales/Modificar?id={{@item.NombreUsuario}}">Update</a>
-                             
+                                    @*<a  class="btn btn-success" href="/UsuariosHospitales/Modificar?id={{@item.NombreUsuario}}">Update</a
+>
+                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=@item.NombreUsuario">
+                                        <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i></a>
 
-                                    @*<button type="button" class="btn btn-outline-success"  ng-click='editar("@item.NombreUsuarios")' >
-           
-                                        <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i>
-                                    </button>*@
-                                
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.NombreUsuario")'>Eliminar</button>
-                                    @*<i class="ui-tooltip fa fa-trash-o" style="font-size: 22px;" data-original-title="Delete">Eliminar</i>*@@*</button>*@
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.NombreUsuario")'>Eliminar</button>*@
+
 
 
                                 </td>

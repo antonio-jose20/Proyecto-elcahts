@@ -27,7 +27,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
                 //
                 window.location.href = '../UsuariosHospitales/Index';
-                $scope.NombreUsuario,
+                $scope.NombreUsuario = "",
+                //$scope.NombreUsuario,
                 $scope.NombreCompleto = '',
                 $scope.Apellidos = '',
                 $scope.Direccion = '',
@@ -37,7 +38,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 $scope.Password = '';
             }
             else {
-                SAlert("Error", "Vuelva a proceder", "success", "OK");
+                SAlert("Error", "No Guardado", "success", "OK");
                 //alert(' No Agregego El Resgistro');
             }
         });
@@ -149,15 +150,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             url: '/UsuariosHospitales/Modificar' + id,
             data: $scope.register,
             //
-            NombreUsuarios: id,
-        NombreCompleto: $scope.NombreCompleto,
-        //Apellidos: $scope.UsuariosClientes.Apellidos,
-        Apellidos: $scope.Apellidos,
-        Direccion: $scope.Direccion,
-        Dui: $scope.Dui,
-        Telefono: $scope.Telefono,
-        Email: $scope.Email,
-        Password: $scope.Password
+
             //
         }).success(function (d) {
             $scope.btntext = "Update";
@@ -167,14 +160,24 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             SAlert("Editar", "Registro Modificado", "success", "OK");
             // alert('Resgistro Modificado');
             window.location.href = '../UsuariosHospitales/Index';
-            $scope.NombreCompleto = '',
-            $scope.Apellidos = '',
-            $scope.Direccion = '',
-            $scope.Dui = '',
-            $scope.Telefono = '',
-            $scope.Email = '',
-            $scope.Password = '';
-            ///
+        }).error(function () {
+            alert('Failed');
+        });
+    };
+
+
+
+    // Update record
+    $scope.edit = function () {
+        $scope.btntext = "Please Wait..";
+        $http({
+            method: 'POST',
+            url: '/UsuariosHospitales/Modificar',
+            data: $scope.register
+        }).success(function (d) {
+            $scope.btntext = "Update";
+            $scope.register = null;
+            alert(d);
         }).error(function () {
             alert('Failed');
         });

@@ -36,5 +36,11 @@ namespace EmergenciasChats.APP.Controllers
             int r = bl.Login(en);
             return Content(Convert.ToString(r));
         }
+        public ActionResult Index()
+        {
+            ViewBag.usuarios = bl.ObtenerUsuarios();
+            return View();
+        }
+
     }
 }

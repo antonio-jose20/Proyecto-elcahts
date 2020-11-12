@@ -21,5 +21,12 @@ namespace EmergenciasChats.BL
         {
             return dal.Login(pEn);
         }
+
+      
+        public List<UserAdminEN> ObtenerUsuarios()
+        {
+            return dal.ObtenerUsuarios();
+        }
+
     }
 }

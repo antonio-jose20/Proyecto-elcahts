@@ -22,13 +22,16 @@ namespace EmergenciasChats.pUnitarias
         public void TestAgregarUsuariodHospital()
         {
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-            usuariohEL.NombreCompleto = "Juan";
-            usuariohEL.Apellidos = "perez";
+            usuariohEL.NombreCompleto = "Ramon";
+            usuariohEL.NombreUsuario = "jVillalta";
+            usuariohEL.Apellidos = "Villalta";
             usuariohEL.Email = "jperez2020@gmail.com";
-            usuariohEL.Telefono = "7045-6554";
-            usuariohEL.Direccion = "Avenida Sur Colonia Miramonte";
+            usuariohEL.Telefono = "6545-6554";
+            usuariohEL.Direccion = "Avenida el Salmon";
             usuariohEL.Dui = "09833653-3";
             usuariohEL.Password = "6214";
+            usuariohEL.Imagen = "Melon.jpg";
+            usuariohEL.Estado = true;
 
             int esperado = 1;
             int actual = usuarioHDAL.AgregarUsuarisHospitales(usuariohEL);
@@ -43,18 +46,21 @@ namespace EmergenciasChats.pUnitarias
         public void TestModificarUsuariodHospital()
         {
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-           // usuariohEL = UsuariosHospitalesDAL.GetUsuarioById('01 - 11 - 202017:56:13');
-
-           // return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
-            //usuariohEL.NombreUsuarios = 01 - 11 - 202017:56:13;
-            //usuariohEL.NombreUsuarios = "3";
+            //return Content(Convert.ToString(usuarioshBL.GetUsuarioById(2)));
+            //un de klas dos
+            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(nombreusuario);
+            //usuariohEL =  Convert.ToString(UsuariosHospitalesDAL.GetUsuarioById(id));
+            //usuariohEL.NombreUsuario = 2;
             usuariohEL.NombreCompleto = "Juan Armenta";
-            usuariohEL.Apellidos = "Gomez Moran";
-            usuariohEL.Email = "armentag20@gmail.com";
-            usuariohEL.Telefono = "7873-8754";
-            usuariohEL.Direccion = "Avenida Sur Colonia Buenos Aires";
-            usuariohEL.Dui = "098336636-2";
-            usuariohEL.Password = "54321";
+           // usuariohEL.NombreUsuario = "jVillalta";
+            usuariohEL.Apellidos = "Villalta";
+            usuariohEL.Email = "jperez2020@gmail.com";
+            usuariohEL.Telefono = "6545-6554";
+            usuariohEL.Direccion = "Avenida el Salmon";
+            usuariohEL.Dui = "09833653-3";
+            usuariohEL.Password = "6214";
+            usuariohEL.Imagen = "Sandia.jpg";
+            usuariohEL.Estado = true;
 
 
             int esperado = 1;
@@ -62,29 +68,27 @@ namespace EmergenciasChats.pUnitarias
 
             Assert.AreEqual(esperado, actual);
         }
-        //modificar cliente
-        //Modificar cliente 
-        //[TestMethod]
-        //public void TestModificarUsuarioCliente()
+        ////modificar cliente
+        //public void TestModificarCliente()
         //{
-        //    UsuarioClienteEL usuariohEL = new UsuarioClienteEL();
-        //    usuariohEL = UsuarioClienteDAL.Modificar(01 - 11 - 202017:56:13);
-        //    usuariohEL.NombreUsuarios = 01 - 11 - 202017:56:13;
-        //    //usuariohEL.NombreUsuarios = "3";
-        //    usuariohEL.NombreCompleto = "Juan Armenta";
-        //    usuariohEL.Apellidos = "Gomez Moran";
-        //    usuariohEL.Email = "armentag20@gmail.com";
-        //    usuariohEL.Telefono = "7873-8754";
-        //    usuariohEL.Direccion = "Avenida Sur Colonia Buenos Aires";
-        //    usuariohEL.Dui = "098336636-2";
-        //    usuariohEL.Password = "54321";
+        //    ClienteBE cliente = new ClienteBE();
+        //    cliente = ClienteDAL.ObtenerClientePorId(3);
+        //    cliente.Id = 3;
+        //    cliente.Nombre = "Hernan";
+        //    cliente.Apellido = "Sibirian";
+        //    cliente.Telefono = "6094-6454";
+        //    cliente.Email = "MoranSS@gmail.com";
+        //    cliente.Nick = "SHernan";
+        //    cliente.Pass = "123";
 
 
         //    int esperado = 1;
-        //    int actual = usuarioHDAL.Modificar(usuariohEL);
+        //    int actual = clienteDAl.ModificarCliente(cliente);
 
         //    Assert.AreEqual(esperado, actual);
         //}
+
+   
 
 
 
@@ -107,7 +111,7 @@ namespace EmergenciasChats.pUnitarias
         public void TestObtener()
         {
 
-            int esperado = 2;
+            int esperado = 3;
             int actual = usuarioHDAL.ObtenerUsuarisHospitales().Count;
             Assert.AreEqual(esperado, actual);
         }

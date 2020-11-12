@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using EmergenciasChats.BL;
 using System.Data;
+//imagen
+using System.IO;
+
+
 using EmergenciasChats.EL;
 
 namespace EmergenciasChats.APP.Controllers
@@ -26,8 +30,29 @@ namespace EmergenciasChats.APP.Controllers
         }
 
 
-        public ActionResult Create()
+        public ActionResult Create(HttpPostedFileBase Imagen)
         {
+            /// este es prueba de imagen
+              try
+            {
+                var path = "";
+                if (Imagen.ContentLength > 0)
+                {
+                    if ((Path.GetExtension(Imagen.FileName).ToLower() == ".jpg") || (Path.GetExtension(Imagen.FileName).ToLower() == ".png"))
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/img/perfiles/"), Imagen.FileName);
+
+                    }
+
+                }
+               // AgregarUsuarisHospitales(student);
+                ModelState.AddModelError(string.Empty, "Added Successfully");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+            ////este es prueba de imagen
             return View();
         }
         //modificar
@@ -86,6 +111,25 @@ namespace EmergenciasChats.APP.Controllers
             }
         }
         //
+
+
+            // Update records
+        //public JsonResult update_record(UsuariosHospitalesEL rs)
+        //{
+        //    string res = string.Empty;
+        //    try
+        //    {
+        //        usuarioshBL.Modificar(rs);
+        //        res = "Updated";
+        //    }
+        //    catch (Exception)
+        //    {
+        //        res = "failed";
+        //    }
+        //    return Json(res, JsonRequestBehavior.AllowGet);
+
+        //}
+        ///
 
         [HttpPost]
         public ActionResult EliminarUsuariosHospitales(UsuariosHospitalesEL en)

@@ -27,16 +27,24 @@ namespace EmergenciasChats.DAL
         {
             try
             {
-               // en.NombreUsuarios = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
-                IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
-                return 1;
+                // en.NombreUsuarios = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
+               // en.NombreUsuario = "";
 
-                //
+
                 //IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var response = client.Set("User/" + en.Username, en);
+                //var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
                 //return 1;
-                //
+
+
+                ///////PROBAR NUEVO ME
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+               //var data = en;
+                PushResponse response = client.Push("UsuariosHospitales/" + en.NombreUsuario, en);
+              // data.NombreUsuario = response.Result.name;
+               // SetResponse setResponse = client.Set("UsuariosHospitales/" + data.NombreUsuario, data);
+         
+                return 1;
+                ////////////Probar new metodo
             }
             catch (Exception)
             {
@@ -96,17 +104,17 @@ namespace EmergenciasChats.DAL
         {
             try
             {
-                ////pROPIO METODO
-                // IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var res = client.Get("Hospital/" + id);
-                //UsuarioH _usuarioH = res.ResultAs<UsuarioH>();
-                //return _usuarioH;
-
-
+                //pROPIO METODO
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                FirebaseResponse response = client.Get("UsuariosHospitales/" + id);
-                UsuariosHospitalesEL data = JsonConvert.DeserializeObject<UsuariosHospitalesEL>(response.Body);
-                return (data);
+                var res = client.Get("UsuariosHospitales/" + id);
+                UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
+                return _usuarioH;
+
+
+                //IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                //FirebaseResponse response = client.Get("UsuariosHospitales/" + id);
+                //UsuariosHospitalesEL data = JsonConvert.DeserializeObject<UsuariosHospitalesEL>(response.Body);
+                //return (data);
 
 
             }
