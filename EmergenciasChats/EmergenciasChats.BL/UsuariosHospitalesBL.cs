@@ -11,31 +11,31 @@ namespace EmergenciasChats.BL
    public class UsuariosHospitalesBL
     {
         //instancia de la DAL
-        private UsuariosHospitalesDAL UhDAL = new UsuariosHospitalesDAL();
+        private UsuariosHospitalesDAL UDAL = new UsuariosHospitalesDAL();
 
        
-        public int AgregarUsuarisHospitales(UsuariosHospitalesEL en)
+        public int AgregarUsuariosHospitales(UsuariosHospitalesEL en)
         {
-            return UhDAL.AgregarUsuarisHospitales(en);
+            return UDAL.AgregarUsuariosHospitales(en);
         }
 
         public int EliminarUsuariosHospitales(UsuariosHospitalesEL en)
         {
-            return UhDAL.EliminarUsuariosHospitales(en);
+            return UDAL.EliminarUsuariosHospitales(en);
         }
         //modificar
         public int Modificar(UsuariosHospitalesEL en)
         {
-            return UhDAL.Modificar(en);
+            return UDAL.Modificar(en);
         }
         public List<UsuariosHospitalesEL> ObtenerUsuarisHospitales()
         {
-            return UhDAL.ObtenerUsuarisHospitales();
+            return UDAL.ObtenerUsuarisHospitales();
         }
         //Metodo Obtener por ID
         public UsuariosHospitalesEL GetUsuarioById(string id)
         {
-            return UhDAL.GetUsuarioById(id);
+            return UDAL.GetUsuarioById(id);
         }
 
     }

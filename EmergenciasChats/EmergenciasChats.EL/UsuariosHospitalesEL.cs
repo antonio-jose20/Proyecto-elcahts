@@ -13,7 +13,7 @@ namespace EmergenciasChats.EL
     {
       
         //el nombreusuario me sirvira como id 
-        public string NombreUsuario { get; set; }
+        public string Username { get; set; }
         public string NombreCompleto { get; set; }
         public string Apellidos { get; set; }
       

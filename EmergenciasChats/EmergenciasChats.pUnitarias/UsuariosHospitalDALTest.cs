@@ -23,7 +23,7 @@ namespace EmergenciasChats.pUnitarias
         {
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
             usuariohEL.NombreCompleto = "Ramon";
-            usuariohEL.NombreUsuario = "jVillalta";
+            usuariohEL.Username = "jVillalta";
             usuariohEL.Apellidos = "Villalta";
             usuariohEL.Email = "jperez2020@gmail.com";
             usuariohEL.Telefono = "6545-6554";
@@ -34,7 +34,7 @@ namespace EmergenciasChats.pUnitarias
             usuariohEL.Estado = true;
 
             int esperado = 1;
-            int actual = usuarioHDAL.AgregarUsuarisHospitales(usuariohEL);
+            int actual = usuarioHDAL.AgregarUsuariosHospitales(usuariohEL);
 
             //procedimiento de agregar 
             Assert.AreEqual(esperado, actual);
@@ -48,9 +48,9 @@ namespace EmergenciasChats.pUnitarias
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
             //return Content(Convert.ToString(usuarioshBL.GetUsuarioById(2)));
             //un de klas dos
-            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(nombreusuario);
-            //usuariohEL =  Convert.ToString(UsuariosHospitalesDAL.GetUsuarioById(id));
-            //usuariohEL.NombreUsuario = 2;
+            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(id);
+            ////usuariohEL =  Convert.ToString(UsuariosHospitalesDAL.GetUsuarioById(id));
+            //usuariohEL.Username 2;
             usuariohEL.NombreCompleto = "Juan Armenta";
            // usuariohEL.NombreUsuario = "jVillalta";
             usuariohEL.Apellidos = "Villalta";

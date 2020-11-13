@@ -65,10 +65,26 @@ namespace EmergenciasChats.APP.Controllers
 
 
         [HttpPost]
-        public ActionResult AgregarUsuarisHospitales(UsuariosHospitalesEL en)
+        public ActionResult AgregarUsuariosHospitales(UsuariosHospitalesEL en)
         {
-            int r = usuarioshBL.AgregarUsuarisHospitales(en);
-            return Content(Convert.ToString(r));
+
+            try
+            {
+                if (en != null)
+                {
+  
+                    int r = usuarioshBL.AgregarUsuariosHospitales(en);
+                    return Content(Convert.ToString(r));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
 
@@ -106,29 +122,34 @@ namespace EmergenciasChats.APP.Controllers
                 }
             }
             catch (Exception)
-            {
+            { 
                 return null;
             }
         }
         //
 
 
-            // Update records
+        // Update records
         //public JsonResult update_record(UsuariosHospitalesEL rs)
-        //{
-        //    string res = string.Empty;
-        //    try
-        //    {
-        //        usuarioshBL.Modificar(rs);
-        //        res = "Updated";
-        //    }
-        //    catch (Exception)
-        //    {
-        //        res = "failed";
-        //    }
-        //    return Json(res, JsonRequestBehavior.AllowGet);
+        public ActionResult Edit(UsuariosHospitalesEL en)
+        {
+            string res = string.Empty;
+            if   (en!= null)
+            try
+            {
+                    //usuarioshBL.Modificar(en);
+                    int r = usuarioshBL.Modificar(en);
+                    return Content(Convert.ToString(r));
 
-        //}
+            //      res = "Updated";
+            }
+            catch (Exception)
+            {
+                res = "failed";
+            }
+            return Json(res, JsonRequestBehavior.AllowGet);
+
+        }
         ///
 
         [HttpPost]
@@ -171,7 +192,70 @@ namespace EmergenciasChats.APP.Controllers
             
             //return Content(Convert.ToString(r));
         }
-    
+
+
+
+
+
+
+
+
+        //"image" is the name of the html fileupload element subir imagen 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(UsuariosHospitalesEL udstillingsmodel, HttpPostedFileBase image)
+        //{ 
+        //    if (ModelState.IsValid)
+        //    {
+        //        //upload image
+        //        if (image != null && image.ContentLength > 0)
+        //        {
+        //            try
+        //            {
+        //                //Here, I create a custom name for uploaded image
+        //                //string file_name = udstillingsmodel.titel + Path.GetExtension(image.FileName);
+        //                string file_name = udstillingsmodel.NombreCompleto + Path.GetExtension(image.FileName);
+
+        //                string path = Path.Combine(Server.MapPath("~/Content/images"), file_name);
+        //                image.SaveAs(path);
+
+        //                // image_path is nvarchar type db column. We save the name of the file in that column. 
+        //                udstillingsmodel.image_path = file_name;
+
+                       
+        //            }
+        //            catch (Exception )
+        //            {
+        //                return null;
+        //            }
+        //        }
+
+
+        //        int r = usuarioshBL.AgregarUsuariosHospitales(udstillingsmodel);
+        //        return Content(Convert.ToString(r));
+        //        //db.Udstillingsmodels.Add(udstillingsmodel);
+        //        //db.SaveChanges();
+        //        //return RedirectToAction("Index");
+        //    }
+
+        //    return View(udstillingsmodel);
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

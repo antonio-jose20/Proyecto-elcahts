@@ -2,48 +2,99 @@
 
 app.controller("UsuariosHospitales", function ($scope, $http) {
 
-    //Agregar
-    $scope.AgregarUsuarisHospitales = function () {
-        $http({
-            method: 'Post',
-            url: '../UsuariosHospitales/AgregarUsuarisHospitales',
-            data: {
+    ////Agregar
+    //$scope.AgregarUsuarisHospitales = function () {
+    //    $http({
+    //        method: 'Post',
+    //        url: '../UsuariosHospitales/AgregarUsuarisHospitales',
+    //        data: {
 
-                //NombreUsuarios: '',
-                NombreCompleto: $scope.NombreCompleto,
-                Apellidos: $scope.Apellidos,
-                NombreUsuario: $scope.NombreUsuario,
-                Direccion: $scope.Direccion,
-                Dui: $scope.Dui,
-                Telefono: $scope.Telefono,
-                Email: $scope.Email,
-                Imagen: $scope.Imagen,
-                Estado: $scope.Estado,
-                Password: $scope.Password
-            }
-        }).then(function success(r) {
-            if (r.data == 1) {
-                //alert('Resgistro Agregado');
-                console.log("success: " + r);
-                SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
-                //
-                window.location.href = '../UsuariosHospitales/Index';
-                $scope.NombreUsuario = "",
-                //$scope.NombreUsuario,
-                $scope.NombreCompleto = '',
-                $scope.Apellidos = '',
-                $scope.Direccion = '',
-                $scope.Dui = '',
-                $scope.Telefono = '',
-                $scope.Email = '',
-                $scope.Password = '';
-            }
-            else {
-                SAlert("Error", "No Guardado", "success", "OK");
-                //alert(' No Agregego El Resgistro');
-            }
-        });
-    };
+    //           // NombreUsuarios: '',
+    //            NombreCompleto: $scope.NombreCompleto,
+    //            Apellidos: $scope.Apellidos,
+    //            NombreUsuario: $scope.NombreUsuario,
+    //            Direccion: $scope.Direccion,
+    //            Dui: $scope.Dui,
+    //            Telefono: $scope.Telefono,
+    //            Email: $scope.Email,
+    //            Imagen: $scope.Imagen,
+    //            Estado: $scope.Estado,
+    //            Password: $scope.Password
+    //        }
+    //    }).then(function success(r) {
+    //        if (r.data == 1) {
+    //            //alert('Resgistro Agregado');
+    //            console.log("success: " + r);
+    //            SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
+    //            //
+    //            window.location.href = '../UsuariosHospitales/Index';
+    //            $scope.NombreUsuario = "",
+    //            //$scope.NombreUsuario,
+    //            $scope.NombreCompleto = '',
+    //            $scope.Apellidos = '',
+    //            $scope.Direccion = '',
+    //            $scope.Dui = '',
+    //            $scope.Telefono = '',
+    //            $scope.Email = '',
+    //            $scope.Password = '';
+    //        }
+    //        else {
+    //            SAlert("Error", "No Guardado", "success", "OK");
+    //            //alert(' No Agregego El Resgistro');
+    //        }
+    //    });
+    //};
+
+
+
+    ///////////////////////////////////7
+
+
+    $scope.AgregarUsuariosHospitales = function () {
+            $http({
+                method: 'Post',
+                url: '../UsuariosHospitales/AgregarUsuariosHospitales',
+                data: {
+                    //NombreCompleto: $scope.NombreCompleto,
+                    //DUI: $scope.DUI,
+                    //Username: $scope.Username,
+                    //Password: $scope.Password
+                    NombreCompleto: $scope.NombreCompleto,
+                    Apellidos: $scope.Apellidos,
+                    Username: $scope.Username,
+                    Direccion: $scope.Direccion,
+                    Dui: $scope.Dui,
+                    Telefono: $scope.Telefono,
+                    Email: $scope.Email,
+                    Imagen: $scope.Imagen,
+                    Estado: $scope.Estado,
+                    Password: $scope.Password
+                }
+            }).then(function success(r) {
+                if (r.data == 1) {
+                    // window.location.href = '../Admin/Index';
+                    //alert('Resgistro Agregado');
+                    console.log("success: " + r);
+                    SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
+                    window.location.href = '../UsuariosHospitales/Index';
+                    $scope.Username = "",
+                    //$scope.NombreUsuario,
+                    $scope.NombreCompleto = '',
+                    $scope.Apellidos = '',
+                    $scope.Direccion = '',
+                    $scope.Dui = '',
+                    $scope.Telefono = '',
+                    $scope.Email = '',
+                    $scope.Password = '';
+
+                }
+                else {
+                    //alert('Resgistro No Agregado');
+                    SAlert("Error", "No Guardado", "success", "OK");
+                }
+            });
+        };
+    //////////////////////////////////7
     //MODIFICAR
   
     ////redirecciona
@@ -62,7 +113,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 method: 'Post',
                 url: '../UsuariosHospitales/Modificar/' + id,
                 data: {
-                    NombreUsuario: id,
+                    Username: id,
                     NombreCompleto: $scope.NombreCompleto,
                     //Apellidos: $scope.UsuariosClientes.Apellidos,
                     Apellidos: $scope.Apellidos,
@@ -110,7 +161,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 method: 'Post',
                 url: '../UsuariosHospitales/EliminarUsuariosHospitales',
                 data: {
-                    NombreUsuario: id
+                    Username: id
                 }
             }).then(function success(r) {
                 if (r.data == 1) {

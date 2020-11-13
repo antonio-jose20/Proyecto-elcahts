@@ -69,17 +69,15 @@
             <div class="form__terminos">
                 <div class="maxl">
                     <label class="radio inline">
-                        <input type="hidden" @*name="Estado"*@ ng-model="Estado" id="Estado" value="True" checked>
+                        <input type="hidden" name="Estado" ng-model="Estado" id="Estado" value="True" checked>
                     </label>
                 </div>
             </div>
 
             <div class="col-md-12 form-group">
-                @*<label for="name">Nombre Completo</label>*@
                 <input ng-model="NombreCompleto"   type="text"  class="form-control" placeholder="Nombre Completo" required/>
             </div>
             <div class="col-md-12 form-group">
-                @*<label>Apellidos</label>*@
                 <input ng-model="Apellidos"   type="text"  class="form-control" placeholder="Apellidos" required/>
             </div>
             @*<div class="col-md-12 form-group">
@@ -87,25 +85,25 @@
                 <input ng-model="NombreUsuario"   type="text"  class="form-control" placeholder="Usuario"  minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+"  />
             </div>*@
 
-           
             <div class="col-md-12 form-group">
-                @*<label>Direccion</label>*@
+              
+                <input class="form-control" ng-model="Username" type="text" placeholder="Usuario"> 
+            </div>
+
+
+            <div class="col-md-12 form-group">
                 <input ng-model="Direccion"   type="text"  class="form-control" placeholder="Direccion" required/>
             </div>
             <div class="col-md-12 form-group">
-                @*<label>Dui</label>*@
                 <input ng-model="Dui" class="form-control" placeholder="Dui"  required/>
             </div>
             <div class="col-md-12 form-group">
-                @*<label for="tel">Telefono</label>*@
                 <input   pattern="^[9|8|7|6]\d{7}$" ng-model="Telefono" class="form-control"  placeholder="Telefono" required/>
             </div>
             <div class="col-md-12 form-group">
-                @*<label for="email">E-Mail <span>(required)</span></label>*@
                 <input type="text" id="email"  minlength="3" ng-model="Email" class="form-control" placeholder="correo"  required/>
             </div>
             <div class="col-md-12 form-group">
-                @*<label>Password</label>*@
                 <input ng-model="Password" class="form-control"   type="password" placeholder="Password"  required/>
             </div>
 
@@ -126,7 +124,7 @@
 
             <div class="col-md-12 form-group">
                 @*<p class="text-center">*@
-                    <button  type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuarisHospitales()">Guardar</button>
+                    <button  type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuariosHospitales()">Guardar</button>
                 @*</p>*@
             </div>
         
@@ -145,19 +143,6 @@
 
             </script>
         </form>
-
- 
-
-
-   
-    @*<script> 
-    $(document).ready(function() {
-    $("#basic-form").validate();
-    });
-    </script>*@
-
-    
-
 
 
     <div class="container body-content">

@@ -23,39 +23,37 @@ namespace EmergenciasChats.DAL
         };
 
 
-        public int AgregarUsuarisHospitales(UsuariosHospitalesEL en)
+        //public int AgregarUsuarisHospitales(UsuariosHospitalesEL en)  AgregarUsuariosHospitales
+        //{
+        //    try
+        //    {
+
+        //        en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
+        //        IFirebaseClient client = new FireSharp.FirebaseClient(config);
+        //        var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
+        //        return 1;
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+        //agrgar
+
+        public int AgregarUsuariosHospitales(UsuariosHospitalesEL en)
         {
             try
             {
-
-                en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
+                //var response = client.Set("User/UserAdmin/" + en.Username, en);
+                var response = client.Set("UsuariosHospitales/" + en.Username, en);
                 return 1;
-                //en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
-               //////////////////////////////////////////////////7 en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
- 
-
-
-                //IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
-                //return 1;
-
-
-                ///////PROBAR NUEVO ME
-               //////////////////////////////////////////////// IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var data = en;
-                /*SetResponse*/
-                ////////////////////////////////////////var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
-              // data.NombreUsuario = response.Result.name;
-               // SetResponse setResponse = client.Set("UsuariosHospitales/" + data.NombreUsuario, data);
-         
-                ////////////////////////////////////////////////////////////////return 1;
-                ////////////Probar new metodo
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                return 0;
             }
         }
 
@@ -84,7 +82,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Update("UsuariosHospitales/" + en.NombreUsuario, en);
+                var response = client.Update("UsuariosHospitales/" + en.Username, en);
                 return 1;
             }
             catch (Exception)
@@ -98,7 +96,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Delete("UsuariosHospitales/" + en.NombreUsuario);
+                var response = client.Delete("UsuariosHospitales/" + en.Username);
                 return 1;
             }
             catch (Exception)

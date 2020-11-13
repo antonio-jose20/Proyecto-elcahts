@@ -42,7 +42,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Id usuario</th>
+                            <th scope="col">Usuario</th>
                             <th scope="col">Nombre </th>
                             @*<th scope="col">Nombre Usuario </th>*@
                             <th scope="col">Apelllidos</th>
@@ -54,8 +54,8 @@
                     <tbody>
                         @foreach (var item in UsuariosHospitales)
                         {
-                            <tr>
-                                <th scope="row">@item.NombreUsuario</th> 
+                            <tr> 
+                                <th scope="row">@item.Username</th> 
                                 <td>@item.NombreCompleto</td>
                                 @*<td>@item.NombreUsuario</td>*@
                                 <td>@item.Apellidos</td>
@@ -64,11 +64,11 @@
                                 <td>
                                     |
                       
-                                    <a  class="btn btn-success" href="/UsuariosHospitales/Modificar?id={{@item.NombreUsuario}}">Update</a>
-                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=@item.NombreUsuario">
+                                    @*<a  class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">Update</a>*@
+                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=@item.Username">
                                         <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i></a>
 
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.NombreUsuario")'>Eliminar</button>
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar</button>
 
 
 

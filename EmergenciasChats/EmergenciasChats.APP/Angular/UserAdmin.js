@@ -25,6 +25,15 @@ app.controller("UserAdmin", function ($scope, $http) {
         });
     };
 
+
+
+
+
+
+
+
+
+
     $scope.Login = function () {
         $http({
             method: 'Post',
