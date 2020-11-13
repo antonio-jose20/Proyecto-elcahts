@@ -18,6 +18,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 Telefono: $scope.Telefono,
                 Email: $scope.Email,
                 Imagen: $scope.Imagen,
+                Estado: $scope.Estado,
                 Password: $scope.Password
             }
         }).then(function success(r) {
@@ -69,6 +70,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                     Dui: $scope.Dui,
                     Telefono: $scope.Telefono,
                     Email: $scope.Email,
+                    Estado: $scope.Estado,
                     Password: $scope.Password
                 }
             }).then(function success(r) {

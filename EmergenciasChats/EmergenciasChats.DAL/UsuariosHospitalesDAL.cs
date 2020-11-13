@@ -27,8 +27,14 @@ namespace EmergenciasChats.DAL
         {
             try
             {
-                // en.NombreUsuarios = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
-               // en.NombreUsuario = "";
+
+                en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
+                return 1;
+                //en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
+               //////////////////////////////////////////////////7 en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
+ 
 
 
                 //IFirebaseClient client = new FireSharp.FirebaseClient(config);
@@ -37,18 +43,19 @@ namespace EmergenciasChats.DAL
 
 
                 ///////PROBAR NUEVO ME
-                IFirebaseClient client = new FireSharp.FirebaseClient(config);
-               //var data = en;
-                PushResponse response = client.Push("UsuariosHospitales/" + en.NombreUsuario, en);
+               //////////////////////////////////////////////// IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                //var data = en;
+                /*SetResponse*/
+                ////////////////////////////////////////var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
               // data.NombreUsuario = response.Result.name;
                // SetResponse setResponse = client.Set("UsuariosHospitales/" + data.NombreUsuario, data);
          
-                return 1;
+                ////////////////////////////////////////////////////////////////return 1;
                 ////////////Probar new metodo
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return 0;
+                throw e;
             }
         }
 
