@@ -1,13 +1,10 @@
 ﻿
 @{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
     Layout = null;
     ViewBag.Title = "Index";
     var UsuariosHospitales = ViewBag.usuariosHospitales;
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 
 <!DOCTYPE html>
 <html ng-app="App">
@@ -23,28 +20,67 @@
     <script src="~/Scripts/sweetalert2.all.min.js"></script> 
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/UsuariosHospitales.js"></script>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
+    <!--icon eye-->
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
 <body ng-controller="UsuariosHospitales">
 
+    <!--nav-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Chats Web</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "UsuariosClientes")">Usuarios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Configuracion", "UsuariosHospitales")">Configuraciones</a>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Admin")" >Cerrar Sesion</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!--nav-->
+    <br />
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid">      
                     <div class="container">
-                        <h1 class="display-4">Lista de usuarios </h1>
+                        <h1 class="display-4">Usuarios de Hospitales</h1>
                         <p class="lead">Descripcion.</p>
                         <button type="button" class="btn btn-outline-success" ng-click="agregarnuevo()">Agregar</button>
                     </div>
                 </div>
             </div>
-
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Nuevo</button>
             <div class="col-md-12">
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">Nombres</th>
                             <th scope="col">Usuario</th>
-                            <th scope="col">Nombre </th>
-                            @*<th scope="col">Nombre Usuario </th>*@
                             <th scope="col">Apelllidos</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Correo</th>
@@ -55,43 +91,150 @@
                         @foreach (var item in UsuariosHospitales)
                         {
                             <tr> 
-                                <th scope="row">@item.Username</th> 
-                                <td>@item.NombreCompleto</td>
-                                @*<td>@item.NombreUsuario</td>*@
+                                <th scope="row">@item.NombreCompleto</th>
+                                <th>@item.Username</th> 
                                 <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td>
                                 <td>
                                     |
-                      
-                                    @*<a  class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">Update</a>*@
                                     <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=@item.Username">
-                                        <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i></a>
-
+                                    <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i></a>
                                     <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar</button>
-
-
-
                                 </td>
-
-
                             </tr>
                         }
-</tbody>
+                  </tbody>
                 </table>
 
-            </div>
-
-
-
-
+           </div>
         </div>
+
+        <!--Modal de boostrap-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form  @*ng-controller="UsuariosHospitales"*@>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="Estado" ng-model="Estado" value="True">
+                            </div>
+          
+                            <div class="col-md-12 form-group">
+                                <input ng-model="NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
+                            </div>
+                           
+                            <div class="col-md-12 form-group">
+
+                                <input class="form-control" ng-model="Username" type="text" placeholder="Nombre Usuario">
+                            </div>
+
+
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Direccion" type="text" class="form-control" placeholder="Direccion" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Dui" class="form-control" placeholder="Dui" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input pattern="^[9|8|7|6]\d{7}$" ng-model="Telefono" class="form-control" placeholder="Telefono" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" id="email" minlength="3" ng-model="Email" class="form-control" placeholder="correo" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="departamento">   </label>
+                                    <input type="password" ng-model="Password" class="form-control password1" value="clave" placeholder="Ingrese una contraseña" />
+                                    <span class="fa fa-fw fa-eye password-icon show-password"></span>
+                            </div>
+                            <!--Imagen-->
+                            <div class="col-md-12 form-group">
+                                <label class="control-label col-md-2" for="File">Imagen</label>
+                                <div class="col-md-10">
+                                    <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <img id="ImagenR" name="ImagenR">
+                            <input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />
+                            <!--imagen-->
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center">
+                           <button type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuariosHospitales()">Guardar</button>                  
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--script-->
+        <script>
+            ///RECORTAR END SAVE IMAGEN 
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
+                //MODAL DE REGISTRO
+                $('#exampleModal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) 
+                    var recipient = button.data('whatever') 
+                    var modal = $(this)
+                    modal.find('.modal-title').text(' Nuevo Registro ' + recipient)
+                    modal.find('.modal-body input').val(recipient)
+                })
+            
+            ///ICONO MOSTRAR   EYE
+        window.addEventListener("load", function () {
+
+            // icono para mostrar contraseña
+            showPassword = document.querySelector('.show-password');
+            showPassword.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password1 = document.querySelector('.password1');
+                password2 = document.querySelector('.password2');
+
+                if (password1.type === "text") {
+                    password1.type = "password"
+                    password2.type = "password"
+                    showPassword.classList.remove('fa-eye-slash');
+                } else {
+                    password1.type = "text"
+                    password2.type = "text"
+                    showPassword.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+        </script>
+        <!--MODAL-->
 
     </div>
 
     <div class="container body-content">
         <footer>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+            <p class="text-center">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 </body>

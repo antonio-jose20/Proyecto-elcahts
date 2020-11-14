@@ -180,7 +180,6 @@
     <Content Include="Views\UsuariosClientes\Index.cshtml" />
     <Content Include="Views\UsuariosClientes\Create.cshtml" />
     <Content Include="Views\UsuariosClientes\Modificar.cshtml" />
-    <Content Include="Views\Admin\Iniciarsesion.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\UserAdmin\AgregarUser.cshtml" />
     <Content Include="Views\UserAdmin\Login.cshtml" />

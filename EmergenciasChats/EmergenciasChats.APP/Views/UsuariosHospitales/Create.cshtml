@@ -19,13 +19,15 @@
     <script src="~/Scripts/sweetalert2.all.min.js"></script>
     <script src="~/Angular/angular.js"></script>
     <script src="~/Angular/UsuariosHospitales.js"></script>
-    @*<script src="~/scripts/email.js" ></script>*@
- 
+    <!--icon eye-->
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="~/Scripts/iEdit.min.js"></script>
     <link href="~/Content/Form.css" rel="stylesheet" />
-    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
+    @*<link href="~/Content/iEdit.min.css" rel="stylesheet" />*@
 </head>
 <body ng-controller="UsuariosHospitales">
 
@@ -69,7 +71,7 @@
             <div class="form__terminos">
                 <div class="maxl">
                     <label class="radio inline">
-                        <input type="hidden" name="Estado" ng-model="Estado" id="Estado" value="True" checked>
+                        <input type="hidden" ng-model="Estado" id="Estado" value="True" checked>
                     </label>
                 </div>
             </div>
@@ -80,14 +82,9 @@
             <div class="col-md-12 form-group">
                 <input ng-model="Apellidos"   type="text"  class="form-control" placeholder="Apellidos" required/>
             </div>
-            @*<div class="col-md-12 form-group">
-       
-                <input ng-model="NombreUsuario"   type="text"  class="form-control" placeholder="Usuario"  minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+"  />
-            </div>*@
-
             <div class="col-md-12 form-group">
               
-                <input class="form-control" ng-model="Username" type="text" placeholder="Usuario"> 
+                <input class="form-control" ng-model="Username" type="text" placeholder="Nombre Usuario"> 
             </div>
 
 
@@ -103,30 +100,33 @@
             <div class="col-md-12 form-group">
                 <input type="text" id="email"  minlength="3" ng-model="Email" class="form-control" placeholder="correo"  required/>
             </div>
+            <!--icon eye-->
             <div class="col-md-12 form-group">
-                <input ng-model="Password" class="form-control"   type="password" placeholder="Password"  required/>
+                <label for="departamento">
+                    <input type="password" ng-model="Password" class="form-control password1" value="clave" placeholder="Ingrese una contraseña" />
+                    <span class="fa fa-fw fa-eye password-icon show-password"></span>
+                </label>
             </div>
-
             <!--Imagen-->
             <div class="col-md-12 form-group">
-                <label for="File">Imagen</label>
-      
+                <label class="control-label col-md-2" for="File">Imagen</label>
+                <div class="col-md-10">
                     <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
                     <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
-        
+                </div>
             </div>
 
             <img id="ImagenR" name="ImagenR">
-            @*<input type="hidden" name="Imagen" id="Imagen"/>*@
-            <input type="file" class="custom-file-input  form-control-lg"  ng-model="Imagen" @*class="form-control"*@ id="Imagen" />
+            @*<input type="hidden" name="Imagen" id="Imagen" />*@
+            <input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />
             <!--imagen-->
-           
 
             <div class="col-md-12 form-group">
                 @*<p class="text-center">*@
                     <button  type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuariosHospitales()">Guardar</button>
                 @*</p>*@
             </div>
+
         
             <script>
 
@@ -142,8 +142,37 @@
             });
 
             </script>
+
+
         </form>
 
+    <!--icon eye-->
+    <script>
+        window.addEventListener("load", function () {
+
+            // icono para mostrar contraseña
+            showPassword = document.querySelector('.show-password');
+            showPassword.addEventListener('click', () => {
+
+                // elementos input de tipo clave
+                password1 = document.querySelector('.password1');
+                password2 = document.querySelector('.password2');
+
+                if (password1.type === "text") {
+                    password1.type = "password"
+                    password2.type = "password"
+                    showPassword.classList.remove('fa-eye-slash');
+                } else {
+                    password1.type = "text"
+                    password2.type = "text"
+                    showPassword.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
+    </script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
 
     <div class="container body-content">
         <footer>

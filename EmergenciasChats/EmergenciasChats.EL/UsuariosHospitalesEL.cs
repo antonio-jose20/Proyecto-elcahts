@@ -26,6 +26,7 @@ namespace EmergenciasChats.EL
 
         [DisplayName("Imagen")]
         public string Imagen { get; set; }
+        
 
         public string Password { get; set; }
         public bool Estado { get; set; }

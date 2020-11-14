@@ -26,8 +26,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!--ey-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--icon eye-->
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
     <link href="~/Content/sweetalert2.css" rel="stylesheet" />
     <script src="~/Scripts/sweetalert2.all.min.js"></script> 
     <script src="~/Angular/angular.js"></script>
@@ -37,6 +39,12 @@
         .font {
             background-image: url('../../Content/Images/Hospital.jpg');
         }
+        .password-icon {
+               float: right;
+              position: relative;
+              margin: -25px 10px 0 0;
+              cursor: pointer;
+       }
     </style>
 </head>
 <body class="font" ng-controller="Admin">
@@ -47,28 +55,22 @@
         <div class="row">
             <div class="col-md-4"></div>
        
-            <div class="col-md-4">
+            <div class="col-md-4" autocomplete="off">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
                         <br />
-                        <div class="row"  autocomplete="off" >
-                            <div class="col-md-12 form-group">
-                                <label for="email">Email address</label>
-                                <input id="Email" class="form-control" ng-model="Usuario" type="text" placeholder="Usuario" autofocus="autofocus"  required>
+                        <div class="row">
+                            <div class="col-md-12 form-group" style="text-align:center">
+                                <label for="email">Usuario</label>
+                                <input id="Email" class="form-control" ng-model="Usuario" type="text" placeholder="correo o nombre Usuario " autofocus="autofocus"  required>
                             </div>
-                            @*<div class="col-md-12 form-group">
-                                <label for="email">Contraseña</label>
-                                <input id="Email" class="form-control" ng-model="Password" type="text" placeholder="Contraseña" required>
-                            </div>*@
-                            <label for="email"> Contraseña</label>
-                                <div class="col-md-12 form-group">
+                            <div class="col-md-12 form-group" style="text-align:center">
+                                <label for="departamento"> password </label>
+                                    <input  id="Email" type="password" ng-model="Password" class="form-control password1" value="clave" placeholder="Ingresa tu contraseña" />
+                                    <span class="fa fa-fw fa-eye password-icon show-password"></span>
                                
-                                    <input type="Password" class="form-control" id="Password" ng-model="Password" placeholder="Digite su contraseña" required />
-                                    <button id="ShowPassword" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                                    @*@Html.ValidationMessageFor(model => model.Password, "", new { @class = "form__input" })*@
-
-                                </div>
+                            </div>
                    
 
                             <div class="col-md-12">
@@ -102,27 +104,31 @@
         </div>
     </div>
 
+    <!--icon eye-->
+    <script>
+        window.addEventListener("load", function () {
 
+            // icono para mostrar contraseña
+            showPassword = document.querySelector('.show-password');
+            showPassword.addEventListener('click', () => {
 
-    <!--mostrar contraseña-->
-    <script type="text/javascript">
-    function mostrarPassword() {
-           var cambio = document.getElementById("Password");
-		if(cambio.type == "Password"){
-			cambio.type = "text";
-			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-		}else{
-			cambio.type = "password";
-			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-		}
-	}
+                // elementos input de tipo clave
+                password1 = document.querySelector('.password1');
+                password2 = document.querySelector('.password2');
 
-	$(document).ready(function () {
-	//CheckBox mostrar contraseña
-	$('#ShowPassword').click(function () {
-		$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'Password');
-	});
-   });
+                if (password1.type === "text") {
+                    password1.type = "password"
+                    password2.type = "password"
+                    showPassword.classList.remove('fa-eye-slash');
+                } else {
+                    password1.type = "text"
+                    password2.type = "text"
+                    showPassword.classList.toggle("fa-eye-slash");
+                }
+
+            })
+
+        });
     </script>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>

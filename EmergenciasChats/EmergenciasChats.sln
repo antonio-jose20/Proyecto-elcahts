@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.EL", "Emer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.DAL", "EmergenciasChats.DAL\EmergenciasChats.DAL.csproj", "{BFCB8ABA-61D3-4F1B-A6E8-BEA14474E23C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.WEB", "EmergenciasChats.WEB\EmergenciasChats.WEB.csproj", "{0A57355B-2C47-427A-84FD-D3AAB375AF54}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.BL", "EmergenciasChats.BL\EmergenciasChats.BL.csproj", "{A48E4F75-C401-4F91-B213-E3A262642AB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergenciasChats.APP", "EmergenciasChats.APP\EmergenciasChats.APP.csproj", "{9EF9529F-9E0B-4A0A-937B-76A6154F210A}"
@@ -29,10 +27,6 @@ Global
 		{BFCB8ABA-61D3-4F1B-A6E8-BEA14474E23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFCB8ABA-61D3-4F1B-A6E8-BEA14474E23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFCB8ABA-61D3-4F1B-A6E8-BEA14474E23C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A57355B-2C47-427A-84FD-D3AAB375AF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A57355B-2C47-427A-84FD-D3AAB375AF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A57355B-2C47-427A-84FD-D3AAB375AF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A57355B-2C47-427A-84FD-D3AAB375AF54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A48E4F75-C401-4F91-B213-E3A262642AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A48E4F75-C401-4F91-B213-E3A262642AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A48E4F75-C401-4F91-B213-E3A262642AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
