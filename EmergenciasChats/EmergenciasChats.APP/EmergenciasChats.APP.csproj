@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="Angular\Admin.js" />
     <Content Include="Angular\angular.js" />
+    <Content Include="Angular\EditarUsuarios.js" />
     <Content Include="Angular\Hospital.js" />
     <Content Include="Angular\UserAdmin.js" />
     <Content Include="Angular\Usuariosclientes.js" />

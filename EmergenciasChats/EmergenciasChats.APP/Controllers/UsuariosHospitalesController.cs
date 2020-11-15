@@ -73,31 +73,6 @@ namespace EmergenciasChats.APP.Controllers
         [HttpPost]
         public ActionResult agregar(UsuariosHospitalesEL en, HttpPostedFileBase Imagen)
         {
-
-            /// este es prueba de imagen
-            //try
-            //{
-                //var path = "";
-                //if (Imagen.ContentLength > 0)
-                //{
-                //    if ((Path.GetExtension(Imagen.FileName).ToLower() == ".jpg") || (Path.GetExtension(Imagen.FileName).ToLower() == ".png"))
-                //    {
-                //        // path = Path.Combine(Server.MapPath("~/Content/img/perfiles/"), Imagen.FileName);
-                //        path = Path.Combine(Server.MapPath("~/Content/Images/"), Imagen.FileName);
-
-                //    }
-
-                //}
-                ////////////////////////////////////////////// AgregarUsuarisHospitales(student);
-            //    ModelState.AddModelError(string.Empty, "Added Successfully");
-            //}
-            //catch (Exception ex)
-            //{
-            //    ModelState.AddModelError(string.Empty, ex.Message);
-            //}
-            ////////////////este es prueba de imagen
-
-            //////
             try
             {
                 ///
