@@ -16,8 +16,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="Scripts/jquery-1.8.2.min.js" type="text/javascript" lang="ja"></script>
-    <script src="JavaScript13.js" type="text/javascript" lang="ja"></script> 
+   <!--<script src="Scripts/jquery-1.8.2.min.js" type="text/javascript" lang="ja"></script>-->
+
+    <!--<link rel="stylesheet" href="/w3css/4/w3.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    @*<script src="JavaScript13.js" type="text/javascript" lang="ja"></script>*@ 
 
     <link href="~/Content/sweetalert2.css" rel="stylesheet" />
     <script src="~/Scripts/sweetalert2.all.min.js"></script> 
@@ -41,7 +45,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">Home</a>
+                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">Home
+                        <span class="glyphicon glyphicon-home"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "UsuariosClientes")">Usuarios</a>
@@ -78,8 +83,11 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Nuevo</button>
-            <div class="col-md-12">
-                <table class="table">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="">DETALLE</button>
+            @*<div class="col-md-12">*@
+            <div class="table-responsive">
+                @*<table class="table">*@
+                <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Nombres</th>
@@ -93,30 +101,38 @@
                     <tbody>
                         @foreach (var item in UsuariosHospitales)
                         {
-                            <tr> 
+                            <tr>
                                 <th scope="row">@item.NombreCompleto</th>
-                                <th>@item.Username</th> 
+                                <th>@item.Username</th>
                                 <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td>
                                 <td>
                                     |
-                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=@item.Username">
-                                    <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i></a>
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar</button>
+                                    @*<a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=(@item.Username)">
+                                        <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i>
+                                    </a>*@
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
+                                    <i class="glyphicon glyphicon-basura"> </i>
+                                    </button>
+
+                                    <button type="button" class="w3-btn w3-ripple" ng-click="EditData(@item.Username)">&#9998; Edit</button>
+
+
+
+
+                                    <a   class="btn btn-success" href="/UsuariosHospitales/Modificar?id={item.Username}"><i class="fas fa-edit"></i></a>
+                               
+
                                 </td>
 
-                                <!--p editar-->
-                                <td> <input type="button" value="Edit" class="btn btn-outline-success"  ng-click="EditData(item.Username)"/> 
-                                @*<input type="button" value="Delete" ng-click="DeleteData(e.Id)" />*@
-                                 </td>
-                                <!--p Editar-->
                             </tr>
                         }
-                  </tbody>
+                    </tbody>
                 </table>
+            </div>
 
-           </div>
+           @*</div>*@
         </div>
 
         <!--Modal de boostrap-->
@@ -221,15 +237,15 @@
 
                 // elementos input de tipo clave
                 password1 = document.querySelector('.password1');
-                password2 = document.querySelector('.password2');
+               // password2 = document.querySelector('.password2');
 
                 if (password1.type === "text") {
                     password1.type = "password"
-                    password2.type = "password"
+                   /// password2.type = "password"
                     showPassword.classList.remove('fa-eye-slash');
                 } else {
                     password1.type = "text"
-                    password2.type = "text"
+                   // password2.type = "text"
                     showPassword.classList.toggle("fa-eye-slash");
                 }
 
@@ -238,6 +254,61 @@
         });
         </script>
         <!--MODAL-->
+
+
+
+        <!--Modal de boostrap detalle-->
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form @*ng-controller="UsuariosHospitales"*@>
+
+
+
+                            <div ng-app="myApp" ng-controller="UsuariosHospitales">
+
+                                <p>Usuario : {{Username}}</p>
+                                <p>Nombre : {{NombreCompleto}}</p>
+                                <p>Correo : {{Email}}</p>
+
+                            </div>
+
+                                                                              
+                      <script>
+                         var app = angular.module('myApp', []);
+                         app.controller('UsuariosHospitales', function ($scope, $http) {
+                             $http.get("/UsuariosHospitales/Index")
+                      .then(function(response) {
+                          $scope.Username = response.data;
+                          $scope.NombreCompleto = response.status;
+                          $scope.Email = response.Email;
+                 });
+               });
+                </script>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center">
+                            <button type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuariosHospitales()">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
     </div>
 

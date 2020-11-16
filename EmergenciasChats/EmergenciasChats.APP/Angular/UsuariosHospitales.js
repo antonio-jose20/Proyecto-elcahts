@@ -4,6 +4,10 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
 
     $scope.AgregarUsuariosHospitales = function () {
+        if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "0" || Dui == undefined)
+            || (Telefono == "0" || Telefono == undefined)  || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
+            alert("Please Select Gender And Enter Name")
+        } else {
             $http({
                 method: 'Post',
                 url: '../UsuariosHospitales/AgregarUsuariosHospitales',
@@ -15,8 +19,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                     Dui: $scope.Dui,
                     Telefono: $scope.Telefono,
                     Email: $scope.Email,
-                    Imagen: $scope.Imagen,
-                    Estado: $scope.Estado,
+                   // Imagen: $scope.Imagen,
+                   // Estado: $scope.Estado,
                     Password: $scope.Password
                 }
             }).then(function success(r) {
@@ -42,7 +46,17 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                     SAlert("Error", "No Guardado", "success", "OK");
                 }
             });
+
+        }
         };
+         //agregar regresar
+         $scope.agregarnuevo = function () {
+            window.location.href = '../UsuariosHospitales/Create';
+        }
+
+      $scope.irIndex = function () {
+        window.location.href = '../UsuariosHospitales/Index';
+       }
 //Modificar
     $scope.NOUTILModificar = function (id) {
         var resp = SAlert("Editar",  "Seguro que quieres Modificar", "warning", "OK");
@@ -104,7 +118,21 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
-                    SAlert("Elimino", "Se Movio a la papelera", "alert", "OK");
+                   // SAlert("Elimino", "Se Movio a la papelera", "alert", "OK");
+                    //
+                    SAlert({
+                        title: 'Buen trabajo!',
+                        text: "El registro ha sido eliminado!",
+                        type: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK!'
+                    }).then((result) => {
+                        if (result.value) {
+                            // window.location.href = "listar.php";
+                            window.location.href = '../UsuariosHospitales/Index';
+                        }
+                    })
+                    //
                 }
                 else {
                     alert("No se realizo el proceso");
@@ -113,28 +141,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
         }
     };
 
-    $scope.agregarnuevo = function () {
-        window.location.href = '../UsuariosHospitales/Create';
-    }
-
-    $scope.irIndex = function () {
-        window.location.href = '../UsuariosHospitales/Index';
-    }
-    //Alerta
-    function SAlert(title, msg, icon, btns) {
-        Swal.fire({
-            title: title,
-            text: msg,
-            icon: icon,
-            confirmButtonText: btns
-        })
-    }
-
-
-
-    ///modificar 
-    
-
+   
+  
 
     // Display record by id    //buscar x id
     $scope.GetUsuarioById = function (id) {
@@ -145,17 +153,15 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
         });
     };
 
-
-    //MODIFICAR SI
     //Edit on base of Id   ///Funcion al input del index de usuario 
-    $scope.EditData = function (id) {
+    $scope.EditData = function (Username) {
         $http({
             method: 'Post',
             url: 'UsuariosHospitales/Modificar',
             //     url: '/UsuariosHospitales/Modificar' + id,
-            data: "{'id' : '" + Username + "'}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
+            //data: "{'id' : '" + Username + "'}",
+            data: { Username: Username },
+        
         }).then(function (response) {
             if (response.data.d.length > 0) {
                 var Result = jQuery.parseJSON(response.data.d);
@@ -164,10 +170,12 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 $scope.Apellidos = Result.Apellidos;
                 $scope.Direccion = Result.Direccion;
                 $scope.Dui = Result.Dui;
+                $scope.Estado = Result.Estado;
                 $scope.Telefono = Result.Telefono;
-                $scope.Imagen = Result.Imagen;
+               // $scope.Imagen = Result.Imagen;
                 $scope.Password = Result.Password;
                 $scope.showHide = false;
+                window.location.href = '../UsuariosHospitales/Modificar';
             }
         })
     }
@@ -211,8 +219,17 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
         }
     }
 
-//Modificar si
+    //Modificar si
 
+    //Alerta
+    function SAlert(title, msg, icon, btns) {
+        Swal.fire({
+            title: title,
+            text: msg,
+            icon: icon,
+            confirmButtonText: btns
+        })
+    }
 
 
 

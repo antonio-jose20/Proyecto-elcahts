@@ -1,55 +1,4 @@
-﻿@*<!DO TYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    <div class="navbar fixed-top navbar-dark bg-info text-dark" style="background-color: #e3f2fd; position: sticky;">
-    
-        <div class="container">
-
-
-
-            @if (Request.IsAuthenticated)
-            {
-                <a href="/Admin/Detalle?id={ {@item.Imagen} }">Update</a>
-                @Html.ActionLink("Login", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })
-                @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
-            }
-            else
-            {
-                @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
-
-                <a style="color:snow" href="@Url.Action("Inicio", "Index", "Home")" class="nav-link text-right">Home </a>  <i class="fas fa-home "></i>
-                @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
-
-            }
-        </div>
-     
-
-
-    </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-</html>*@
-
-
-
+﻿
 <!---->
 <!DOCTYPE html>
 <html>
@@ -64,22 +13,46 @@
 <body>
 
     <nav class="navbar fixed-top navbar-dark bg-info text-dark" style="background-color: #e3f2fd; position: sticky;">
+        <a class="navbar-brand" href="#">Chats Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
         <div class="container">
 
 
             @if (Request.IsAuthenticated)
             {
                 @Html.ActionLink("Perfil", "Perfil", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })
-                @*@Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
+                                                                               @*@Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
                 @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
             }
             else
             {
-                @*@Html.ActionLink("Inicio", "Index", "Cliente", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })*@
-                       @Html.ActionLink("Login", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })
+                                                                 @*@Html.ActionLink("Inicio", "Index", "Cliente", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })*@
+                       @*@Html.ActionLink("Login", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
             }
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ajustes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="@Url.Action("Configuracion", "UsuariosHospitales")">Configuracion</a>
+                        <a class="dropdown-item" href="@Url.Action("Logout", "Admin")">Cerrar Sesion</a>
+                    </div>
+                </li>
+            </ul>
+
         </div>
     </nav>
+
+
 
     <div class="container body-content">
         @RenderBody()
