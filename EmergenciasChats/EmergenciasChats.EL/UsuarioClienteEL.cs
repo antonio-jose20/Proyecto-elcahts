@@ -12,7 +12,7 @@ namespace EmergenciasChats.EL
     public class UsuarioClienteEL
     {
      // public  string IdUsuarioC { get; set; }
-      public string NombreUsuarios { get; set; }
+      public string Username { get; set; }
       public string NombreCompleto { get; set; }
       public string Apellidos { get; set; }
       public string Direccion { get; set; }

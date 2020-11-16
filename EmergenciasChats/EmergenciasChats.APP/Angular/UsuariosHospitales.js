@@ -4,10 +4,10 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
 
     $scope.AgregarUsuariosHospitales = function () {
-        if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "0" || Dui == undefined)
-            || (Telefono == "0" || Telefono == undefined)  || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
-            alert("Please Select Gender And Enter Name")
-        } else {
+        //if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "" || Dui == undefined)
+        //    || (Telefono == "" || Telefono == undefined)  || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
+        //    alert("No acenta campos vacios")
+        //} else 
             $http({
                 method: 'Post',
                 url: '../UsuariosHospitales/AgregarUsuariosHospitales',
@@ -47,7 +47,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 }
             });
 
-        }
+       // }
         };
          //agregar regresar
          $scope.agregarnuevo = function () {

@@ -32,5 +32,11 @@ namespace EmergenciasChats.BL
         {
             return usuarioclientesDAL.ObtenerUsuariosClientes();
         }
+
+        //Metodo Obtener por ID
+        public UsuarioClienteEL GetUsuarioById(string id)
+        {
+            return usuarioclientesDAL.GetUsuarioById(id);
+        }
     }
 }
