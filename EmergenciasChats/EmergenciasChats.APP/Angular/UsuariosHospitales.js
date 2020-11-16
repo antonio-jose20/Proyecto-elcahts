@@ -220,6 +220,27 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
     }
 
     //Modificar si
+    function Update(controller, data, id) {
+        $.ajax({
+            type: "POST",
+            url: "/" + controller + "/Edit/" + id,
+            data: data,
+            cache: false,
+            success: function (response) {
+                if (response > 0) {
+                    console.log("success: " + response);
+                    alert("success: " + response);
+                }
+                else {
+                    alert("No se Guardo el Registro");
+                }
+            },
+            failure: function (response) {
+                console.log("error: " + response);
+                alert(response);
+            }
+        });
+    }
 
     //Alerta
     function SAlert(title, msg, icon, btns) {
