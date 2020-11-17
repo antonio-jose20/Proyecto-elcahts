@@ -21,25 +21,7 @@ namespace EmergenciasChats.DAL
             AuthSecret = "CPT7izztGnLhDZ8RFM3lfSiJxLOxsAf6UnrERsOd",
             BasePath = "https://aplicacion-web-de-emergencias.firebaseio.com/"
         };
-
-
-        //public int AgregarUsuarisHospitales(UsuariosHospitalesEL en)  AgregarUsuariosHospitales
-        //{
-        //    try
-        //    {
-
-        //        en.NombreUsuario = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
-        //        IFirebaseClient client = new FireSharp.FirebaseClient(config);
-        //        var response = client.Set("UsuariosHospitales/" + en.NombreUsuario, en);
-        //        return 1;
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
-
+        
         //agrgar
 
         public int AgregarUsuariosHospitales(UsuariosHospitalesEL en)
@@ -53,7 +35,7 @@ namespace EmergenciasChats.DAL
             }
             catch (Exception)
             {
-                return 0;
+                return -1;
             }
         }
 
@@ -107,27 +89,65 @@ namespace EmergenciasChats.DAL
         //  //Obtener por Id
         public UsuariosHospitalesEL GetUsuarioById(string id)
         {
+            try { 
+            //{
+            //    IFirebaseClient client = new FireSharp.FirebaseClient(config);
+            //    var res = client.Get("UsuariosHospitales/" + id);
+            //    UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
+            //    return _usuarioH;
+
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+            FirebaseResponse response = client.Get("UsuariosHospitales/" + id);
+            UsuariosHospitalesEL data = JsonConvert.DeserializeObject<UsuariosHospitalesEL>(response.Body);
+            return (data);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+       
+        //Funcion para dar like
+        public int like(int id)
+        {
+            int r = 0;
             try
             {
-                //pROPIO METODO
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 var res = client.Get("UsuariosHospitales/" + id);
                 UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
-                return _usuarioH;
-
-
-                //IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //FirebaseResponse response = client.Get("UsuariosHospitales/" + id);
-                //UsuariosHospitalesEL data = JsonConvert.DeserializeObject<UsuariosHospitalesEL>(response.Body);
-                //return (data);
-
-
+                // return _usuarioH;
+                _usuarioH.like = (_usuarioH.like + 1);
+                r = Modificar(_usuarioH);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                throw ex;   
             }
+            return r;      
         }
+
+        //Funcion para enviar mensaje
+        public int mensaje(int id)
+        {
+            int r = 0;
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var res = client.Get("UsuariosHospitales/" + id);
+                UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
+                // return _usuarioH;
+                _usuarioH.mensaje = (_usuarioH.mensaje + 1);
+                r = Modificar(_usuarioH);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           return r;
+        }
+        
 
     }
 }

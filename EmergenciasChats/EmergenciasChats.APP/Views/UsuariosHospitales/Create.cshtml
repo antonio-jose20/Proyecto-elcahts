@@ -27,6 +27,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="~/Scripts/iEdit.min.js"></script>
     <link href="~/Content/Form.css" rel="stylesheet" />
+
+    <style>
+        .font {
+            background-image: url('../../Content/Images/Hospital.jpg');
+        }
+
+        .password-icon {
+            float: right;
+            position: relative;
+            margin: -25px 10px 0 0;
+            cursor: pointer;
+        }
+    </style>
     @*<link href="~/Content/iEdit.min.css" rel="stylesheet" />*@
 </head>
 <body ng-controller="UsuariosHospitales">
@@ -67,14 +80,9 @@
             <div class="col-md-12">
                 <h3 class="text-center">Registro</h3>
             </div>
-
-            <div class="form__terminos">
-                <div class="maxl">
-                    <label class="radio inline">
-                        <input type="hidden" ng-model="Estado" id="Estado" value="True" checked>
-                    </label>
-                </div>
-            </div>
+            <input type="hidden" name="Estado" id="Estado" value="true" />
+            <input type="hidden" name="like" id="like" value="0" />
+            <input type="hidden" name="mensaje" id="mensaje" value="0" />
 
             <div class="col-md-12 form-group">
                 <input ng-model="NombreCompleto"   type="text"  class="form-control" placeholder="Nombre Completo" required/>
@@ -108,17 +116,29 @@
                 </label>
             </div>
             <!--Imagen-->
-            <div class="col-md-12 form-group">
+            @*<div class="col-md-12 form-group">
                 <label class="control-label col-md-2" for="File">Imagen</label>
                 <div class="col-md-10">
                     <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
                     <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
                 </div>
+            </div>*@
+
+
+            <div class="col-md-12 form-group">
+                <label for="exampleInputEmail1">Perfil</label>
+                <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
             </div>
 
-            <img id="ImagenR" name="ImagenR">
-            @*<input type="hidden" name="Imagen" id="Imagen" />*@
-            <input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />
+            <div>
+                <img id="ImagenR" name="ImagenR">
+                <input type="hidden" name="Imagen" id="Imagen" />
+            </div>
+
+
+            @*<img id="ImagenR" name="ImagenR">
+            <input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />*@
             <!--imagen-->
 
             <div class="col-md-12 form-group">
@@ -132,7 +152,12 @@
                  Política de privacidad y  términos de procesamiento de datos .</p>
             </div>
         
-            <script>
+           
+
+
+        </form>
+    <!--recortar imagen-->
+    <script>
 
             $("#File").change(function (e) {
                 var img = e.target.files[0];
@@ -145,11 +170,7 @@
                 }
             });
 
-            </script>
-
-
-        </form>
-
+    </script>
     <!--icon eye-->
     <script>
         window.addEventListener("load", function () {

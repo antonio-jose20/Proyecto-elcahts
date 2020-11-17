@@ -16,7 +16,7 @@ namespace EmergenciasChats.pUnitarias
         //instancia DAL
         UsuariosHospitalesDAL usuarioHDAL = new UsuariosHospitalesDAL();
         //cliente
-        UsuarioClienteDAL usuarioCDAL = new UsuarioClienteDAL();
+       // UsuarioClienteDAL usuarioCDAL = new UsuarioClienteDAL();
 
         [TestMethod]
         public void TestAgregarUsuariodHospital()
@@ -41,18 +41,23 @@ namespace EmergenciasChats.pUnitarias
         }
 
 
-        //Modificar cliente 
+        //Modificar UdHls 
         [TestMethod]
-        public void TestModificarUsuariodHospital()
+        public void TestModificarUsuariosdH()
         {
+            //ClienteBE cliente = new ClienteBE();           
+            //cliente = ClienteDAL.ObtenerClientePorId(3);
+            //cliente.Id = 3;
+            //cliente.Nombre = "Hernan";
+            //cliente.Apellido = "Sibirian";
+            //cliente.Telefono = "6094-6454";
+            //cliente.Email = "MoranSS@gmail.com";
+            //cliente.Nick = "SHernan";
+            //cliente.Pass = "123";   usuariohEL.NombreCompleto = "Juan Armenta";
+            // usuariohEL.NombreUsuario = "jVillalta";
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-            //return Content(Convert.ToString(usuarioshBL.GetUsuarioById(2)));
-            //un de klas dos
-            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(id);
-            ////usuariohEL =  Convert.ToString(UsuariosHospitalesDAL.GetUsuarioById(id));
-            //usuariohEL.Username 2;
-            usuariohEL.NombreCompleto = "Juan Armenta";
-           // usuariohEL.NombreUsuario = "jVillalta";
+            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(junana);
+            usuariohEL.Username = "junana";
             usuariohEL.Apellidos = "Villalta";
             usuariohEL.Email = "jperez2020@gmail.com";
             usuariohEL.Telefono = "6545-6554";
@@ -68,27 +73,6 @@ namespace EmergenciasChats.pUnitarias
 
             Assert.AreEqual(esperado, actual);
         }
-        ////modificar cliente
-        //public void TestModificarCliente()
-        //{
-        //    ClienteBE cliente = new ClienteBE();
-        //    cliente = ClienteDAL.ObtenerClientePorId(3);
-        //    cliente.Id = 3;
-        //    cliente.Nombre = "Hernan";
-        //    cliente.Apellido = "Sibirian";
-        //    cliente.Telefono = "6094-6454";
-        //    cliente.Email = "MoranSS@gmail.com";
-        //    cliente.Nick = "SHernan";
-        //    cliente.Pass = "123";
-
-
-        //    int esperado = 1;
-        //    int actual = clienteDAl.ModificarCliente(cliente);
-
-        //    Assert.AreEqual(esperado, actual);
-        //}
-
-   
 
 
 
@@ -98,7 +82,7 @@ namespace EmergenciasChats.pUnitarias
         public void TestEliminar()
         {
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-            //usuariohEL.id = 31 - 10 - 202017:29:07;
+          //  usuariohEL.Username = thomas;
 
             int esperado = 1;
             int actual = usuarioHDAL.EliminarUsuariosHospitales(usuariohEL);

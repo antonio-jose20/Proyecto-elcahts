@@ -45,8 +45,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">Home
-                        <span class="glyphicon glyphicon-home"></span></a>
+                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">
+                        @*<span class="glyphicon glyphicon-home"></span>*@ <i class="fas fa-home"> </i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "UsuariosClientes")">Usuarios</a>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Nuevo</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="">DETALLE</button>
+            @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="">DETALLE</button>*@
             @*<div class="col-md-12">*@
             <div class="table-responsive">
                 @*<table class="table">*@
@@ -113,18 +113,22 @@
                                         <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i>
                                     </a>*@
                                     <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
-                                    <i class="glyphicon glyphicon-basura"> </i>
+                                        <span class="oi oi-trash"></span>
                                     </button>
 
-                                    <button type="button" class="w3-btn w3-ripple" ng-click="EditData(@item.Username)">&#9998; Edit</button>
+                                    <!--<button type="button" class="w3-btn w3-ripple" ng-click="EditData(item.Username)">&#9998; Edit</button>-->
 
 
 
 
-                                    <a   class="btn btn-success" href="/UsuariosHospitales/Modificar?id={item.Username}"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">@*<i class="fas fa-edit"></i>*@&#9998;</a><!--este me llevara el dato a procesar -->
                                
 
                                 </td>
+                                <td><a class="btn btn-warning" href='UsuariosHospitales/Modificar?id=("@item.Username")'> Editar</a>
+                                    <a class='btn btn-success' @*onClick='verDetalle(" +  item.Username + ")'*@ ng-click="GetUsers" data-toggle='modal' data-target='#Modal'>Detalle</a>
+                                </td>
+
 
                             </tr>
                         }
@@ -146,7 +150,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form  @*ng-controller="UsuariosHospitales"*@>
+                        <form>
                             <div class="form-group">
                                 <input type="hidden" class="form-control" id="Estado" ng-model="Estado" value="True">
                             </div>
@@ -268,11 +272,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form @*ng-controller="UsuariosHospitales"*@>
+                        <form>
 
 
 
-                            <div ng-app="myApp" ng-controller="UsuariosHospitales">
+                            <div @*ng-app="myApp" ng-controller="UsuariosHospitales"*@>
 
                                 <p>Usuario : {{Username}}</p>
                                 <p>Nombre : {{NombreCompleto}}</p>
@@ -282,18 +286,77 @@
 
                                                                               
                       <script>
-                         var app = angular.module('myApp', []);
-                         app.controller('UsuariosHospitales', function ($scope, $http) {
-                             $http.get("/UsuariosHospitales/Index")
-                      .then(function(response) {
-                          $scope.Username = response.data;
-                          $scope.NombreCompleto = response.status;
-                          $scope.Email = response.Email;
-                 });
-               });
-                </script>
+                         //var app = angular.module('myApp', []);
+                         //app.controller('UsuariosHospitales', function ($scope, $http) {
 
+                             $scope.GetUsers = function (id) {
+                                 $http.get("/UsuariosHospitales/GetUsuarioById")
+                          .then(function (response) {
+                              $scope.Username = response.data;
+                              $scope.NombreCompleto = response.status;
+                              $scope.Email = response.Email;
+                          });
+
+                             };
+               //});
+                </script>
+                            <!--detalle con ajax-->
+                            @*<div class="modal-body">
+                                <input type="hidden" id="_Username" />
+                                <p id="_Titulo"></p>
+                                <p id="_Sinopsis"></p>
+                                <p id="_Año"></p>
+                            </div>*@
+                            <!--detalle con ajax-->
                         </form>
+
+
+
+
+
+
+                       @*<div>
+                           <!--o hago un foreach para mostrar los datos-->
+                           <style>
+                               .catalogo {
+                                   padding: 0.5rem;
+                                   width: 24%;
+                                   height: auto;
+                                   display: inline-block;
+                                   text-align: center;
+                                   margin-bottom: 5rem;
+                               }
+
+                                   .catalogo img {
+                                       max-width: 90%;
+                                       max-height: 150px;
+                                   }
+                           </style>
+
+                           <h2>Detalle</h2>
+
+                           @foreach (var u in Model)
+                           {
+                               <div class="catalogo">
+                                   <form>
+                                       <input type="hidden" value="@u.Username" name="Username" />
+                                       <h4>@u.NombreCompleto</h4>
+                                       <!--<img src="~/Images/u.Imagen" />-->
+                                       <!--<img src="u.Imagen"/>-->
+                                       <!--<img [src]="u.Imagen" />-->
+                                       <p>@u.Username</p>
+                                       <p>@u.Email</p>
+                                       <hr />
+                                       <!--<button type="submit" class="btn btn-info">Agregar al Carrito</button>-->
+                                   </form>
+                               </div>
+                           }
+                           <!--o ha un fore           mostrar los datos-->
+                       </div>*@
+
+
+
+
                     </div>
                     <div class="modal-footer">
                         <p class="text-center">

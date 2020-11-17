@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using EmergenciasChats.BL;
 using System.Data;
 
+
 //imagen
 using System.IO;
 
@@ -169,7 +170,7 @@ namespace EmergenciasChats.APP.Controllers
             }
         }
         ////buscar pr id 
-
+        [HttpGet]
 
         public ActionResult GetUsuarioById(string id)
 
@@ -196,7 +197,48 @@ namespace EmergenciasChats.APP.Controllers
             //return Content(Convert.ToString(r));
         }
 
+        //Accion para dar like 
+        [HttpPost]
+        public int like(int id)
+        {
+            int r = 0;
+            try
+            {
+                if (id > 0)
+                {
+                  return usuarioshBL.like(id);
+                }
+                return r;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message;
+                return -1;
+            }
+        }
 
+        //Accion para el mensaje 
+        [HttpPost]
+        public int mensaje(int id)
+        {
+            int r = 0;
+            try
+            {
+                if (id > 0 )
+                {
+                    return usuarioshBL.mensaje(id);
+                   // return Content(Convert.ToString(usuarioshBL.mensaje(id)));
+                }
+                return r;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message;
+                return -1;
+            }
+        }
+
+        
 
     }
 }

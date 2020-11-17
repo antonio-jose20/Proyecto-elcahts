@@ -37,6 +37,17 @@ namespace EmergenciasChats.BL
         {
             return UDAL.GetUsuarioById(id);
         }
+        
+        //Instancia del metodo de like
+        public int like(int id)
+        {
+            return UDAL.like(id);
+        }
+        //Instancia el mensaje
+        public int mensaje(int id)
+        {
+            return UDAL.mensaje(id);
+        }
 
     }
 }

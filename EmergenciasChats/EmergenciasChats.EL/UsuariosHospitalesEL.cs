@@ -31,6 +31,22 @@ namespace EmergenciasChats.EL
 
         public string Password { get; set; }
         public bool Estado { get; set; }
-        
+        public int like { get; set; }
+        //Mensaje
+        public string  mensaje { get; set; }
+
+        // contructor vacio
+
+        public UsuariosHospitalesEL() { }
+
+        //construtor parametrizado
+        public UsuariosHospitalesEL(string pUsername, string pNombreCompleto, string pEmail, string pImagen)
+        {
+            Username = pUsername;
+            NombreCompleto = pNombreCompleto;
+            Email = pEmail;
+            Imagen = pImagen;
+        }
+
     }
 }
