@@ -22,7 +22,7 @@ namespace EmergenciasChats.DAL
             AuthSecret = "CPT7izztGnLhDZ8RFM3lfSiJxLOxsAf6UnrERsOd",
             BasePath = "https://aplicacion-web-de-emergencias.firebaseio.com/"
         };
-        
+         
         //agrgar
 
         public int AgregarUsuariosHospitales(UsuariosHospitalesEL en)
