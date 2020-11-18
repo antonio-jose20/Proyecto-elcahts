@@ -127,6 +127,8 @@
                                 </td>
                                 <td><a class="btn btn-warning" href='UsuariosHospitales/Modificar?id=("@item.Username")'> Editar</a>
                                     <a class='btn btn-success' @*onClick='verDetalle(" +  item.Username + ")'*@ ng-click="GetUsers" data-toggle='modal' data-target='#Modal'>Detalle</a>
+
+                                    <a class='btn btn-success' onClick='verDetalle("@item.Username")'  data-toggle='modal' data-target='#Modal'>Detalle</a>
                                 </td>
 
 
@@ -293,7 +295,7 @@
                                  $http.get("/UsuariosHospitales/GetUsuarioById")
                           .then(function (response) {
                               $scope.Username = response.data;
-                              $scope.NombreCompleto = response.status;
+                              $scope.NombreCompleto = response.NombreCompleto;
                               $scope.Email = response.Email;
                           });
 
@@ -303,9 +305,9 @@
                             <!--detalle con ajax-->
                             @*<div class="modal-body">
                                 <input type="hidden" id="_Username" />
-                                <p id="_Titulo"></p>
-                                <p id="_Sinopsis"></p>
-                                <p id="_Año"></p>
+                                <p id="_Username"></p>
+                                <p id="_NombreCompleto"></p>
+                                <p id="_Telefono"></p>
                             </div>*@
                             <!--detalle con ajax-->
                         </form>

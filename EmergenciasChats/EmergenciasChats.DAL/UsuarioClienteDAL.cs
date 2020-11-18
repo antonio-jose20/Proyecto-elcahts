@@ -115,5 +115,47 @@ namespace EmergenciasChats.DAL
                 return null;
             }
         }
+
+        //Funcion para dar like
+        public int like(int id)
+        {
+            int r = 0;
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var res = client.Get("UsuariosClientes/" + id);
+                UsuarioClienteEL _usuarioC = res.ResultAs<UsuarioClienteEL>();
+                // return _usuarioH;
+                _usuarioC.like = (_usuarioC.like + 1);
+                r = ModificarUsuariosclientes(_usuarioC);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return r;
+        }
+
+        //Funcion para enviar mensaje
+        public int mensaje(int id)
+        {
+            int r = 0;
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var res = client.Get("UsuariosHospitales/" + id);
+              //  var response = client.Set("UsuariosClientes/", +  id); 
+                UsuarioClienteEL _usuarioC = res.ResultAs<UsuarioClienteEL>();
+
+                // return _usuarioH;
+                _usuarioC.mensaje = (_usuarioC.mensaje + 1);
+                r = ModificarUsuariosclientes(_usuarioC);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return r;
+        }
     }
 }

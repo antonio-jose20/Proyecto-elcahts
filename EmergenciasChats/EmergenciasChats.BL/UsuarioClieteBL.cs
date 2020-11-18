@@ -38,5 +38,16 @@ namespace EmergenciasChats.BL
         {
             return usuarioclientesDAL.GetUsuarioById(id);
         }
+
+        //Instancia del metodo de like
+        public int like(int id)
+        {
+            return usuarioclientesDAL.like(id);
+        }
+        //Instancia el mensaje
+        public int mensaje(int id)
+        {
+            return usuarioclientesDAL.mensaje(id);
+        }
     }
 }

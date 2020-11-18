@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace EmergenciasChats.DAL
 {
+    // dbConexion dbconexion = new  dbConexion();
    public  class UsuariosHospitalesDAL
     {
 
@@ -87,7 +88,8 @@ namespace EmergenciasChats.DAL
             }
         }
         //  //Obtener por Id
-        public UsuariosHospitalesEL GetUsuarioById(string id)
+       // public UsuariosHospitalesEL GetUsuarioById(string id)
+        public UsuariosHospitalesEL GetUsuarioById(int id)
         {
             try { 
             //{
@@ -136,6 +138,7 @@ namespace EmergenciasChats.DAL
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 var res = client.Get("UsuariosHospitales/" + id);
+                // res = client.Set("UsuariosHospitales/", + id);
                 UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
                 // return _usuarioH;
                 _usuarioH.mensaje = (_usuarioH.mensaje + 1);

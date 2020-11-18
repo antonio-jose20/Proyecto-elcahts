@@ -24,5 +24,11 @@ namespace EmergenciasChats.EL
         public string Email { get; set; }
       public string Password { get; set; }
 
+        public int Estado { get; set; }
+        public int like { get; set; }
+        //Mensaje
+        public int mensaje { get; set; }
+
+
     }
 }

@@ -63,5 +63,46 @@ namespace EmergenciasChats.APP.Controllers
         //{
         //    return View();
         //}
+
+        //Accion para dar like 
+        [HttpPost]
+        public int like(int id)
+        {
+            int r = 0;
+            try
+            {
+                if (id > 0)
+                {
+                    return usuariosclientesBL.like(id);
+                }
+                return r;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message;
+                return -1;
+            }
+        }
+
+        //Accion para el mensaje 
+        [HttpPost]
+        public int mensaje(int id)
+        {
+            int r = 0;
+            try
+            {
+                if (id > 0)
+                {
+                    return usuariosclientesBL.mensaje(id);
+                    // return Content(Convert.ToString(usuarioshBL.mensaje(id)));
+                }
+                return r;
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message;
+                return -1;
+            }
+        }
     }
 }

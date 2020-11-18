@@ -147,6 +147,22 @@
             <!---modificar conajax--->
             <button type="submit" value="Modificar" class="btn btn-primary">Submit</button>
         </form>
+        
+        <script>
+
+            //Recortar  la Imagen
+            $("#File").change(function (e) {
+                var img = e.target.files[0];
+                if (!iEdit.open(img, true, function (res) {
+                    $("#ImagenR").attr("src", res);
+                    $("#Imagen").val(res);
+                    console.log(res);
+                })) {
+                    alert("Selecciona una imagen");
+                }
+            });
+
+        </script>
         <script>
             $(document).ready(function () {
                 //Procesamiento del Formulario
@@ -155,20 +171,10 @@
                     var data = $(this).serializeFormJSON();
                     Modificar("UsuariosHospitales", data);
                 });
-
-                //Recortar  la Imagen
-                $("#File").change(function (e) {
-                    var img = e.target.files[0];
-                    if (!iEdit.open(img, true, function (res) {
-                        $("#ImagenR").attr("src", res);
-                        $("#Imagen").val(res);
-                        console.log(res);
-                    })) {
-                        alert("Selecciona una imagen");
-                    }
-                });
+             
             });
 
+            
             //eye
             window.addEventListener("load", function () {
 

@@ -35,7 +35,7 @@ namespace EmergenciasChats.APP.Controllers
             return View();
         }
         //modificar
-        public ActionResult Modificar(string id)
+        public ActionResult Modificar(int id)
         {
             return View(usuarioshBL.GetUsuarioById(id));
 
@@ -72,18 +72,18 @@ namespace EmergenciasChats.APP.Controllers
         ///agregar PRUEBA
 
         [HttpPost]
-        public ActionResult agregar(UsuariosHospitalesEL en, HttpPostedFileBase Imagen)
+        public ActionResult agregar(UsuariosHospitalesEL en, HttpPostedFileBase file)
         {
             try
             {
                 ///
                 var path = "";
-                if (Imagen.ContentLength > 0)
+                if (file.ContentLength > 0)
                 {
-                    if ((Path.GetExtension(Imagen.FileName).ToLower() == ".jpg") || (Path.GetExtension(Imagen.FileName).ToLower() == ".png"))
+                    if ((Path.GetExtension(file.FileName).ToLower() == ".jpg") || (Path.GetExtension(file.FileName).ToLower() == ".png"))
                     {
                         // path = Path.Combine(Server.MapPath("~/Content/img/perfiles/"), Imagen.FileName);
-                        path = Path.Combine(Server.MapPath("~/Content/Images/"), Imagen.FileName);
+                        path = Path.Combine(Server.MapPath("~/Content/Images/"), file.FileName);
 
                     }
 
@@ -172,17 +172,16 @@ namespace EmergenciasChats.APP.Controllers
         ////buscar pr id 
         [HttpGet]
 
-        public ActionResult GetUsuarioById(string id)
+        public ActionResult GetUsuarioById(int id)
 
         {
             try
             {
 
-                if (id != null)
+                //////if (id != null)
+                if (id > 0)
                 {
-
-                    return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
-
+                  return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
                 }
                 else
                 {
@@ -224,7 +223,7 @@ namespace EmergenciasChats.APP.Controllers
             int r = 0;
             try
             {
-                if (id > 0 )
+                if (id > 0 ) 
                 {
                     return usuarioshBL.mensaje(id);
                    // return Content(Convert.ToString(usuarioshBL.mensaje(id)));
