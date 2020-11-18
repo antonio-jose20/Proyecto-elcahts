@@ -96,6 +96,7 @@
                             <th scope="col">Telefono</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Opciones</th>
+                            <th scope="col"> + Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -121,14 +122,13 @@
 
 
 
-                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">@*<i class="fas fa-edit"></i>*@&#9998;</a><!--este me llevara el dato a procesar -->
+                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">&#9998;</a> <!--este me llevara el dato a procesar -->
                                
 
                                 </td>
-                                <td><a class="btn btn-warning" href='UsuariosHospitales/Modificar?id=("@item.Username")'> Editar</a>
-                                    <a class='btn btn-success' @*onClick='verDetalle(" +  item.Username + ")'*@ ng-click="GetUsers" data-toggle='modal' data-target='#Modal'>Detalle</a>
-
-                                    <a class='btn btn-success' onClick='verDetalle("@item.Username")'  data-toggle='modal' data-target='#Modal'>Detalle</a>
+                                <td><a class="btn btn-warning" href="UsuariosHospitales/Modificar?id=(@item.Username)"> <i class="fas fa-edit"></i> Editar</a>
+                              
+                                    <a class='btn btn-success' onClick='verDetalle("@item.Username")'  data-toggle='modal' data-target='#Modal'> + Detalle</a>
                                 </td>
 
 
@@ -288,8 +288,8 @@
 
                                                                               
                       <script>
-                         //var app = angular.module('myApp', []);
-                         //app.controller('UsuariosHospitales', function ($scope, $http) {
+                         var app = angular.module('myApp', []);
+                         app.controller('UsuariosHospitales', function ($scope, $http) {
 
                              $scope.GetUsers = function (id) {
                                  $http.get("/UsuariosHospitales/GetUsuarioById")
@@ -300,7 +300,7 @@
                           });
 
                              };
-               //});
+               });
                 </script>
                             <!--detalle con ajax-->
                             @*<div class="modal-body">
