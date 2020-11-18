@@ -30,8 +30,9 @@ namespace EmergenciasChats.EL
         
 
         public string Password { get; set; }
-        //public bool Estado { get; set; }
-        public int Estado { get; set; }
+       public bool state { get; set; }
+        
+     
         public int like { get; set; }
         //Mensaje
         public int  mensaje { get; set; }

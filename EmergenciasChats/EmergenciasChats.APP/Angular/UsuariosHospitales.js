@@ -29,6 +29,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                     //alert('Resgistro Agregado');
                     console.log("success: " + r);
                     SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");
+
                     window.location.href = '../UsuariosHospitales/Index';
                     $scope.Username = "",
                     //$scope.NombreUsuario,
@@ -49,7 +50,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
        // }
         };
-         //agregar regresar
+         //agregar regresar 
          $scope.agregarnuevo = function () {
             window.location.href = '../UsuariosHospitales/Create';
         }
@@ -107,8 +108,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
     $scope.EliminarUsuariosHospitales = function (id) {
 
-        //var resp = SAlert("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
-        var resp = confirm("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
+        //var resp = SAlert.confirm("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
+       var resp = confirm("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
         if (resp) {
             $http({
                 method: 'Post',
@@ -154,16 +155,19 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
     };
 
     //Edit on base of Id   ///Funcion al input del index de usuario 
-    $scope.EditData = function (Username) {
+    $scope.EditData = function (id) {
         $http({
             method: 'Post',
-            url: 'UsuariosHospitales/Modificar',
+            url: 'UsuariosHospitales/Modificar' + id,
             //     url: '/UsuariosHospitales/Modificar' + id,
             //data: "{'id' : '" + Username + "'}",
-            data: { Username: Username },
+            data: {
+                Username: id
+                    
+            },
         
         }).then(function (response) {
-            if (response.data.d.length > 0) {
+            if (respons.data.d.length > 0) {
                 var Result = jQuery.parseJSON(response.data.d);
                 $scope.Username = Result.Username;
                 $scope.NombreCompleto = Result.NombreCompleto;
@@ -194,13 +198,13 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
         $scope.showHide = true;
     }
     //Update records   //funcion al view de modificar al usuario 
-    $scope.UpdateData = function (Username, NombreCompleto, Apellidos, Direccion, Dui, Telefono, Imagen, Password, Username) {
+    $scope.UpdateData = function () {
         if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "0" || Dui == undefined)
             || (Telefono == "0" || Telefono == undefined) || (Imagen == "" || Imagen == undefined) || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
             alert("Please Select Gender And Enter Name")
         } else {
-            $http({
-                method: 'Post',
+            $http({ 
+                method: 'POST',
                 //url: 'WebService1.asmx/UpdateEmp',
                 url: '/UsuariosHospitales/Modificar',
                 data: "{'Username' : '" + Username + "', 'NombreCompleto' : '" + NombreCompleto + "', 'Apellidos' : '" + Apellidos + "', 'Direccion' : '" + Direccion + "', 'Dui' : '" + Dui + "', 'Telefono' : '" + Telefono + "','Imagen' : '" + Imagen + "', 'Password' : '" + Password + "', 'Username' : '" + Username + "'}",

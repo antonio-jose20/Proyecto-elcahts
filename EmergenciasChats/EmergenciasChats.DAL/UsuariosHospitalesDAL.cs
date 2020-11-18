@@ -135,15 +135,15 @@ namespace EmergenciasChats.DAL
         {
             int r = 0;
             try
-            {
+            {   
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 var res = client.Get("UsuariosHospitales/" + id);
                 // res = client.Set("UsuariosHospitales/", + id);
                 UsuariosHospitalesEL _usuarioH = res.ResultAs<UsuariosHospitalesEL>();
                 // return _usuarioH;
                 _usuarioH.mensaje = (_usuarioH.mensaje + 1);
-                r = Modificar(_usuarioH);
-            }
+                r = Modificar(_usuarioH);  
+            }      
             catch (Exception ex)
             {
                 throw ex;

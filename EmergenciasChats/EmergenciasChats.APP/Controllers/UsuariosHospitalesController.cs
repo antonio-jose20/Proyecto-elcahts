@@ -21,8 +21,7 @@ namespace EmergenciasChats.APP.Controllers
         UsuariosHospitalesBL usuarioshBL = new UsuariosHospitalesBL();
 
         //ruta para guardar imagenes
-        //static string ruta = @"C:\Users\JC\Desktop\ControlPedidos\ControlPedidos.InterfazMVC\Imagenes";
-        static string ruta = @"C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.APP\Content\Images";
+       // static string ruta = @"C:\Users\Antonio\Desktop\ProyectoChats\Proyecto-elcahts\EmergenciasChats\EmergenciasChats.APP\Content\Images";
         public ActionResult Index()
         {
             ViewBag.usuariosHospitales = usuarioshBL.ObtenerUsuarisHospitales();
@@ -60,9 +59,9 @@ namespace EmergenciasChats.APP.Controllers
                     return null;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 
@@ -164,9 +163,9 @@ namespace EmergenciasChats.APP.Controllers
                 int r = usuarioshBL.EliminarUsuariosHospitales(en);
                 return Content(Convert.ToString(r));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         ////buscar pr id 

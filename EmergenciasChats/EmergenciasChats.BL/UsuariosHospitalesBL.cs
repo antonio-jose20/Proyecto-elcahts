@@ -18,7 +18,7 @@ namespace EmergenciasChats.BL
         {
             return UDAL.AgregarUsuariosHospitales(en);
         }
-
+           
         public int EliminarUsuariosHospitales(UsuariosHospitalesEL en)
         {
             return UDAL.EliminarUsuariosHospitales(en);
