@@ -123,7 +123,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
     $scope.EditData = function (id) {
         $http({
             method: 'Post',
-            url: 'UsuariosHospitales/Modificar' + id,
+            url: 'UsuariosHospitales/Edit' + id,
             data: {
                 Username: id
                     
@@ -142,7 +142,7 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                // $scope.Imagen = Result.Imagen;
                 $scope.Password = Result.Password;
               //  $scope.showHide = false;
-                window.location.href = '../UsuariosHospitales/Modificar';
+                window.location.href = '../UsuariosHospitales/index';
             }
         })
     } 

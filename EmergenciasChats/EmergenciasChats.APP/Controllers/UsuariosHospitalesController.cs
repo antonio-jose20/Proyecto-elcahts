@@ -34,16 +34,16 @@ namespace EmergenciasChats.APP.Controllers
             return View();
         }
         //modificar
-        public ActionResult Modificar(string id)
+        public ActionResult Edit(string id)
         {
             return View(usuarioshBL.GetUsuarioById(id));
 
         }
     
-        public ActionResult Edit( string id)
-        {
-            return View(usuarioshBL.GetUsuarioById(id));
-        }
+        //public ActionResult Edit( string id)
+        //{
+        //    return View(usuarioshBL.GetUsuarioById(id));
+        //}
 
 
         [HttpPost]
@@ -112,7 +112,7 @@ namespace EmergenciasChats.APP.Controllers
 
         // Nvo Metodo de Modificar
         [HttpPost]
-        public ActionResult Modificar(UsuariosHospitalesEL en)
+        public ActionResult Edit(UsuariosHospitalesEL en)
         {
 
             string res = "";

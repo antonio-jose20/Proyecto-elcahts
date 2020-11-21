@@ -189,8 +189,8 @@
     <Content Include="Views\UserAdmin\Login.cshtml" />
     <Content Include="Views\UsuariosHospitales\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Create.cshtml" />
-    <Content Include="Views\UsuariosHospitales\Modificar.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
+    <Content Include="Views\UsuariosHospitales\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
