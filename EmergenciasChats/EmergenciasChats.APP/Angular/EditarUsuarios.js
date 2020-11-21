@@ -79,6 +79,106 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Edit on base of Id  
+    $scope.EDdUH= function (id) {
+        $http({
+            method: 'Post',
+            url: '/UsuariosHospitales/GetUsuarioById' + id,
+           // url: 'WebService1.asmx/GetById',
+            //data: "{'Id' : '" + Id + "'}",
+            data: {
+                Username: id,
+               // contentType: "application/json; charset=utf-8",
+               // dataType: "json"
+            }
+           
+        }).then(function (response) {
+            if (response.data.d.length > 0) {
+                var Result = jQuery.parseJSON(response.data.d);
+                $scope.id = Result.id;
+                $scope.namNombreCompletoe = Result.NombreCompleto;
+                $scope.Apellidos = Result.Apellidos;
+                $scope.Username = Result.Username;
+                $scope.Direccion = Result.Direccion;
+                $scope.Dui = Result.Dui;
+                $scope.Telefono = Result.Telefono;
+              //  $scope.state = Result=true;
+                //$scope.state == true;
+                //$scope.Imagen = Result.Imagen;
+                $scope.Telefono = Result.Telefono;
+                $scope.Password = Result.Password;
+                //$scope.showHide = false;
+            }
+        })
+    }
+    //If we want to cancel update this method is called on Cancel click  
+    $scope.CancelUpdate = function () {
+        $scope.name = " ";
+        $scope.gender = "0";
+        $scope.Id = "0";
+        $scope.showHide = true;
+    }
+
+
+
+    //Update records  
+    $scope.Update = function (id) {
+       
+        if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "" || Dui == undefined)
+            || (Telefono == "" || Telefono == undefined)  || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
+            alert("No acenta campos vacios")
+        }
+        else{ 
+
+            $http({
+                method: 'Post',
+                url: '/UsuariosHospitales/GetUsuarioById' + id,
+                data: {
+                    Username: id
+                }
+                //contentType: "application/json; charset=utf-8",
+                //dataType: "json"
+            }).then(function (response) {
+                clear();
+                if (response.data.d > 0) {
+                    alert("Record Updated Successfully");
+                    ViewData();
+                } else {
+                    alert("Record Not Updated");
+                    window.location = "UsuariosHospitales/Edit"
+                    ViewData();
+                }
+            })
+        }
+    }
+
+   
+
+
     ////Edit on base of Id  
     //$scope.EditData = function (Id) {
     //    $http({

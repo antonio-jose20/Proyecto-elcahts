@@ -34,12 +34,16 @@ namespace EmergenciasChats.APP.Controllers
             return View();
         }
         //modificar
-        public ActionResult Modificar(int id)
+        public ActionResult Modificar(string id)
         {
             return View(usuarioshBL.GetUsuarioById(id));
 
         }
     
+        public ActionResult Edit( string id)
+        {
+            return View(usuarioshBL.GetUsuarioById(id));
+        }
 
 
         [HttpPost]
@@ -111,8 +115,8 @@ namespace EmergenciasChats.APP.Controllers
         public ActionResult Modificar(UsuariosHospitalesEL en)
         {
 
-
-          try
+            string res = "";
+            try
             {
                 if (en != null)
                 {
@@ -125,36 +129,12 @@ namespace EmergenciasChats.APP.Controllers
                 }
             }
             catch (Exception)
-            { 
-                return null;
-            }
-        }
-        //
-
-
-        // Update records
-        //public JsonResult update_record(UsuariosHospitalesEL rs)
-        public ActionResult Edit(UsuariosHospitalesEL en)
-        {
-            string res = string.Empty;
-            if   (en!= null)
-            try
-            {
-                    //usuarioshBL.Modificar(en);
-                    int r = usuarioshBL.Modificar(en);
-                    return Content(Convert.ToString(r));
-
-            //      res = "Updated";
-            }
-            catch (Exception)
             {
                 res = "failed";
             }
             return Json(res, JsonRequestBehavior.AllowGet);
-
         }
-        ///
-
+        //Eliminar
         [HttpPost]
         public ActionResult EliminarUsuariosHospitales(UsuariosHospitalesEL en)
         {
@@ -171,14 +151,14 @@ namespace EmergenciasChats.APP.Controllers
         ////buscar pr id 
         [HttpGet]
 
-        public ActionResult GetUsuarioById(int id)
+        public ActionResult GetUsuarioById(string id)
 
         {
             try
             {
 
                 //////if (id != null)
-                if (id > 0)
+                if (id != null)
                 {
                   return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
                 }

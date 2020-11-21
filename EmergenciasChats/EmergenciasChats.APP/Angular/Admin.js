@@ -50,10 +50,38 @@ app.controller("Admin", function ($scope, $http) {
     };
 
 
-    //Eliminar
+    ////Eliminar
+    //$scope.EliminarAdmin = function (id) {
+
+    //    var resp = confirm("Seguro que quieres eliminar");
+    //    if (resp) {
+    //        $http({
+    //            method: 'Post',
+    //            url: '../Admin/EliminarAdmin',
+    //            data: {
+    //                IDAdmin: id
+    //            }
+    //        }).then(function success(r) {
+    //            if (r.data == 1) {
+    //                alert("Eliminado Exitosamente. Exito");
+    //                //getLists();
+    //            }
+    //            else {
+    //                alert("No se realizo el proceso");
+    //            }
+    //            //
+    //        });
+    //    }
+    //};
+
+
+
+    //ELIMINIAR
+
     $scope.EliminarAdmin = function (id) {
 
-        var resp = confirm("Seguro que quieres eliminar");
+        //var resp = SAlert.confirm("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
+        var resp = confirm("Eliminar", "Seguro que quieres Eliminar", "success", "OK");
         if (resp) {
             $http({
                 method: 'Post',
@@ -63,16 +91,35 @@ app.controller("Admin", function ($scope, $http) {
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
-                    alert("Eliminado Exitosamente. Exito");
-                    //getLists();
+                    // SAlert("Elimino", "Se Movio a la papelera", "alert", "OK");
+                    //
+                    SAlert({
+                        title: 'Buen trabajo!',
+                        text: "El registro ha sido eliminado!",
+                        type: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK!'
+                    }).then((result) => {
+                        if (result.value) {
+                            // window.location.href = "listar.php";
+                            window.location.href = '../UsuariosHospitales/Index';
+                        }
+                    })
+                    //
                 }
                 else {
                     alert("No se realizo el proceso");
                 }
-                //
             });
         }
     };
+
+
+
+
+
+
+    ///mmm
 
     $scope.irAgregar = function () {
         window.location.href = '../Admin/Create';

@@ -29,9 +29,6 @@
     <link href="~/Content/Form.css" rel="stylesheet" />  
 
     <style>
-        .font {
-            background-image: url('../../Content/Images/Hospital.jpg');
-        }
 
         .password-icon {
             float: right;
@@ -136,26 +133,21 @@
                 <input type="hidden" name="Imagen" id="Imagen" />
             </div>
 
-
-            @*<img id="ImagenR" name="ImagenR">
-            <input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />*@
+            @*<input type="hidden" class="custom-file-input  form-control-lg" ng-model="Imagen" id="Imagen" />*@
             <!--imagen-->
 
             <div class="col-md-12 form-group">
                 @*<p class="text-center">*@
-                    <button  type="submit" id="send" class="btn btn-primary" ng-click="AgregarUsuariosHospitales()">Guardar</button>
+                    <button  type="submit" id="send"  class="form-control"   @*class="btn btn-primary"*@ style="color:dodgerblue" ng-click="AgregarUsuariosHospitales()">Guardar</button>
                 @*</p>*@
             </div>
 
             <div class="text-center">
-                <p> Al crear una cuenta, acepta los  Términos de servicio ,
+                <p style="color:red"> Al crear una cuenta, acepta los  Términos de servicio ,
                  Política de privacidad y  términos de procesamiento de datos .</p>
             </div>
-        
-           
-
-
         </form>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
     <!--recortar imagen-->
     <script>
 

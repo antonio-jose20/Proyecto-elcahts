@@ -89,7 +89,7 @@ namespace EmergenciasChats.DAL
         }
         //  //Obtener por Id
        // public UsuariosHospitalesEL GetUsuarioById(string id)
-        public UsuariosHospitalesEL GetUsuarioById(int id)
+        public UsuariosHospitalesEL GetUsuarioById(string id)
         {
             try { 
             //{

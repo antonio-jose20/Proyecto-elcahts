@@ -110,23 +110,16 @@
                                 <td>@item.Email</td>
                                 <td>
                                     |
-                                    @*<a class="btn btn-success" href="/UsuariosHospitales/Modificar?id=(@item.Username)">
-                                        <i class="ui-tooltip fa fa-pencil" style="font-size: 22px;" data-original-title="Edit">Editar</i>
-                                    </a>*@
                                     <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
                                         <span class="oi oi-trash"></span>
                                     </button>
 
-                                    <!--<button type="button" class="w3-btn w3-ripple" ng-click="EditData(item.Username)">&#9998; Edit</button>-->
-
-
-
-
-                                    <a class="btn btn-success" href="/UsuariosHospitales/Modificar?id={@item.Username}">&#9998;</a> <!--este me llevara el dato a procesar -->
+                                    <a class="btn btn-warning" href="/UsuariosHospitales/Modificar?id={@item.Username}">&#9998;</a>
                                
 
                                 </td>
-                                <td><a class="btn btn-warning" href="UsuariosHospitales/Modificar?id=(@item.Username)"> <i class="fas fa-edit"></i> Editar</a>
+                                <td>
+                                    @*<a class="btn btn-warning" href="/UsuariosHospitales/Edit?id={@item.Username}"> <i class="fas fa-edit"></i>Editar</a>*@
                               
                                     <a class='btn btn-success' onClick='verDetalle("@item.Username")'  data-toggle='modal' data-target='#Modal'> + Detalle</a>
                                 </td>

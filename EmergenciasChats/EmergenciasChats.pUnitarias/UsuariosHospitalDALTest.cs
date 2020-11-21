@@ -31,7 +31,7 @@ namespace EmergenciasChats.pUnitarias
             usuariohEL.Dui = "09833653-3";
             usuariohEL.Password = "6214";
             usuariohEL.Imagen = "Melon.jpg";
-            usuariohEL.Estado = true;
+            usuariohEL.state = true;
 
             int esperado = 1;
             int actual = usuarioHDAL.AgregarUsuariosHospitales(usuariohEL);
@@ -65,7 +65,7 @@ namespace EmergenciasChats.pUnitarias
             usuariohEL.Dui = "09833653-3";
             usuariohEL.Password = "6214";
             usuariohEL.Imagen = "Sandia.jpg";
-            usuariohEL.Estado = true;
+            usuariohEL.state = true;
 
 
             int esperado = 1;

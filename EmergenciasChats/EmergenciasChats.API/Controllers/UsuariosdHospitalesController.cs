@@ -31,34 +31,37 @@ namespace EmergenciasChats.API.Controllers
         {
             return UHBL.AgregarUsuariosHospitales(Uen);
         }
-        //hhh modificar
+        //   metodo para modificar 
         public int Put(string id, [FromBody] UsuariosHospitalesEL Uen)
         {
+            //el result debe ser una "r"
             int r = 0;
-            var prod = UHBL.GetUsuarioById(id);
-            if (prod.Username !="")
-            //if (prod.Username > 0)
+            var user = UHBL.GetUsuarioById(id);
+            if (user.Username !="")
             {
                 r = UHBL.Modificar(Uen);
             }
+            //etonare el valor
             return r;
+            //metodo para eliminar
 
         }
-        //eliminar
-        //public int Delete(string id)
-        //{
-        //    int r = 0;
-        //    var prod = UHBL.GetUsuarioById(id);
-        //    if (prod.Username != "")
-                
-        //        {
-        
-        //        r = UHBL.EliminarUsuariosHospitales(id);
-  
-        //    }
-        //    //retorna mi product eliminado
-        //    return r;
-        //}
+
+        // eliminar
+        public int Delete(string id, [FromBody] UsuariosHospitalesEL Uen)
+        {
+            int r = 0;
+            var prod = UHBL.GetUsuarioById(id);
+            if (prod.Username != "")
+
+            {
+
+                r = UHBL.EliminarUsuariosHospitales(Uen);
+
+            }
+            //retorna mi product eliminado
+            return r;
+        }
 
 
 

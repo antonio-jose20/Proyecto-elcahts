@@ -39,7 +39,7 @@ namespace EmergenciasChats.BL
         //}
 
         //obtner como int
-        public UsuariosHospitalesEL GetUsuarioById(int id)
+        public UsuariosHospitalesEL GetUsuarioById(string id)
         {
             return UDAL.GetUsuarioById(id);
         }
