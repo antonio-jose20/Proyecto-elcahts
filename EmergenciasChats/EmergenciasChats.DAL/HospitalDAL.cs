@@ -28,17 +28,17 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                FirebaseResponse response = client.Get("Hospital");
+                FirebaseResponse response = client.Get("Hospitales");
                 dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
                 foreach (var item in data)
                 {
                     en.Add(JsonConvert.DeserializeObject<HospitalEN>(((JProperty)item).Value.ToString()));
                 }
                 return en;
-            }
-            catch (Exception)
+            } 
+            catch (Exception ex)
             {
-                return en;
+                throw ex;
             }
         }
 

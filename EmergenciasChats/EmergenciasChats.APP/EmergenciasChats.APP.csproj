@@ -162,7 +162,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
-    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\UsuariosClientesController.cs" />
     <Compile Include="Controllers\UsuariosHospitalesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,11 +184,8 @@
     <Content Include="Views\UsuariosClientes\Create.cshtml" />
     <Content Include="Views\UsuariosClientes\Modificar.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\UserAdmin\AgregarUser.cshtml" />
-    <Content Include="Views\UserAdmin\Login.cshtml" />
     <Content Include="Views\UsuariosHospitales\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Create.cshtml" />
-    <Content Include="Views\UserAdmin\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

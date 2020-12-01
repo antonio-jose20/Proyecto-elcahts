@@ -1,9 +1,6 @@
-﻿@model EmergenciasChats.EL.UsuariosHospitalesEL
-
+﻿
 @{
     ViewBag.Title = "Edit";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-    Layout = null;
 }
 
 
@@ -13,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Editar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -26,111 +23,135 @@
     <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="~/Scripts/iEdit.min.js"></script>
-    <link href="~/Content/iEdit.min.css" rel="stylesheet">
     <link href="~/Content/Form.css" rel="stylesheet" />
+
+    <style>
+        .password-icon {
+            float: right;
+            position: relative;
+            margin: -25px 10px 0 0;
+            cursor: pointer;
+        }
+    </style>
+    @*<link href="~/Content/iEdit.min.css" rel="stylesheet" />*@
 </head>
-<body ng-controller="UsuariosHospitales" @*data-ng-init="GetUsuarioById(@Convert.ToString(Request.QueryString["id"]))"*@ @*data-ng-init="GetUsuarioById(@Convert.ToInt32(Request.QueryString["id"]))"*@>
+<body ng-controller="UsuariosHospitales">
 
-    <div class="container">
-        <style>
-            .password-icon {
-                float: right;
-                position: relative;
-                margin: -25px 10px 0 0;
-                cursor: pointer;
-            }
-        </style>
+    @*<br />*@
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title text-center">SISTEMA DE SERVICIOS DE SALUD..</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">
+                    </p>
+                </div>
+            </div>
+            <div class="text-left">
+                <p>
+                    Abandonar esta Pagina
+                    <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
+                </p>
+            </div>
+        </div>
+    </div>
 
+    <br />
+    <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title text-center">BIENVENIDO AL SISTEMA DE SERVICIOS DE SALUD..</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-center">
-                            El Usuario al que registrara tendra cuenta activa modifica si es necesario
-                        </p> Abandonar esta Pagina
-                        <button type="button" class="btn btn-outline-danger" ng-click="irIndex()">Regresar</button>
-                    </div>
-                </div>
+                <h3 class="card-title text-center">Sistema para atender emergencias de salud ...</h3>
+
             </div>
         </div>
+    </div>
 
-        <br />
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title text-center">Sistema para atender emergencias de salud ...</h3>
 
-                </div>
-            </div>
+
+    <form class="row" id="basic-form">
+        <div class="col-md-12">
+            <h3 class="text-center">editar</h3>
+        </div>
+        <input type="hidden" name="state" id="state" value="true" />
+        <input type="hidden" name="like" id="like" value="0" />
+        <input type="hidden" name="Username" id="Username" value="@Model.Username" />
+        <input type="hidden" name="mensaje" id="mensaje" value="0" />
+
+        <div class="col-md-12 form-group">
+            <input ng-model="NombreCompleto" value="@Model.NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input ng-model="Apellidos" value="@Model.Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
+        </div>
+        <div class="col-md-12 form-group">
+
+            <input class="form-control" ng-model="Username" value="@Model.Username" type="text" placeholder="Nombre Usuario">
         </div>
 
-        <form class="row">
-            <div class="col-md-12">
-                <h3 class="text-center">Modificar Usuarios </h3>
-            </div>
-            <input type="hidden" name="state" id="state" value="True" />
-            <input type="hidden" name="mensaje" id="mensaje" value="@Model.mensaje" />
-            <input type="hidden" name="like" id="like" value="@Model.like" />
-            <div class="col-md-12 form-group">
-                <input ng-model="NombreCompleto" value="@Model.NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
-            </div>
-            <div class="col-md-12 form-group">
-                <input ng-model="Apellidos" value="@Model.Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
-            </div>
-            <div class="col-md-12 form-group">
 
-                <input class="form-control" ng-model="Username" value="@Model.Username" type="text" placeholder="Nombre Usuario">
-            </div>
+        <div class="col-md-12 form-group">
+            <input ng-model="Direccion"  value="@Model.Direccion" type="text" class="form-control" placeholder="Direccion" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input ng-model="Dui" value="@Model.Dui" class="form-control" placeholder="Dui" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input pattern="^[9|8|7|6]\d{7}$" ng-model="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input type="text" id="email" minlength="3" ng-model="Email" value="@Model.Email" class="form-control" placeholder="correo" required />
+        </div>
+
+        <div class="col-md-12 form-group" style="text-align:center">
+            <!---<label for="departamento"> password </label>-->
+            <!--<input id="Email" type="password" #Password="ngModel"
+               [(ngModel)]="usuariosdhservice.selectedUsuariosdh.Password"
+               class="form-control password1" value="clave" placeholder="Ingresa tu contraseña" required />-->
+            <input type="password" id="email" minlength="3" ng-model="Password" class="form-control password1" value="clave"
+                   placeholder="password" required />
+            <span class="fa fa-fw fa-eye password-icon show-password"></span>
+
+        </div>
+        <!--Imagen-->
+        @*<div class="col-md-12 form-group">
+                <label class="control-label col-md-2" for="File">Imagen</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
+                </div>
+            </div>*@
 
 
-            <div class="col-md-12 form-group">
-                <input ng-model="Direccion" value="@Model.Direccion" type="text" class="form-control" placeholder="Direccion" required />
-            </div>
-            <div class="col-md-12 form-group">
-                <input ng-model="Dui" class="form-control" placeholder="Dui" required />
-            </div>
-            <div class="col-md-12 form-group">
-                <input pattern="^[9|8|7|6]\d{7}$" ng-model="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
-            </div>
-            <div class="col-md-12 form-group">
-                <input type="text" id="email" minlength="3" ng-model="Email" value="@Model.Email" class="form-control" placeholder="correo" required />
-            </div>
-            <div class="col-md-12 form-group">
-                <label for="departamento">
-                    <input type="password" ng-model="Password" class="form-control password1" value="@Model.Password" placeholder="Ingrese una contraseña" />
-                    <span class="fa fa-fw fa-eye password-icon show-password"></span>
-                </label>
-            </div>
-            <div class="col-md-12 form-group">
-                <p class="text-right">
-                    <!--Imagen-->
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Cambiar Perfil</label>
-                        <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
-                        <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
-                    </div>
-                    <div>
-                        <img id="ImagenR" name="ImagenR" src="@Model.Imagen">
-                        <input type="hidden" name="Imagen" id="Imagen" value="@Model.Imagen" />
-                    </div>
-                    <!--imagen-->
-                    <!---->
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary" ng-click="EditData()">Modificar</button>
-                        <input type="button" ng-click="CancelUpdate()" value="Limpiar" />
-                    </div>
+        <div class="col-md-12 form-group">
+            <label for="exampleInputEmail1">Perfil</label>
+            <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
+        </div>
 
-                </p>
-                <br />
-                <br />
-                <br />
-            </div>
-            @*<button type="submit" value="Modificar"  ng-click="updatedata()" class="btn btn-primary">Submit</button>*@
-        </form>
-        <!--recortar imagen-->
-        <script>
+        <div>
+            <img id="ImagenR" name="ImagenR">
+            <input type="hidden" name="Imagen" id="Imagen" />
+        </div>
+
+        <div class="col-md-12 form-group">
+            @*<p class="text-center">*@
+            <button type="submit" id="send" @*class="form-control"*@ class="btn btn-primary" ng-click="editarUsuariosHospitales()">Guardar</button>
+            @*</p>*@
+        </div>
+
+        <div class="text-center">
+            <p style="color:red">
+                Al crear una cuenta, acepta los  Términos de servicio ,
+                Política de privacidad y  términos de procesamiento de datos .
+            </p>
+        </div>
+    </form>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
+    <!--recortar imagen-->
+    <script>
 
             $("#File").change(function (e) {
                 var img = e.target.files[0];
@@ -143,9 +164,9 @@
                 }
             });
 
-        </script>
-        <!--icon eye-->
-        <script>
+    </script>
+    <!--icon eye-->
+    <script>
         window.addEventListener("load", function () {
 
             // icono para mostrar contraseña
@@ -164,14 +185,8 @@
             })
 
         });
-        </script>
-        <link href="~/Content/iEdit.min.css" rel="stylesheet" />
-
-
-
-    </div>
-
-
+    </script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
 
     <div class="container body-content">
         <footer>
@@ -180,3 +195,8 @@
     </div>
 </body>
 </html>
+
+
+
+
+

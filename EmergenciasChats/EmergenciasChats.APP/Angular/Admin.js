@@ -3,14 +3,6 @@ var app = angular.module("App", []);
 
 //el controlador
 app.controller("Admin", function ($scope, $http) {
-
-    $scope.irAgregar = function () {
-        window.location.href = '../Admin/Create';
-    }
-
-    $scope.irIndex = function () {
-        window.location.href = '../Admin/Index';
-    }
     //funcion Guardar
     $scope.AgregarAdmin = function () {
         $http({
@@ -50,6 +42,14 @@ app.controller("Admin", function ($scope, $http) {
     };
 
 
+    //regresar
+    $scope.irAgregar = function () {
+        window.location.href = '../Admin/Create';
+    }
+
+    $scope.irIndex = function () {
+        window.location.href = '../Admin/Index';
+    }
     ////Eliminar
     //$scope.EliminarAdmin = function (id) {
 
@@ -152,13 +152,11 @@ app.controller("Admin", function ($scope, $http) {
                 SAlert({
                     icon: 'error',
                     title: 'Oops...',
-                    //text: 'Something went wrong!',
                     text: 'Something went wrong!',
-                    //[objeto Objeto]
                     footer: '<a href>Why do I have this issue?</a>'
 
                 })
-               /// window.location.href = '../Admin/Login';
+               window.location.href = '../Admin/Login';
             }
 
         });

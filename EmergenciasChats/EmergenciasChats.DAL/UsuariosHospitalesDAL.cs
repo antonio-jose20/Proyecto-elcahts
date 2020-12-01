@@ -109,7 +109,24 @@ namespace EmergenciasChats.DAL
             }
         }
 
-       
+        ///obteer cliente por id
+        public UsuariosHospitalesEL ObtenerPoId(int id)
+        {
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                FirebaseResponse response = client.Get("UsuariosHospitales/" + id);
+                //UsuariosHospitalesEL data = JsonConvert.DeserializeObject<UsuariosHospitalesEL>(response.Body);
+                UsuariosHospitalesEL _usuarioH = response.ResultAs<UsuariosHospitalesEL>();
+                return _usuarioH;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         //Funcion para dar like
         public int like(int id)
         {

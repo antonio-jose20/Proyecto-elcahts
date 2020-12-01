@@ -15,6 +15,7 @@ namespace EmergenciasChats.EL
         public string IDAdmin { get; set; }
         //public string IdRol { get; set; }
         //Propiedad de Relacion 
+        public string fecha_registro { get; set; }
         public string Nombres { get; set; }
         [RegularExpression("^[a-zñáéíóúA-ZÑÁÉÍÓÚ _]*$", ErrorMessage = "Solo se permiten letras")]
         [Required(ErrorMessage = "Campo obligatorio")]

@@ -40,7 +40,7 @@ namespace EmergenciasChats.APP.Controllers
 
         }
     
-        //public ActionResult Edit( string id)
+        //public ActionResult Edit( int id)
         //{
         //    return View(usuarioshBL.GetUsuarioById(id));
         //}

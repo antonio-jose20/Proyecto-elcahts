@@ -113,8 +113,9 @@
                                     <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
                                         <span class="oi oi-trash"></span>
                                     </button>
-
-                                    <a class="btn btn-warning" href="/UsuariosHospitales/Modificar?id={@item.Username}">&#9998;</a>
+                                    <!---<button type="button" class="btn btn-outline-success" ng-click='editarudhospital("@item.Username")'>&#9998;</button>-->
+                                   <a class="btn btn-warning" href="/UsuariosHospitales/Edit?id=@item.Username">&#9998;</a>
+                                    <!---<a class="btn btn-warning" ng-click="editarudhospital()">&#9998;</a>-->
                                
 
                                 </td>
@@ -287,7 +288,7 @@
                              $scope.GetUsers = function (id) {
                                  $http.get("/UsuariosHospitales/GetUsuarioById")
                           .then(function (response) {
-                              $scope.Username = response.data;
+                              $scope.Username = response.Username;
                               $scope.NombreCompleto = response.NombreCompleto;
                               $scope.Email = response.Email;
                           });
@@ -304,51 +305,6 @@
                             </div>*@
                             <!--detalle con ajax-->
                         </form>
-
-
-
-
-
-
-                       @*<div>
-                           <!--o hago un foreach para mostrar los datos-->
-                           <style>
-                               .catalogo {
-                                   padding: 0.5rem;
-                                   width: 24%;
-                                   height: auto;
-                                   display: inline-block;
-                                   text-align: center;
-                                   margin-bottom: 5rem;
-                               }
-
-                                   .catalogo img {
-                                       max-width: 90%;
-                                       max-height: 150px;
-                                   }
-                           </style>
-
-                           <h2>Detalle</h2>
-
-                           @foreach (var u in Model)
-                           {
-                               <div class="catalogo">
-                                   <form>
-                                       <input type="hidden" value="@u.Username" name="Username" />
-                                       <h4>@u.NombreCompleto</h4>
-                                       <!--<img src="~/Images/u.Imagen" />-->
-                                       <!--<img src="u.Imagen"/>-->
-                                       <!--<img [src]="u.Imagen" />-->
-                                       <p>@u.Username</p>
-                                       <p>@u.Email</p>
-                                       <hr />
-                                       <!--<button type="submit" class="btn btn-info">Agregar al Carrito</button>-->
-                                   </form>
-                               </div>
-                           }
-                           <!--o ha un fore           mostrar los datos-->
-                       </div>*@
-
 
 
 

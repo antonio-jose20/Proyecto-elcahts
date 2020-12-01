@@ -35,29 +35,19 @@ namespace EmergenciasChats.pUnitarias
 
             int esperado = 1;
             int actual = usuarioHDAL.AgregarUsuariosHospitales(usuariohEL);
-
-            //procedimiento de agregar 
             Assert.AreEqual(esperado, actual);
         }
 
 
-        //Modificar UdHls 
+        //Modificar  
         [TestMethod]
         public void TestModificarUsuariosdH()
         {
-            //ClienteBE cliente = new ClienteBE();           
-            //cliente = ClienteDAL.ObtenerClientePorId(3);
-            //cliente.Id = 3;
-            //cliente.Nombre = "Hernan";
-            //cliente.Apellido = "Sibirian";
-            //cliente.Telefono = "6094-6454";
-            //cliente.Email = "MoranSS@gmail.com";
-            //cliente.Nick = "SHernan";
-            //cliente.Pass = "123";   usuariohEL.NombreCompleto = "Juan Armenta";
-            // usuariohEL.NombreUsuario = "jVillalta";
             UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
-            //usuariohEL = UsuariosHospitalesDAL.GetUsuarioById(junana);
-            usuariohEL.Username = "junana";
+            /// usuariohEL = UsuariosHospitalesDAL.GetUsuarioById,Convert.ToString(3));
+           // usuariohEL = UsuariosHospitalesDAL.ObtenerPoId(Convert.ToString('jVillalta'));
+            //usuariohEL.Username = "junana";
+           // usuariohEL.Username = jVillalta;
             usuariohEL.Apellidos = "Villalta";
             usuariohEL.Email = "jperez2020@gmail.com";
             usuariohEL.Telefono = "6545-6554";
@@ -73,6 +63,28 @@ namespace EmergenciasChats.pUnitarias
 
             Assert.AreEqual(esperado, actual);
         }
+        // //Modificar cliente 
+        [TestMethod]
+        public void TestModificarUsuariosdh()
+        {
+            UsuariosHospitalesEL usuariohEL = new UsuariosHospitalesEL();
+           // usuariohEL = UsuariosHospitalesDAL.ObtenerPoId(Convert.ToString());
+            /*cliente = ClienteDAL.ObtenerClientePorId(3);
+            cliente.Id = 3;
+            cliente.Nombre = "Hernan";
+            cliente.Apellido = "Sibirian";
+            cliente.Telefono = "6094-6454";
+            cliente.Email = "MoranSS@gmail.com";
+            cliente.Nick = "SHernan";
+            cliente.Pass = "123";*/
+
+
+            int esperado = 1;
+            int actual = usuarioHDAL.Modificar(usuariohEL);
+
+            Assert.AreEqual(esperado, actual);
+        }
+
 
 
 

@@ -17,10 +17,11 @@ namespace EmergenciasChats.APP.Controllers
         // GET: Admin
         public ActionResult Index()
         {    
-            ViewBag.Admins = bl.GetAdminList();
+            ViewBag.Admins = bl.GetAdmiList();
             return View();
         }
-
+        
+        //Create
         public ActionResult Create()
         {
             return View();
@@ -99,6 +100,14 @@ namespace EmergenciasChats.APP.Controllers
         //    return RedirectToAction("UsuariosClientes", "Index");
 
         //}
+
+
+
+
+
+
+
+
         //LOGIN
         [HttpPost]
         public ActionResult Login(AdminEL en)
@@ -114,6 +123,7 @@ namespace EmergenciasChats.APP.Controllers
             }
             
         }
+
 
         //cerrar sesion
         public ActionResult Logout()

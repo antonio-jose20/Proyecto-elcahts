@@ -43,6 +43,11 @@ namespace EmergenciasChats.BL
         {
             return UDAL.GetUsuarioById(id);
         }
+        //obtener por id 
+        public UsuariosHospitalesEL GetUsuariosById(int pId)
+        {
+            return UDAL.ObtenerPoId(pId);
+        }
 
         //Instancia del metodo de like
         public int like(int id)

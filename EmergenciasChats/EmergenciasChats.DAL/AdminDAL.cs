@@ -44,9 +44,15 @@ namespace EmergenciasChats.DAL
             {
                 return en;
             }
-        }
+        } 
 
-        public int AddAdmin(AdminEL en)
+
+
+
+
+
+        ///comentare el admin para establecer que no me guarde el id con fechas //NO ESTA EN FUNCION 
+        public int NAddAdmin(AdminEL en)
         {
             try
             {
@@ -55,11 +61,51 @@ namespace EmergenciasChats.DAL
                 var response = client.Set("admin/" + en.IDAdmin, en);
                 return 1;
             }
+           
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+        // Guardar
+
+        public int AddAdmin(AdminEL en)
+        {
+
+
+            try
+            {
+                en.fecha_registro = (DateTime.Today.ToString("dd-MM-yyyy")).ToString() + (DateTime.Now.ToString("HH:mm:ss")).ToString();
+                en.IDAdmin = (DateTime.Today.ToString("dd-MM-yyyy")).ToString();
+                //en.IDAdmin
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var response = client.Set("admin/" + en.IDAdmin, en);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //Modificar
+        public int ModificarAdmin(AdminEL en)
+        {
+            try
+            {
+                IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                var response = client.Update("UsuariosHospitales/" + en.IDAdmin, en);
+                return 1;
+            }
             catch (Exception)
             {
                 return 0;
             }
         }
+
+
         //Eliminar
         public int EliminarAdmin(AdminEL admin)
         {
@@ -80,13 +126,6 @@ namespace EmergenciasChats.DAL
         {
             try
             {
-                ////pROPIO METODO
-                // IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var res = client.Get("Hospital/" + id);
-                //UsuarioH _usuarioH = res.ResultAs<UsuarioH>();
-                //return _usuarioH;
-
-
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
                 FirebaseResponse response = client.Get("admin/" + id);
                 AdminEL data = JsonConvert.DeserializeObject<AdminEL>(response.Body);
@@ -99,6 +138,7 @@ namespace EmergenciasChats.DAL
                 return null;
             }
         }
+
         //LOGIN
         public int Login(AdminEL pEn)
         {
@@ -121,11 +161,32 @@ namespace EmergenciasChats.DAL
                 }
                 return 0;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return 0;
+                throw ex;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

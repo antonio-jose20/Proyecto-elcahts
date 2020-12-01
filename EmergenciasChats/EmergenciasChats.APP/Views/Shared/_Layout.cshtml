@@ -31,15 +31,15 @@
             {
                 @Html.ActionLink("Perfil", "Perfil", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })
                                                                                @*@Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
-                @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
+                @Html.ActionLink("Cerrar Sesión", "Login", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
             }
             else
             {
-                                                                 @*@Html.ActionLink("Inicio", "Index", "Cliente", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })*@
+                       @*@Html.ActionLink("Inicio", "Index", "Cliente", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })*@
                        @*@Html.ActionLink("Login", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand text-light" })*@
             }
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">  
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <ul class="navbar-nav mr-auto">
@@ -50,7 +50,8 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="@Url.Action("Configuracion", "UsuariosHospitales")">Configuracion</a>
-                        <a class="dropdown-item" href="@Url.Action("Logout", "Admin")">Cerrar Sesion</a>
+                        <!----<a class="dropdown-item" href="Url.Action("Logout", "Admin")">Cerrar Sesion</a>-->
+                        @Html.ActionLink("Cerrar Sesión", "Logout", "Admin", new { area = "" }, new { @id = "home", @class = "navbar-brand text-secondary" })
                     </div>
                 </li>
             </ul>

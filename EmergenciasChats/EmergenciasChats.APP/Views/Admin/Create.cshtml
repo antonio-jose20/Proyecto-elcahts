@@ -3,8 +3,6 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Create";
 }
-
-
 <!DOCTYPE html>
 <html ng-app="App">
 <head>
@@ -27,7 +25,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="~/Scripts/iEdit.min.js"></script>
     <link href="~/Content/Form.css" rel="stylesheet" />
-    @*<link href="~/Content/iEdit.min.css" rel="stylesheet" />*@
 </head>
 <body ng-controller="Admin">
 
@@ -72,6 +69,7 @@
             <div class="maxl">
                 <label class="radio inline">
                     <input type="hidden" ng-model="Estado" id="Estado" value="True" checked>
+                    <!--<input type="hidden" ng-model="fecha_registro" id="fecha_registro" >-->
                 </label>
             </div>
         </div>

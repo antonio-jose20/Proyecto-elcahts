@@ -14,15 +14,35 @@ namespace EmergenciasChats.BL
         //
         private AdminDAL adminDAL = new AdminDAL();
 
-        public List<AdminEL> GetAdminList()
-        {
-            return adminDAL.GetAdminList();
-        }
 
+        //Guardar
         public int AddAdmin(AdminEL en)
         {
             return adminDAL.AddAdmin(en);
         }
+        
+        //obtener 
+
+        //Obtener
+        /*public List<AdminEL> GetAdminList()
+        {
+            return adminDAL.GetAdminList();
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //eliminar
         public int EliminarAdmin (AdminEL admin)
         {
@@ -34,16 +54,14 @@ namespace EmergenciasChats.BL
         {
             return adminDAL.Login(pEn);
         }
-
-
-
-
-
-
-
-
-
-         //obtener por Id
+        
+        //obtener 
+        public List<AdminEL> GetAdmiList()
+        {
+            return adminDAL.GetAdminList();
+        }
+        
+        //obtener por Id
         public AdminEL GetUsuarioById(string id)
         {
             return adminDAL.GetUsuarioById(id);
@@ -67,4 +85,9 @@ namespace EmergenciasChats.BL
 
 
     }
+  
+    //public List<AdminEL> GetAdminList()
+    //{
+    //    return adminDAL.GetAdminList();
+    //}
 }

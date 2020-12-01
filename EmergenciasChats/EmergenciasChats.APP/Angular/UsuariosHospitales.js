@@ -45,8 +45,65 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             });
 
        // }
-        };
+    };
 
+    /* onEdit(usuariosdh: Usuariosdh) {
+   this.usuariosdhservice.selectedUsuariosdh = usuariosdh;
+   this.router.navigate(['/editusuariosdh']);
+ }*/
+    //EDITAR  
+    $scope.editarudhospital = function ( id) {
+        window.location.href = '../UsuariosHospitales/Edit' + id;
+    }
+    /*
+    onEdit(usuariosdh: Usuariosdh) {
+    this.usuariosdhservice.selectedUsuariosdh = usuariosdh;
+    this.router.navigate(['/editusuariosdh']);
+  }
+    */
+    //MODIFICAR USUARIOS-dh
+
+    $scope.editarUsuariosHospitales = function (id) {
+        
+        $http({
+            method: 'Post',
+            url: '../UsuariosHospitales/Edit',
+            data: {
+                Username: id,
+                NombreCompleto: $scope.NombreCompleto,
+                Apellidos: $scope.Apellidos,
+                Username: $scope.Username,
+                Direccion: $scope.Direccion,
+                Dui: $scope.Dui,
+                Telefono: $scope.Telefono,
+                Email: $scope.Email,
+                // Imagen: $scope.Imagen,
+                // Estado: $scope.Estado,
+                Password: $scope.Password
+            }
+        }).then(function success(r) {
+            if (r.data == 1) {
+                console.log("success: " + r);
+                SAlert("Modificar", "Modificado con Exito", "success", "OK");
+
+                window.location.href = '../UsuariosHospitales/Index';
+                $scope.Username = "",
+                $scope.NombreCompleto = '',
+                $scope.Apellidos = '',
+                $scope.Direccion = '',
+                $scope.Dui = '',
+                $scope.Telefono = '',
+                $scope.Email = '',
+                $scope.Password = '';
+
+            }
+            else {
+                SAlert("Error", "No Guardado", "success", "OK");
+            }
+        });
+
+        // }
+    };
          //agregar  
          $scope.agregarnuevo = function () {
             window.location.href = '../UsuariosHospitales/Create';
@@ -90,7 +147,10 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             });
         }
     };
-
+    /* onEdit(usuariosdh: Usuariosdh) {
+    this.usuariosdhservice.selectedUsuariosdh = usuariosdh;
+    this.router.navigate(['/editusuariosdh']);
+  }*/
    
   
 
