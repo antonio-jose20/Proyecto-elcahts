@@ -155,13 +155,11 @@
     <Content Include="scripts\sweetalert2.all.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Admin\Create.cshtml" />
-    <Content Include="Views\Hospital\Create.cshtml" />
-    <Content Include="Views\Hospital\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\HospitalesController.cs" />
     <Compile Include="Controllers\UsuariosClientesController.cs" />
     <Compile Include="Controllers\UsuariosHospitalesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +185,7 @@
     <Content Include="Views\UsuariosHospitales\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Create.cshtml" />
     <Content Include="Views\UsuariosHospitales\Edit.cshtml" />
+    <Content Include="Views\Hospitales\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

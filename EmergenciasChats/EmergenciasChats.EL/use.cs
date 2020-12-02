@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmergenciasChats.EL
 {
-   public class UsuarioH
+   public class use
     {
         public string  IDHospital { get; set; }
         //Propiedad de Relacion 

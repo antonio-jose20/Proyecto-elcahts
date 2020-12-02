@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var Hospitaless = ViewBag.Hospitales;
+}
+
+
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--<script src="Scripts/jquery-1.8.2.min.js" type="text/javascript" lang="ja"></script>-->
+    <!--<link rel="stylesheet" href="/w3css/4/w3.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    @*<script src="JavaScript13.js" type="text/javascript" lang="ja"></script>*@
+
+    <link href="~/Content/sweetalert2.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script src="~/Angular/angular.js"></script>
+    <script src="~/Angular/UsuariosHospitales.js"></script>
+    <script src="~/Scripts/iEdit.min.js"></script>
+    <link href="~/Content/iEdit.min.css" rel="stylesheet" />
+    <!--icon eye-->
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+</head>
+<body ng-controller="UsuariosHospitales">
+
+    <!--nav-->
+    <!--<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Chats Web</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a href="Url.Action("Inicio", "Home")" id="home" , class="navbar-brand text-secondary">
+                            *<span class="glyphicon glyphicon-home"></span>* <i class="fas fa-home"> </i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Url.Action("Index", "UsuariosClientes")">Usuarios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Url.Action("Configuracion", "UsuariosHospitales")">Configuraciones</a>
+                            <a class="dropdown-item" href="Url.Action("Logout", "Admin")">Cerrar Sesion</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>-->
+    <!--nav-->
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Hospitales</h1>
+                        <p class="lead">Descripcion.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Hospitaless)
+                        {
+                            <tr>
+                                <th scope="row">@item.IDHospit</th>
+                                <!----<th>item.Username</th>-->
+                                <td>@item.Nombre</td>
+                                <td>@item.Telefono</td>
+                                <td>@item.Direccion</td>
+                                <td>
+                                    |
+                                    <button type="button" class="btn btn-danger" ng-click='EliminarHospitales("@item.IDHospit")'>
+                                        Eliminar
+                                        <span class="oi oi-trash"></span>
+                                    </button>
+                                    <!--<a class="btn btn-warning" href="/UsuariosHospitales/Edit?id=item.Username">&#9998;</a>-->
+                                </td>
+                              
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container body-content">
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+
