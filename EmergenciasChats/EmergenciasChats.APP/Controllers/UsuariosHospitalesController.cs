@@ -143,9 +143,10 @@ namespace EmergenciasChats.APP.Controllers
                 int r = usuarioshBL.EliminarUsuariosHospitales(en);
                 return Content(Convert.ToString(r));
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw new Exception(e.Message);
+                //throw ex;
             }
         }
         ////buscar pr id 

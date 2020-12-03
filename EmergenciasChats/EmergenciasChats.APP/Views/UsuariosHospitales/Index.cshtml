@@ -83,10 +83,7 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Nuevo</button>
-            @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="">DETALLE</button>*@
-            @*<div class="col-md-12">*@
             <div class="table-responsive">
-                @*<table class="table">*@
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
@@ -107,18 +104,19 @@
                                 <th>@item.Username</th>
                                 <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
-                                <td>@item.Email</td>
+                                <td>@item.Email</td> 
                                 <td>
-                                    |
+                                    | 
                                     <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
                                         <span class="oi oi-trash"></span>
                                     </button>
-                                    <!---<button type="button" class="btn btn-outline-success" ng-click='editarudhospital("@item.Username")'>&#9998;</button>-->
                                    <a class="btn btn-warning" href="/UsuariosHospitales/Edit?id=@item.Username">&#9998;</a>
-                                    <!---<a class="btn btn-warning" ng-click="editarudhospital()">&#9998;</a>-->
+                                    <!--<a class='btn btn-success' href='/Admin/Edit" + "?id=" + item.AdminID + "'>Editar</a>-->
+                                    <!--<button type="button" class="btn btn-primary"  ng-click='editUser("@item.Username")' data-toggle="modal" data-target="#ModalEdit" data-whatever="">&#9998;</button>-->
+                                 
                                
 
-                                </td>
+                                </td> 
                                 <td>
                                     @*<a class="btn btn-warning" href="/UsuariosHospitales/Edit?id={@item.Username}"> <i class="fas fa-edit"></i>Editar</a>*@
                               
@@ -320,7 +318,83 @@
         </div>
 
 
+        <!--EDITAR USUARIOS-->
 
+        <!--Modal de boostrap-->
+        <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="text-align:center">Editar</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--form-->
+                        <!--<form ng-submit="createUser()">-->
+                        <form>
+                            <!--<h4>update User</h4>-->
+                            <div class="form-group" >
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input type="hidden" class="form-control" ng-model="Username" />
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
+                             <label class="control-label col-md-2">Name:</label>
+                            <div class="col-md-4">
+                            <input type="text" class="form-control" ng-model="user.name" placeholder="john.." />
+                              </div>
+                            </div>-->
+                            <!---->
+                            <div class="col-md-12 form-group">
+                                <input ng-model="NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+
+                                <input class="form-control" ng-model="Username" type="text" placeholder="Nombre Usuario">
+                            </div>
+
+
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Direccion" type="text" class="form-control" placeholder="Direccion" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input ng-model="Dui" class="form-control" placeholder="Dui" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input pattern="^[9|8|7|6]\d{7}$" ng-model="item.Telefono" class="form-control" placeholder="Telefono" required />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" id="email" minlength="3" ng-model="item.Email" class="form-control" placeholder="correo" required />
+                            </div>
+
+                            <div class="col-md-12 form-group" style="text-align:center">
+                                <!---<label for="departamento"> password </label>-->
+                                <input type="password" id="email" minlength="3" ng-model="item.Password" class="form-control password1" value="clave"
+                                       placeholder="password" required />
+                                <span class="fa fa-fw fa-eye password-icon show-password"></span>
+
+                            </div>
+                            <div class="col-md-offset-2 col-md-10">
+                                <!----<input type="submit" value="submit" class="btn btn-success btn-sm" ng-show="submit" />-->
+                                <input type="button" value="update" ng-click="updateUser()" class="btn btn-success btn-sm" ng-show="update" />
+                                <input type="button" value="cancel" ng-click="cancelUpdate()" class="btn btn-danger btn-sm" ng-show="cancel" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 

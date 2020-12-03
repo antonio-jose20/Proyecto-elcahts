@@ -69,86 +69,64 @@
         </div>
     </div>
 
+    <!--<form ng-submit="createUser()">-->
+        <form > 
+            <h4>update User</h4>
+            <div class="form-group" >
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-4">
+                        <input type="hidden" class="form-control" id="Username" name="Username" value="@Model.Username">
+                </div>
+            </div>
+           <!--<div class="form-group">
+                <label class="control-label col-md-2">Name:</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="user.name" placeholder="john.." />
+                </div>
+            </div>-->
+            <!---->
+                 <div class="col-md-12 form-group">
+            <input  id="NombreCompleto" name="NombreCompleto"  value="@Model.NombreCompleto"  type="text" class="form-control" placeholder="Nombre Completo" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input  id="Apellidos" name="Apellidos" value="@Model.Apellidos"  type="text" class="form-control" placeholder="Apellidos" required />
+        </div>
+        <div class="col-md-12 form-group">
+
+            <!--<input class="form-control" id="Username" name="Username" value="Model.Username" type="text" placeholder="Nombre Usuario">-->
+        </div>
 
 
-    <form class="row" id="basic-form">
-        <div class="col-md-12">
-            <h3 class="text-center">editar</h3>
-        </div>
-        <input type="hidden" name="state" id="state" value="true" />
-        <input type="hidden" name="like" id="like" value="0" />
-        <input type="hidden" name="Username" id="Username" value="@Model.Username" />
-        <input type="hidden" name="mensaje" id="mensaje" value="0" />
-
         <div class="col-md-12 form-group">
-            <input ng-model="NombreCompleto" value="@Model.NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
+            <input  id="Direccion" name="Direccion" value="@Model.Direccion" type="text" class="form-control" placeholder="Direccion" required />
         </div>
         <div class="col-md-12 form-group">
-            <input ng-model="Apellidos" value="@Model.Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
+            <input  id="Dui" name="Dui" value="@Model.Dui" class="form-control" placeholder="Dui" required />
         </div>
         <div class="col-md-12 form-group">
-
-            <input class="form-control" ng-model="Username" value="@Model.Username" type="text" placeholder="Nombre Usuario">
-        </div>
-
-
-        <div class="col-md-12 form-group">
-            <input ng-model="Direccion"  value="@Model.Direccion" type="text" class="form-control" placeholder="Direccion" required />
+            <input pattern="^[9|8|7|6]\d{7}$"  id="Telefono" name="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
         </div>
         <div class="col-md-12 form-group">
-            <input ng-model="Dui" value="@Model.Dui" class="form-control" placeholder="Dui" required />
-        </div>
-        <div class="col-md-12 form-group">
-            <input pattern="^[9|8|7|6]\d{7}$" ng-model="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
-        </div>
-        <div class="col-md-12 form-group">
-            <input type="text" id="email" minlength="3" ng-model="Email" value="@Model.Email" class="form-control" placeholder="correo" required />
+            <input type="text" id="email" minlength="3" name="Email" value="@Model.Email" class="form-control" placeholder="correo" required />
         </div>
 
         <div class="col-md-12 form-group" style="text-align:center">
             <!---<label for="departamento"> password </label>-->
-            <!--<input id="Email" type="password" #Password="ngModel"
-               [(ngModel)]="usuariosdhservice.selectedUsuariosdh.Password"
-               class="form-control password1" value="clave" placeholder="Ingresa tu contraseña" required />-->
-            <input type="password" id="email" minlength="3" ng-model="Password" class="form-control password1" value="clave"
+            <input type="password" id="email" minlength="3"   name="Password" value="@Model.Password" class="form-control password1" 
                    placeholder="password" required />
             <span class="fa fa-fw fa-eye password-icon show-password"></span>
 
         </div>
-        <!--Imagen-->
-        @*<div class="col-md-12 form-group">
-                <label class="control-label col-md-2" for="File">Imagen</label>
-                <div class="col-md-10">
-                    <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
-                    <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
-                </div>
-            </div>*@
-
-
-        <div class="col-md-12 form-group">
-            <label for="exampleInputEmail1">Perfil</label>
-            <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
-            <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
-        </div>
-
-        <div>
-            <img id="ImagenR" name="ImagenR">
-            <input type="hidden" name="Imagen" id="Imagen" />
-        </div>
-
-        <div class="col-md-12 form-group">
-            @*<p class="text-center">*@
-            <button type="submit" id="send" @*class="form-control"*@ class="btn btn-primary" ng-click="editarUsuariosHospitales()">Guardar</button>
-            @*</p>*@
-        </div>
-
-        <div class="text-center">
-            <p style="color:red">
-                Al crear una cuenta, acepta los  Términos de servicio ,
-                Política de privacidad y  términos de procesamiento de datos .
-            </p>
-        </div>
-    </form>
+            <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" id="send" class="btn btn-primary" ng-click="editarUsuariosHospitales()">Modificar</button>
+                <!--<button type="submit" id="send" class="btn btn-primary" ng-click="EditData()">editadata</button>
+                <button type="submit" id="send" class="btn btn-primary" ng-click="edita()">edita</button>
+                <button type="submit" id="send" class="btn btn-primary" ng-click="updateUser()">update</button>-->
+                <!----<input type="submit" value="submit" class="btn btn-success btn-sm" ng-show="submit" />-->
+                <input type="button" value="update" ng-click="updateUser()" class="btn btn-success btn-sm" ng-show="update" />
+                <input type="button" value="cancel" ng-click="cancelUpdate()" class="btn btn-danger btn-sm" ng-show="cancel" />
+            </div>
+        </form>  
     <link href="~/Content/iEdit.min.css" rel="stylesheet" />
     <!--recortar imagen-->
     <script>

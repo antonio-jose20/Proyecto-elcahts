@@ -19,19 +19,30 @@ namespace EmergenciasChats.BL
             return UDAL.AgregarUsuariosHospitales(en);
         }
            
+
+        //ELIMINAR
         public int EliminarUsuariosHospitales(UsuariosHospitalesEL en)
         {
             return UDAL.EliminarUsuariosHospitales(en);
         }
-        //modificar
+
+        //MODIFICAR
         public int Modificar(UsuariosHospitalesEL en)
         {
             return UDAL.Modificar(en);
         }
+
+        //LISTAR
         public List<UsuariosHospitalesEL> ObtenerUsuarisHospitales()
         {
             return UDAL.ObtenerUsuarisHospitales();
         }
+
+
+
+        
+
+
         //Metodo Obtener por ID
         //public UsuariosHospitalesEL GetUsuarioById(string id)
         //{

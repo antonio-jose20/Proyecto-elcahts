@@ -87,6 +87,23 @@ namespace EmergenciasChats.DAL
                 return 0;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //  //Obtener por Id
        // public UsuariosHospitalesEL GetUsuarioById(string id)
         public UsuariosHospitalesEL GetUsuarioById(string id)
