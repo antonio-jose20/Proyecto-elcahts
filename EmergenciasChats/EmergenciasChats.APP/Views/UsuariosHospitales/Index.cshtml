@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    //Layout = null;
     ViewBag.Title = "Index";
     var UsuariosHospitales = ViewBag.usuariosHospitales;
     //Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,7 +36,7 @@
 <body ng-controller="UsuariosHospitales">
 
     <!--nav-->
-    <header>
+    <!---<header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Chats Web</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,11 +45,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                     <a href="@Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">
-                        @*<span class="glyphicon glyphicon-home"></span>*@ <i class="fas fa-home"> </i></a>
+                     <a href="Url.Action("Inicio", "Home")" id = "home", class = "navbar-brand text-secondary">
+                        <i class="fas fa-home"> </i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "UsuariosClientes")">Usuarios</a>
+                        <a class="nav-link" href="Url.Action("Index", "UsuariosClientes")">Usuarios</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,8 +57,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="@Url.Action("Configuracion", "UsuariosHospitales")">Configuraciones</a>
-                            <a class="dropdown-item" href="@Url.Action("Logout", "Admin")" >Cerrar Sesion</a>
+                            <a class="dropdown-item" href="Url.Action("Configuracion", "UsuariosHospitales")">Configuraciones</a>
+                            <a class="dropdown-item" href="Url.Action("Logout", "Admin")" >Cerrar Sesion</a>
                         </div>
                     </li>
                 </ul>
@@ -68,7 +68,7 @@
                 </form>
             </div>
         </nav>
-    </header>
+    </header>-->
     <!--nav-->
     <br />
     <div class="container">
@@ -100,19 +100,16 @@
                         @foreach (var item in UsuariosHospitales)
                         {
                             <tr>
-                                <th scope="row">@item.NombreCompleto</th>
+                                <th>@item.NombreCompleto</th> 
                                 <th>@item.Username</th>
                                 <td>@item.Apellidos</td>
                                 <td>@item.Telefono</td>
                                 <td>@item.Email</td> 
-                                <td>
-                                    | 
-                                    <button type="button" class="btn btn-danger" ng-click='EliminarUsuariosHospitales("@item.Username")'>Eliminar
-                                        <span class="oi oi-trash"></span>
-                                    </button>
-                                   <a class="btn btn-warning" href="/UsuariosHospitales/Edit?id=@item.Username">&#9998;</a>
-                                    <!--<a class='btn btn-success' href='/Admin/Edit" + "?id=" + item.AdminID + "'>Editar</a>-->
-                                    <!--<button type="button" class="btn btn-primary"  ng-click='editUser("@item.Username")' data-toggle="modal" data-target="#ModalEdit" data-whatever="">&#9998;</button>-->
+                                <td> 
+                                    
+                                    <button type="button" class="btn btn-danger"  ng-click='EliminarUsuariosHospitales("@item.UserdhID")'>Eliminar<span class="ion-ios-trash"></span></button>
+                                   <a class="btn btn-warning" href="/UsuariosHospitales/Edit?id=@item.UserdhID">&#9998;</a>
+                                    <!--<button type="button" class="btn btn-primary"  ng-click='editUser("item.Username")' data-toggle="modal" data-target="#ModalEdit" data-whatever="">&#9998;</button>-->
                                  
                                
 
@@ -294,14 +291,6 @@
                              };
                });
                 </script>
-                            <!--detalle con ajax-->
-                            @*<div class="modal-body">
-                                <input type="hidden" id="_Username" />
-                                <p id="_Username"></p>
-                                <p id="_NombreCompleto"></p>
-                                <p id="_Telefono"></p>
-                            </div>*@
-                            <!--detalle con ajax-->
                         </form>
 
 
@@ -341,13 +330,6 @@
                                     <input type="hidden" class="form-control" ng-model="Username" />
                                 </div>
                             </div>
-                            <!--<div class="form-group">
-                             <label class="control-label col-md-2">Name:</label>
-                            <div class="col-md-4">
-                            <input type="text" class="form-control" ng-model="user.name" placeholder="john.." />
-                              </div>
-                            </div>-->
-                            <!---->
                             <div class="col-md-12 form-group">
                                 <input ng-model="NombreCompleto" type="text" class="form-control" placeholder="Nombre Completo" required />
                             </div>
@@ -383,7 +365,6 @@
                             <div class="col-md-offset-2 col-md-10">
                                 <!----<input type="submit" value="submit" class="btn btn-success btn-sm" ng-show="submit" />-->
                                 <input type="button" value="update" ng-click="updateUser()" class="btn btn-success btn-sm" ng-show="update" />
-                                <input type="button" value="cancel" ng-click="cancelUpdate()" class="btn btn-danger btn-sm" ng-show="cancel" />
                             </div>
                         </form>
                     </div>
@@ -402,7 +383,7 @@
 
     <div class="container body-content">
         <footer>
-            <p class="text-center">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+           
         </footer>
     </div>
 </body>

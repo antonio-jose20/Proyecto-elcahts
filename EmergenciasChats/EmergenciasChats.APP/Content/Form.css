@@ -35,7 +35,6 @@ form{
    background-color:white;
  
 }
-
 /*Password eye */
 #container input {
   padding-right: 32px;
@@ -57,27 +56,6 @@ form{
   top:0px;
   right:0px!important;
 }
-
-/*icon mostrar eye*/
-/*.password-icon {
-  float: right;
-  position: relative;
-  margin: -25px 10px 0 0;
-  cursor: pointer;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 div
 {
@@ -89,6 +67,7 @@ input{
     text-align:center;
     border:0;
     margin:auto;
+    height: 70px;
     outline:none;
      background-color:#b3eef6;
 

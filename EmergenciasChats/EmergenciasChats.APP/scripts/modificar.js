@@ -1,9 +1,9 @@
-﻿//Modificar si
+﻿//Modificar 
 function Modificar(controller, data, Username) {
     $.ajax({
         type: "POST",
-        url: "/" + controller + "/Modificar/" + Username,
-        data: data,
+        url: "/" + controller + "/Edit/" + Username,
+        data: data,  
         cache: false,
         success: function (response) {
             if (response > 0) {
@@ -24,8 +24,15 @@ function Modificar(controller, data, Username) {
         }
     });
 }
+
+
+//update
+
+
+
 //DETALLE
 var url = "UsuariosHospitales";
+//var obtener = "GetUsuarioById";
 function verDetalle(Username) {
     $.ajax({
         url: "/" + url + "/GetUsuarioById/" + Username,

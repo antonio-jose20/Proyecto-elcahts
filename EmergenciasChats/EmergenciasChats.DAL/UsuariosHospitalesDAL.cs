@@ -24,19 +24,20 @@ namespace EmergenciasChats.DAL
         };
          
         //agrgar
-
         public int AgregarUsuariosHospitales(UsuariosHospitalesEL en)
-        {
+        {  
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                //var response = client.Set("User/UserAdmin/" + en.Username, en);
-                var response = client.Set("UsuariosHospitales/" + en.Username, en);
+                var data = en;
+                PushResponse response = client.Push("UsuariosHospitales/", data);
+                data.UserdhID = response.Result.name;
+                SetResponse setResponse = client.Set("UsuariosHospitales/" + data.UserdhID, data);
                 return 1;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return -1;
+                throw e;
             }
         }
 
@@ -65,7 +66,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Update("UsuariosHospitales/" + en.Username, en);
+                var response = client.Update("UsuariosHospitales/" + en.UserdhID, en);
                 return 1;
             }
             catch (Exception)
@@ -74,12 +75,38 @@ namespace EmergenciasChats.DAL
             }
         }
 
+        // Funcion de Modificar
+        public int Editar(UsuariosHospitalesEL en)
+        {
+           try
+            {
+                int r = 1;
+                if ((en.NombreCompleto != null) && (en.Telefono != null) && (en.Email != null) && (en.Password != null) && (en.Apellidos != null)
+                    && (en.Direccion != null) && (en.Dui != null) && (en.Username != null))
+                {
+                    IFirebaseClient client = new FireSharp.FirebaseClient(config);
+                    FirebaseResponse response = client.Set("UsuariosHospitales/" + en.Username, en);
+                    return r;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        //EDIT
+
         public int EliminarUsuariosHospitales(UsuariosHospitalesEL en)
         {
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Delete("UsuariosHospitales/" + en.Username);
+                var response = client.Delete("UsuariosHospitales/" + en.UserdhID);
                 return 1;
             }
             catch (Exception)

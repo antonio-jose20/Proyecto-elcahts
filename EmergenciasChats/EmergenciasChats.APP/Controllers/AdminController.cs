@@ -26,12 +26,17 @@ namespace EmergenciasChats.APP.Controllers
         {
             return View();
         }
+        //edit
+        public ActionResult ActualizarR(string id)
+        {
+            return View(bl.GetUsuarioById(id));
+        }
         public ActionResult Login()
         {
             return View();
         }
 
-
+        //guardar
         [HttpPost]
         public ActionResult Create(AdminEL en)
         {
@@ -44,6 +49,30 @@ namespace EmergenciasChats.APP.Controllers
             {
                 return null;
             }
+        }
+        //Acualizar
+        [HttpPost]
+        public ActionResult ActualizarR(AdminEL en)
+        {
+
+            string res = "";
+            try
+            {
+                if (en != null)
+                {
+                    int r = bl.ActualizarR(en);
+                    return Content(Convert.ToString(r));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                res = "failed";
+            }
+            return Json(res, JsonRequestBehavior.AllowGet);
         }
         //eliminar
         [HttpPost]
@@ -77,36 +106,11 @@ namespace EmergenciasChats.APP.Controllers
                     return null;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
-
-            //return Content(Convert.ToString(r));
         }
-        ////LOGIN 
-
-        //[HttpPost]
-        //public ActionResult Login(AdminEL admin)
-        //{
-        //   //var val = (admin);
-        //   //   if (admin.Email == val.Email && admin.Password == val.Password)
-        //    if (string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Password))
-        //    {
-        //        ViewBag.Error = "Login o password no pueden estar vacíos";
-        //        return View(bl.Login(admin));
-        //    }
-        //    // Damos de alta el usuario en la BBDD y redireccionamos
-        //    return RedirectToAction("UsuariosClientes", "Index");
-
-        //}
-
-
-
-
-
-
-
 
         //LOGIN
         [HttpPost]

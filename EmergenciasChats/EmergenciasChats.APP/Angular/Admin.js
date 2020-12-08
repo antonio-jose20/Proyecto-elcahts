@@ -9,7 +9,7 @@ app.controller("Admin", function ($scope, $http) {
             method: 'Post',
             url: '../Admin/Create',
             data: {
-                IdAdmin: '',
+                IDAdmin: '',
                 Nombres: $scope.Nombres,
                 Apellidos: $scope.Apellidos,
                 Sexo: $scope.Sexo,
@@ -41,7 +41,47 @@ app.controller("Admin", function ($scope, $http) {
         });
     };
 
+    //actualizar
+    $scope.ActualizarR = function (id) {
 
+        $http({
+            method: 'Post',
+            url: '../Admin/ActualizarR' + id,
+            data: {
+                IDAdmin: id,
+                Nombres: $scope.Nombres,
+                Apellidos: $scope.Apellidos,
+                Sexo: $scope.Sexo,
+                Dui: $scope.Dui,
+                Telefono: $scope.Telefono,
+                Direccion: $scope.Direccion,
+                Usuario: $scope.Usuario,
+                Email: $scope.Email,
+                Password: $scope.Password
+            }
+        }).then(function success(r) {
+            if (r.data == 1) {
+                console.log("success: " + r);
+                SAlert("Modificar", "Modificado con Exito", "success", "OK");
+                window.location.href = '../UsuariosHospitales/Index';
+                $scope.Nombres = '';
+                $scope.Apellidos = '';
+                $scope.Sexo = '';
+                $scope.Dui = '';
+                $scope.Telefono = '';
+                $scope.Direccion = '';
+                $scope.Usuario = '';
+                $scope.Email = '';
+                $scope.Password = '';
+
+            }
+            else {
+                SAlert("Error", "No Guardado", "success", "OK");
+            }
+        });
+
+        // }
+    };
     //regresar
     $scope.irAgregar = function () {
         window.location.href = '../Admin/Create';
@@ -50,31 +90,6 @@ app.controller("Admin", function ($scope, $http) {
     $scope.irIndex = function () {
         window.location.href = '../Admin/Index';
     }
-    ////Eliminar
-    //$scope.EliminarAdmin = function (id) {
-
-    //    var resp = confirm("Seguro que quieres eliminar");
-    //    if (resp) {
-    //        $http({
-    //            method: 'Post',
-    //            url: '../Admin/EliminarAdmin',
-    //            data: {
-    //                IDAdmin: id
-    //            }
-    //        }).then(function success(r) {
-    //            if (r.data == 1) {
-    //                alert("Eliminado Exitosamente. Exito");
-    //                //getLists();
-    //            }
-    //            else {
-    //                alert("No se realizo el proceso");
-    //            }
-    //            //
-    //        });
-    //    }
-    //};
-
-
 
     //ELIMINIAR
 
@@ -97,7 +112,10 @@ app.controller("Admin", function ($scope, $http) {
                         title: 'Buen trabajo!',
                         text: "El registro ha sido eliminado!",
                         type: 'success',
+                        icon: 'question',
+                        showCancelButton: true,
                         confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
                         confirmButtonText: 'OK!'
                     }).then((result) => {
                         if (result.value) {
@@ -113,13 +131,7 @@ app.controller("Admin", function ($scope, $http) {
             });
         }
     };
-
-
-
-
-
-
-    ///mmm
+    ///agregar
 
     $scope.irAgregar = function () {
         window.location.href = '../Admin/Create';
@@ -148,14 +160,14 @@ app.controller("Admin", function ($scope, $http) {
 
             else {
                 //console.log("error: " + r);
-                //SAlert("Error", "Sus datos no Fueron Verificados", "error", "OK");
-                SAlert({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                SAlert("Error", "Sus datos no Fueron Verificados", "error", "OK");
+                //SAlert({
+                //    icon: 'error',
+                //    title: 'Oops...',
+                //    text: 'Something went wrong!',
+                //    footer: '<a href>Why do I have this issue?</a>'
 
-                })
+                //})
                window.location.href = '../Admin/Login';
             }
 

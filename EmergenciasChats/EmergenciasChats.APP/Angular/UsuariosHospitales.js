@@ -4,10 +4,6 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
 
     $scope.AgregarUsuariosHospitales = function () {
-        //if ((NombreCompleto == "" || NombreCompleto == undefined) || (Apellidos == "" || Apellidos == undefined) || (Direccion == "" || Direccion == undefined) || (Dui == "" || Dui == undefined)
-        //    || (Telefono == "" || Telefono == undefined)  || (Password == "" || Password == undefined) || (Username == "" || Username == undefined)) {
-        //    alert("No acenta campos vacios")
-        //} else 
             $http({
                 method: 'Post',
                 url: '../UsuariosHospitales/AgregarUsuariosHospitales',
@@ -60,10 +56,10 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             method: 'Post',
             url: '../UsuariosHospitales/Edit' + id,
             data: {
-                Username: id,
+                UserdhID: id,
                 NombreCompleto: $scope.NombreCompleto,
                 Apellidos: $scope.Apellidos,
-               // Username: $scope.Username,
+               Username: $scope.Username,
                 Direccion: $scope.Direccion,
                 Dui: $scope.Dui,
                 Telefono: $scope.Telefono,
@@ -76,7 +72,6 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
             if (r.data == 1) {
                 console.log("success: " + r);
                 SAlert("Modificar", "Modificado con Exito", "success", "OK");
-
                 window.location.href = '../UsuariosHospitales/Index';
                 $scope.Username = "",
                 $scope.NombreCompleto = '',
@@ -113,7 +108,8 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
                 method: 'Post',
                 url: '../UsuariosHospitales/EliminarUsuariosHospitales',
                 data: {
-                    Username: id
+                    //Username: id
+                    UserdhID: id,
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
@@ -265,47 +261,6 @@ app.controller("UsuariosHospitales", function ($scope, $http) {
 
 
 
-
-    //Edit on base of Id   ///Funcion al input del index de usuario 
-    $scope.EditData = function (id) {
-        $http({
-            method: 'Post',
-            url: 'UsuariosHospitales/Edit' + id,
-            data: {
-                Username: id
-
-            },
-
-        }).then(function (response) {
-            if (respons.data.d.length > 0) {
-                var Result = jQuery.parseJSON(response.data.d);
-                $scope.Username = Result.Username;
-                $scope.NombreCompleto = Result.NombreCompleto;
-                $scope.Apellidos = Result.Apellidos;
-                $scope.Direccion = Result.Direccion;
-                $scope.Dui = Result.Dui;
-                $scope.state = Result = true;
-                $scope.Telefono = Result.Telefono;
-                // $scope.Imagen = Result.Imagen;
-                $scope.Password = Result.Password;
-                //  $scope.showHide = false;
-                window.location.href = '../UsuariosHospitales/index';
-            }
-        })
-    }
-    $scope.CancelUpdate = function () {
-        // $scope.Username = " ";
-        $scope.NombreCompleto = " ";
-        $scope.Apellidos = " ";
-        $scope.Direccion = " ";
-        $scope.Dui = "0 ";
-        $scope.Telefono = "0";
-        $scope.Imagen = " ";
-        $scope.state = true;
-        $scope.Password = " ";
-        $scope.Username = "";
-        //  $scope.showHide = true;
-    }
 
 
 

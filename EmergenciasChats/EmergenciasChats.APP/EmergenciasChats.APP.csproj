@@ -180,12 +180,12 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\UsuariosClientes\Index.cshtml" />
     <Content Include="Views\UsuariosClientes\Create.cshtml" />
-    <Content Include="Views\UsuariosClientes\Modificar.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\UsuariosHospitales\Index.cshtml" />
     <Content Include="Views\UsuariosHospitales\Create.cshtml" />
     <Content Include="Views\UsuariosHospitales\Edit.cshtml" />
     <Content Include="Views\Hospitales\Index.cshtml" />
+    <Content Include="Views\Admin\ActualizarR.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

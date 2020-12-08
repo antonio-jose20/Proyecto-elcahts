@@ -72,7 +72,7 @@ namespace EmergenciasChats.APP.Controllers
 
 
 
-        ///agregar PRUEBA
+        ///agregarno_funcio....
 
         [HttpPost]
         public ActionResult agregar(UsuariosHospitalesEL en, HttpPostedFileBase file)
@@ -110,7 +110,7 @@ namespace EmergenciasChats.APP.Controllers
             }
         }
 
-        // Nvo Metodo de Modificar
+        //metodo de Modificar
         [HttpPost]
         public ActionResult Edit(UsuariosHospitalesEL en)
         {
@@ -157,8 +157,6 @@ namespace EmergenciasChats.APP.Controllers
         {
             try
             {
-
-                //////if (id != null)
                 if (id != null)
                 {
                   return Content(Convert.ToString(usuarioshBL.GetUsuarioById(id)));
@@ -168,12 +166,10 @@ namespace EmergenciasChats.APP.Controllers
                     return null;
                 }
             }
-            catch (Exception )
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
-            
-            //return Content(Convert.ToString(r));
         }
 
         //Accion para dar like 

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "ActualizarR";
 }
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <!--debe ejecutar primero el jquery-->
     <!--<script src="https: //code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
     <script src="https ://code.jquery.com/jquery-3.3.1.js"></script>
-   <!-- <script type="text/javascript" src="js/d3.v3.min.js"></script>-->
+    <!-- <script type="text/javascript" src="js/d3.v3.min.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
     </style>
     @*<link href="~/Content/iEdit.min.css" rel="stylesheet" />*@
 </head>
-<body ng-controller="UsuariosHospitales">
+<body ng-controller="Admin">
 
     @*<br />*@
     <div class="card">
@@ -71,51 +71,68 @@
             </div>
         </div>
     </div>
-        <form > 
-            <h4>update User</h4>
-            <div class="form-group" >
-                <label class="control-label col-md-2"></label>
-                <div class="col-md-4">
-                        <input type="hidden" class="form-control" id="UserdhID" name="UserdhID" value="@Model.UserdhID">
-                </div>
+    <form class="row" id="basic-form">
+        <div class="col-md-12">
+            <h3 class="text-center">Actualizar datos</h3>
+        </div>
+
+        <div class="form__terminos">
+            <div class="maxl">
+                <label class="radio inline">
+                    <input type="hidden" id="Estado" value="@Model.Estado" checked>
+                    <!--<input type="hidden" ng-model="fecha_registro" id="fecha_registro" >-->
+                </label>
             </div>
-                 <div class="col-md-12 form-group">
-            <input  id="NombreCompleto" name="NombreCompleto"  value="@Model.NombreCompleto"  type="text" class="form-control" placeholder="Nombre Completo" required />
+        </div>
+
+        <div class="col-md-12 form-group">
+            <input id="Nombres" name="Nombres" value="@Model.Nombres" type="text" class="form-control" placeholder="Nombre Completo" required />
         </div>
         <div class="col-md-12 form-group">
-            <input  id="Apellidos" name="Apellidos" value="@Model.Apellidos"  type="text" class="form-control" placeholder="Apellidos" required />
+            <input id="Apellidos" name="Apellidos" value="@Model.Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
         </div>
         <div class="col-md-12 form-group">
 
-           <input class="form-control" id="Username" name="Username" value="@Model.Username" type="text" placeholder="Nombre Usuario">
+            <input class="form-control" id="Sexo" name="Sexo" value="@Model.Sexo" type="text" placeholder="sexo">
         </div>
 
 
         <div class="col-md-12 form-group">
-            <input  id="Direccion" name="Direccion" value="@Model.Direccion" type="text" class="form-control" placeholder="Direccion" required />
-        </div>
-        <div class="col-md-12 form-group">
-            <input  id="Dui" name="Dui" value="@Model.Dui" class="form-control" placeholder="Dui" required />
-        </div>
-        <div class="col-md-12 form-group">
-            <input pattern="^[9|8|7|6]\d{7}$"  id="Telefono" name="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
-        </div>
-        <div class="col-md-12 form-group">
-            <input type="text" id="email" minlength="3" name="Email" value="@Model.Email" class="form-control" placeholder="correo" required />
+            <input id="Dui" name="Dui" value="@Model.Dui" type="text" class="form-control" placeholder="dui" required />
         </div>
 
-        <div class="col-md-12 form-group" style="text-align:center">
-            <!---<label for="departamento"> password </label>-->
-            <input type="password" id="email" minlength="3"   name="Password" value="@Model.Password" class="form-control password1" 
-                   placeholder="password" required />
-            <span class="fa fa-fw fa-eye password-icon show-password"></span>
-
+        <div class="col-md-12 form-group">
+            <input pattern="^[9|8|7|6]\d{7}$" id="Telefono" name="Telefono" value="@Model.Telefono" class="form-control" placeholder="Telefono" required />
         </div>
-            <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" id="send" class="btn btn-primary" ng-click="editarUsuariosHospitales()">Modificar</button>
-                <!----<input type="submit" class="btnRegister" value="Create" />-->
+        <div class="col-md-12 form-group">
+            <input id="Usuario" name="Usuario" value="@Model.Usuario" class="form-control" placeholder="Usuario" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <input type="text" id="email" minlength="3"name="Email" class="form-control" placeholder="correo" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <label for="departamento">
+                <input type="password" id="Password" name="Password" class="form-control password1" value="@Model.Password" placeholder="Ingrese una contraseña" />
+                <span class="fa fa-fw fa-eye password-icon show-password"></span>
+            </label>
+        </div>
+        <!--Imagen-->
+        <div class="col-md-12 form-group">
+            <label class="control-label col-md-2" for="File">Actualizar Perfil</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="File" name="File" type="file" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true"></span>
             </div>
-        </form>  
+        </div>
+
+        <img id="ImagenR" name="ImagenR">
+        <input type="hidden" class="custom-file-input  form-control-lg" name="Imagen" id="Imagen" value="@Model.Imagen" />
+        <!--imagen-->
+
+        <div class="col-md-12 form-group">
+            <button type="submit" id="send" class="btn btn-primary" ng-click="ActualizarR()">Actualizar</button>
+        </div>
+    </form>
     <link href="~/Content/iEdit.min.css" rel="stylesheet" />
     <!--recortar imagen-->
     <script>
@@ -174,8 +191,4 @@
     </div>
 </body>
 </html>
-
-
-
-
 
