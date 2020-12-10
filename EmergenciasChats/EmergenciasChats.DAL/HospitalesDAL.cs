@@ -26,7 +26,7 @@ namespace EmergenciasChats.DAL
         //listar
         public List<Hospitales> ObtenerHospitales()
         {
-            List<Hospitales> Hospitales = new List<Hospitales>();
+            List<Hospitales> Hospitales = new List<Hospitales>();    
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
@@ -39,7 +39,7 @@ namespace EmergenciasChats.DAL
                 return Hospitales;
             }
             catch (Exception)
-            {
+            {    
                 return Hospitales;
             }
         }
