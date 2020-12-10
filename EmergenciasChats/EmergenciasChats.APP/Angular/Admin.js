@@ -24,7 +24,7 @@ app.controller("Admin", function ($scope, $http) {
             if (r.data == 1) {
                 console.log("success: " + r); 
                 SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");  
-                window.location.href = '../Admin/Index';
+                window.location.href = '../Admin/Login';
                 $scope.Nombres = '';
                 $scope.Apellidos = '';
                 $scope.Sexo = '';

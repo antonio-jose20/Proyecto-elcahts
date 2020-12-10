@@ -36,7 +36,7 @@ namespace EmergenciasChats.DAL
                 {
                     Hospitales.Add(JsonConvert.DeserializeObject<Hospitales>(((JProperty)item).Value.ToString()));
                 }
-                return Hospitales;
+                return Hospitales;  
             }
             catch (Exception)
             {    
