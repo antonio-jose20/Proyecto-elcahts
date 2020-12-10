@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    //Layout = null;
     ViewBag.Title = "Index";
     var Admins = ViewBag.Admins;
 }
@@ -48,16 +48,16 @@
                         @foreach (var item in Admins)
                         {
                             <tr>
-                                <td>@item.Nombres @item.Apellidos</td>
+                                <td>@item.Nombres </td>
                                 <td>@item.Dui</td>
-                                <td>@item.Telefono</td>
-                                <td>@item.Usuario</td>
+                                <td>@item.Telefono</td> 
+                                <td>@item.Usuario</td> 
                                 <td>@item.Email</td>
                                 <td>@item.Password</td>
                                 <td>
-                                    <a href="#">Modificar</a>
+                                
                                     <button type="button" class="btn btn-danger" ng-click='EliminarAdmin("@item.IDAdmin")'>Eliminar</button>
-                                    <a class="btn btn-warning" href="/Admin/ActualizaR?id=@item.IDAdmin">&#9998;</a>
+                                    <a class="btn btn-warning" href="/Admin/ActualizarR?id=@item.IDAdmin">&#9998; Actualizar</a>
                                 </td>
                             </tr>
                         }
@@ -69,7 +69,6 @@
 
     <div class="container body-content">
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 

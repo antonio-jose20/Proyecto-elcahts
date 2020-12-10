@@ -48,10 +48,10 @@ app.controller("Admin", function ($scope, $http) {
             method: 'Post',
             url: '../Admin/ActualizarR' + id,
             data: {
-                IDAdmin: id,
+                IDAdmin: id, 
                 Nombres: $scope.Nombres,
                 Apellidos: $scope.Apellidos,
-                Sexo: $scope.Sexo,
+                //Sexo: $scope.Sexo,
                 Dui: $scope.Dui,
                 Telefono: $scope.Telefono,
                 Direccion: $scope.Direccion,
@@ -66,7 +66,7 @@ app.controller("Admin", function ($scope, $http) {
                 window.location.href = '../UsuariosHospitales/Index';
                 $scope.Nombres = '';
                 $scope.Apellidos = '';
-                $scope.Sexo = '';
+                //$scope.Sexo = '';
                 $scope.Dui = '';
                 $scope.Telefono = '';
                 $scope.Direccion = '';
@@ -194,4 +194,6 @@ app.controller("Admin", function ($scope, $http) {
         })
     }
     //
-});
+    //});
+    //prueva para cerrar las funciones 
+})(App);

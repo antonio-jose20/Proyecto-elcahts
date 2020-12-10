@@ -79,6 +79,7 @@
         <div class="form__terminos">
             <div class="maxl">
                 <label class="radio inline">
+                    <input type="hidden" class="form-control" id="IDAdmin" name="IDAdmin" value="@Model.IDAdmin">
                     <input type="hidden" id="Estado" value="@Model.Estado" checked>
                     <!--<input type="hidden" ng-model="fecha_registro" id="fecha_registro" >-->
                 </label>
@@ -91,10 +92,10 @@
         <div class="col-md-12 form-group">
             <input id="Apellidos" name="Apellidos" value="@Model.Apellidos" type="text" class="form-control" placeholder="Apellidos" required />
         </div>
-        <div class="col-md-12 form-group">
+        <!--<div class="col-md-12 form-group">
 
-            <input class="form-control" id="Sexo" name="Sexo" value="@Model.Sexo" type="text" placeholder="sexo">
-        </div>
+            <input class="form-control" id="Sexo" name="Sexo" value="Model.Sexo" type="text" placeholder="sexo">
+        </div>-->
 
 
         <div class="col-md-12 form-group">

@@ -30,7 +30,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                FirebaseResponse response = client.Get("hospitales");
+                FirebaseResponse response = client.Get("Hospital");
                 dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
                 foreach (var item in data)
                 {
@@ -51,7 +51,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Delete("hospitales/" + en.IDHospit);
+                var response = client.Delete("Hospital/" + en.IDHospit);
                 return 1;
             }
             catch (Exception ex)

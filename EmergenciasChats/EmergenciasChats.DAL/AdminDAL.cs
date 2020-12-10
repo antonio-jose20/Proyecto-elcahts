@@ -40,9 +40,9 @@ namespace EmergenciasChats.DAL
                 }
                 return en;
             }
-            catch (Exception)
+            catch (Exception  e)
             {
-                return en;
+                throw e;
             }
         }
         //
