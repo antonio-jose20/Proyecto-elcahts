@@ -82,6 +82,50 @@ app.controller("Admin", function ($scope, $http) {
 
         // }
     };
+
+
+    //BUSCAR POR NOMBRE
+    $scope.buscar = function () {
+        var btnbuscar = document.getElementById("bntbuscar");
+        btnbuscar.onclick = function () {
+            if (nombre != null) {
+                var nombre = document.getElementById("txtnombre").value;
+                //funcion en n controlador 
+                $.get("Admin/buscarPorNombre/?nombre=" + nombre, function (data) {
+                    //retorno la lista
+                    // listarcursos(data);
+                    (data);
+                })
+            }
+        }
+
+    }
+    /*
+    //buscar por nombre
+var btnBuscar = document.getElementById("btnBuscar");
+btnBuscar.onclick = function () {
+    //variable para bucar
+    if(nombre=!null)
+    {
+        var nombre = document.getElementById("txtnombre").value;
+        //bucara   //?nombre = parametro en el controlador    //funcion encapsulo los datos
+        $.get("Curso/buscarCursoPorNombre/?nombre=" + nombre, function (data) {
+            //retorno la lista
+            listarcursos(data);
+        })
+   
+    
+    }
+    
+    else 
+    {
+        alert(nombre[0]);
+
+        //mostrar el costo del producto
+        alert("respuesta[1]");
+        //alert("no encontrado")
+    }
+}*/
     //regresar
     $scope.irAgregar = function () {
         window.location.href = '../Admin/Create';
@@ -106,18 +150,19 @@ app.controller("Admin", function ($scope, $http) {
                 }
             }).then(function success(r) {
                 if (r.data == 1) {
-                    // SAlert("Elimino", "Se Movio a la papelera", "alert", "OK");
+                     SAlert("Elimino", "Se Movio a la papelera", "alert", "OK")
                     //
-                    SAlert({
-                        title: 'Buen trabajo!',
-                        text: "El registro ha sido eliminado!",
-                        type: 'success',
-                        icon: 'question',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'OK!'
-                    }).then((result) => {
+                    //SAlert({
+                    //    title: 'Buen trabajo!',
+                    //    text: "El registro ha sido eliminado!",
+                    //    type: 'success',
+                    //    icon: 'question',
+                    //    showCancelButton: true,
+                    //    confirmButtonColor: '#3085d6',
+                    //    cancelButtonColor: '#d33',
+                    //    confirmButtonText: 'OK!'
+                    //})
+                        .then((result) => {
                         if (result.value) {
                             // window.location.href = "listar.php";
                             window.location.href = '../UsuariosHospitales/Index';

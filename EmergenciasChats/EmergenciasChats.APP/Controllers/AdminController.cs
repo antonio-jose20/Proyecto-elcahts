@@ -112,6 +112,43 @@ namespace EmergenciasChats.APP.Controllers
             }
         }
 
+        //BUSCAR 
+        /*public JsonResult buscarPorNombre (string nombre)
+        {
+            try
+            {
+                if (nombre != null)
+                {
+                   // return Content(Convert.ToString(bl.(nombre)));
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }*/
+
+
+
+
+        /*
+           //buscar por nombre
+        public JsonResult buscarCursoPorNombre(string nombre)
+        {
+            MatriculaDataContext db = new MatriculaDataContext();
+            //variable que devolvera los valores    //Equals compara hailitado //constains devuelve campo especifico
+            var busqueda = db.Curso.Where(p => p.BHABILITADO.Equals(1) && p.NOMBRE.Contains(nombre))
+                //tolist retorna la lista
+                .Select(p => new { p.IIDCURSO, p.NOMBRE, p.DESCRIPCION }).ToList();
+            return Json(busqueda, JsonRequestBehavior.AllowGet);
+
+        }*/
+
         //LOGIN
         [HttpPost]
         public ActionResult Login(AdminEL en)

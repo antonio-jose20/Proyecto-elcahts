@@ -71,7 +71,7 @@ namespace EmergenciasChats.DAL
             try
             {
                 IFirebaseClient client = new FireSharp.FirebaseClient(config);
-                var response = client.Update("UsuariosHospitales/" + en.IDAdmin, en);
+                var response = client.Update("admin/" + en.IDAdmin, en);
                 return 1;
             }
             catch (Exception)
