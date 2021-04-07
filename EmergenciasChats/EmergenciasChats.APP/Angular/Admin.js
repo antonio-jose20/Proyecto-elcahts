@@ -20,8 +20,8 @@ app.controller("Admin", function ($scope, $http) {
                 Email: $scope.Email,
                 Password: $scope.Password
             }
-        }).then(function success(r) {
-            if (r.data == 1) {
+        }).then(function success(r) { 
+            if (r.data != 0) {
                 console.log("success: " + r); 
                 SAlert("Guardar", "Se Guardo el registro con Exito", "success", "OK");  
                 window.location.href = '../Admin/Login';
@@ -63,7 +63,7 @@ app.controller("Admin", function ($scope, $http) {
             if (r.data == 1) {
                 console.log("success: " + r);
                 SAlert("Modificar", "Modificado con Exito", "success", "OK");
-                window.location.href = '../UsuariosHospitales/Index';
+                window.location.href = '../Admin/Index'; 
                 $scope.Nombres = '';
                 $scope.Apellidos = '';
                 //$scope.Sexo = '';
